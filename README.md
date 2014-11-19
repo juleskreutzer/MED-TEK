@@ -8,3 +8,8 @@ This repo consists of 2 different parts:
   <li>Website</li>
   <li>Program</li>
 </ul>
+
+This repo is made for a product called "Smart Patient".
+
+Smart Patient uses the NFC technology combined with a C# program located in the <i>program</i> folder.
+A NFC card holds an unique encripted code. The C# program will contact a database and retrieve all information attached to the unique <i>patientID</i>.
