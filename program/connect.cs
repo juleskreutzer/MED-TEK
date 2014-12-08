@@ -26,10 +26,10 @@ namespace $safeprojectname$
 
         public void Initialize()
         {
-            server = "92.48.206.233";
-            user = "eu186781_test";
-            password = "kreutzer";
-            database = "eu186781_test";
+            server = "+++";
+            user = "+++";
+            password = "+++";
+            database = "+++";
 
             string connectionstring;
             connectionstring = "SERVER=" + server + ";" + "DATABASE=" + database + ";" + "UID=" + user + ";" + "PASSWORD=" + password + ";";
