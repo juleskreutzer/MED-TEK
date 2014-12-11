@@ -1,6 +1,6 @@
 ﻿namespace $safeprojectname$
 {
-    partial class Form1
+    partial class scan
     {
         /// <summary>
         /// Required designer variable.
@@ -35,6 +35,9 @@
             this.webBrowser1 = new System.Windows.Forms.WebBrowser();
             this.label2 = new System.Windows.Forms.Label();
             this.beheer = new System.Windows.Forms.Button();
+            this.tbUsername = new System.Windows.Forms.TextBox();
+            this.tbPassword = new System.Windows.Forms.TextBox();
+            this.login = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // textBox1
@@ -80,7 +83,7 @@
             this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
             this.webBrowser1.Name = "webBrowser1";
             this.webBrowser1.ScrollBarsEnabled = false;
-            this.webBrowser1.Size = new System.Drawing.Size(840, 863);
+            this.webBrowser1.Size = new System.Drawing.Size(259, 385);
             this.webBrowser1.TabIndex = 5;
             this.webBrowser1.Url = new System.Uri("http://nujules.nl/med-tek/users/rick.png", System.UriKind.Absolute);
             // 
@@ -104,11 +107,39 @@
             this.beheer.UseVisualStyleBackColor = true;
             this.beheer.Click += new System.EventHandler(this.beheer_Click);
             // 
-            // Form1
+            // tbUsername
+            // 
+            this.tbUsername.Location = new System.Drawing.Point(21, 306);
+            this.tbUsername.Name = "tbUsername";
+            this.tbUsername.Size = new System.Drawing.Size(100, 20);
+            this.tbUsername.TabIndex = 8;
+            // 
+            // tbPassword
+            // 
+            this.tbPassword.Location = new System.Drawing.Point(21, 333);
+            this.tbPassword.Name = "tbPassword";
+            this.tbPassword.Size = new System.Drawing.Size(100, 20);
+            this.tbPassword.TabIndex = 9;
+            // 
+            // login
+            // 
+            this.login.Location = new System.Drawing.Point(21, 369);
+            this.login.Name = "login";
+            this.login.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.login.Size = new System.Drawing.Size(100, 23);
+            this.login.TabIndex = 10;
+            this.login.Text = "Test Login";
+            this.login.UseVisualStyleBackColor = true;
+            this.login.Click += new System.EventHandler(this.login_Click);
+            // 
+            // scan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1820, 963);
+            this.Controls.Add(this.login);
+            this.Controls.Add(this.tbPassword);
+            this.Controls.Add(this.tbUsername);
             this.Controls.Add(this.beheer);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.webBrowser1);
@@ -116,7 +147,7 @@
             this.Controls.Add(this.button2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox1);
-            this.Name = "Form1";
+            this.Name = "scan";
             this.Text = "SMART PATIENT - Scan code...";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
@@ -133,6 +164,9 @@
         private System.Windows.Forms.WebBrowser webBrowser1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button beheer;
+        private System.Windows.Forms.TextBox tbUsername;
+        private System.Windows.Forms.TextBox tbPassword;
+        private System.Windows.Forms.Button login;
     }
 }
 

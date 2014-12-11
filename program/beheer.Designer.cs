@@ -60,16 +60,26 @@
             this.gbPatient = new System.Windows.Forms.GroupBox();
             this.btnAddPatient = new System.Windows.Forms.Button();
             this.btnResetUser = new System.Windows.Forms.Button();
+            this.label15 = new System.Windows.Forms.Label();
+            this.tbZiekte = new System.Windows.Forms.TextBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnResetZiekte = new System.Windows.Forms.Button();
+            this.btnAddZiekte = new System.Windows.Forms.Button();
+            this.listZiekte = new System.Windows.Forms.ListView();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.gbPersonDetails.SuspendLayout();
             this.gbPersonalOther.SuspendLayout();
             this.gbPatient.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(12, 9);
+            this.label1.Location = new System.Drawing.Point(12, 24);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(292, 39);
             this.label1.TabIndex = 0;
@@ -360,11 +370,92 @@
             this.btnResetUser.UseVisualStyleBackColor = true;
             this.btnResetUser.Click += new System.EventHandler(this.btnResetUser_Click);
             // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(45, 52);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(66, 13);
+            this.label15.TabIndex = 17;
+            this.label15.Text = "Naam ziekte";
+            // 
+            // tbZiekte
+            // 
+            this.tbZiekte.Location = new System.Drawing.Point(192, 49);
+            this.tbZiekte.Name = "tbZiekte";
+            this.tbZiekte.Size = new System.Drawing.Size(200, 20);
+            this.tbZiekte.TabIndex = 18;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.btnResetZiekte);
+            this.groupBox1.Controls.Add(this.btnAddZiekte);
+            this.groupBox1.Controls.Add(this.label15);
+            this.groupBox1.Controls.Add(this.tbZiekte);
+            this.groupBox1.Location = new System.Drawing.Point(473, 83);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(422, 122);
+            this.groupBox1.TabIndex = 19;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Nieuwe ziekte toevoegen";
+            // 
+            // btnResetZiekte
+            // 
+            this.btnResetZiekte.Location = new System.Drawing.Point(48, 87);
+            this.btnResetZiekte.Name = "btnResetZiekte";
+            this.btnResetZiekte.Size = new System.Drawing.Size(161, 23);
+            this.btnResetZiekte.TabIndex = 20;
+            this.btnResetZiekte.Text = "Veld wissen";
+            this.btnResetZiekte.UseVisualStyleBackColor = true;
+            this.btnResetZiekte.Click += new System.EventHandler(this.btnResetZiekte_Click);
+            // 
+            // btnAddZiekte
+            // 
+            this.btnAddZiekte.Location = new System.Drawing.Point(231, 87);
+            this.btnAddZiekte.Name = "btnAddZiekte";
+            this.btnAddZiekte.Size = new System.Drawing.Size(161, 23);
+            this.btnAddZiekte.TabIndex = 19;
+            this.btnAddZiekte.Text = "Ziekte toevoegen";
+            this.btnAddZiekte.UseVisualStyleBackColor = true;
+            this.btnAddZiekte.Click += new System.EventHandler(this.btnAddZiekte_Click);
+            // 
+            // listZiekte
+            // 
+            this.listZiekte.Location = new System.Drawing.Point(48, 40);
+            this.listZiekte.Name = "listZiekte";
+            this.listZiekte.Size = new System.Drawing.Size(344, 434);
+            this.listZiekte.TabIndex = 0;
+            this.listZiekte.UseCompatibleStateImageBehavior = false;
+            this.listZiekte.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.listZiekte);
+            this.groupBox2.Location = new System.Drawing.Point(473, 225);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(422, 497);
+            this.groupBox2.TabIndex = 21;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Overzicht bestaande ziektes";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(160, 882);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 22;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // beheer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(2164, 1087);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.gbPatient);
             this.Controls.Add(this.label1);
             this.Name = "beheer";
@@ -375,6 +466,9 @@
             this.gbPersonalOther.ResumeLayout(false);
             this.gbPersonalOther.PerformLayout();
             this.gbPatient.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -414,5 +508,13 @@
         private System.Windows.Forms.GroupBox gbPatient;
         private System.Windows.Forms.Button btnAddPatient;
         private System.Windows.Forms.Button btnResetUser;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.TextBox tbZiekte;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button btnAddZiekte;
+        private System.Windows.Forms.ListView listZiekte;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Button btnResetZiekte;
+        private System.Windows.Forms.Button button1;
     }
 }

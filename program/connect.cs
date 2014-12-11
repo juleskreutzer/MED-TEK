@@ -8,10 +8,10 @@ using MySql.Data;
 
 namespace $safeprojectname$
 {
-    class connect
+    class Connect
     {
         // Fields
-        private MySqlConnection connection;
+        public MySqlConnection connection;
         private string server; // Hostname
         private string user; // Database user name
         private string password; // Database password
@@ -19,12 +19,12 @@ namespace $safeprojectname$
         private string prefix = "rhbj_";
 
         // Constructor
-        public connect()
+        public Connect()
         {
             Initialize();
         }
 
-        public void Initialize()
+        public MySqlConnection Initialize()
         {
             server = "+++";
             user = "+++";
@@ -34,10 +34,10 @@ namespace $safeprojectname$
             string connectionstring;
             connectionstring = "SERVER=" + server + ";" + "DATABASE=" + database + ";" + "UID=" + user + ";" + "PASSWORD=" + password + ";";
 
-            connection = new MySqlConnection(connectionstring); 
+            return connection = new MySqlConnection(connectionstring);
         }
         //open connection to database
-        public bool OpenConnection()
+        public bool Open_Connection()
         {
             try
             {
@@ -64,7 +64,7 @@ namespace $safeprojectname$
         }
 
         //Close connection
-        private bool CloseConnection()
+        private bool Close_Connection()
         {
             try
             {
@@ -78,34 +78,55 @@ namespace $safeprojectname$
             }
         }
 
-        //Insert statement
-        public void Insert_User(string voornamen, string achternaam, string geboortedatum, string email, int telefoon, string adres, string gemeente, string provincie, int bsn, string pasfoto, string bloedgroep, long mobiel, string pascode)
+        public void Execute(string sql)
         {
-            string query = "INSERT INTO " + prefix + "patient (voornamen, achternaam, geboortedatum, email, telefoon, adres, gemeente, provincie, bsn, pasfoto, bloedgroep, mobiel, pascode) VALUES ('" + voornamen + "','" + achternaam + "','" + geboortedatum + "','" + email + "','" + telefoon + "','" + adres + "','" + gemeente + "','" + provincie + "','" + bsn + "','" + pasfoto + "','" + bloedgroep + "','" + mobiel + "','" + pascode + "')";
+            string query = sql;
 
-            if(this.OpenConnection() == true)
+            if(this.Open_Connection() == true)
             {
-                // commando opzeten voor het uitvoeren van de query
+                // Command opzetten voor het uitvoeren van de query
                 MySqlCommand cmd = new MySqlCommand(query, connection);
 
-                // Query uitvoeren en geen waarde terug geven, kijk maar naad VOID in -- public void Insert_User -- ;)
+                // Query uitvoeren, er wordt geen waarde terug gegeven
                 cmd.ExecuteNonQuery();
-
-                // Verbinding sluiten want die hebben we niet meer nodig.
-                this.CloseConnection();
             }
         }
 
-        //Update statement
-        public void Update()
+        public bool login(string username, string password)
         {
-        }
 
-        //Delete statement
-        public void Delete()
-        {
-        }
+            // SQL-statement opstellen
+            string sql = "SELECT username, password FROM " + prefix + "login WHERE username = '" + username + "' AND password = '" + password + "'"; 
 
-        
+            if(this.Open_Connection() == true)
+            {
+                // Command opzetten voor het uitvoeren van de query
+                MySqlCommand cmd = new MySqlCommand(sql, connection);
+
+                MySqlDataReader dr = cmd.ExecuteReader();
+                int count = 0;
+                while(dr.Read())
+                {
+                    count = count + 1;
+                }
+
+                if(count == 1)
+                {
+                    // Login is gelukt!
+                    return true;
+                }
+                else
+                {
+                    // Login is niet gelukt!
+                    return false;
+                    this.Close_Connection();
+                }    
+            }
+            else
+            {
+                return false;
+            }
+
+        }
     }
 }

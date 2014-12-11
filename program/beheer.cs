@@ -19,18 +19,22 @@ namespace $safeprojectname$
         }
 
         // Fields
-
-        // Onderstaande fields zijn een afkorting voor de tabel namen zoals ze in de database worden gebruikt
-        private string patient = "rhbj_patient";
-
-        connect verbinding = new connect();
+        Connect verbinding = new Connect();
+        Insert insert = new Insert();
 
         private void beheer_Load(object sender, EventArgs e)
         {
-            if(!verbinding.OpenConnection())
+            /*
+            // Ziektes bekend in database ophalen en weergegeven in listbox
+            int i = 0;
+            List<string> data = verbinding.Select_Ziekte();
+            foreach (string d in data)
             {
-                MessageBox.Show("Er kon geen verbinding worden gemaakt met de database. Functies zijn beperkt beschikbaar.");
+                listZiekte.Items.Add(d);
+                ++i;
             }
+             * */
+            
 
         }
 
@@ -56,10 +60,10 @@ namespace $safeprojectname$
         private void btnAddPatient_Click(object sender, EventArgs e)
         {
             // Waarden van de velden in een variabele zetten
-            string voornaam = tbVoornamen.Text;
+            string voornamen = tbVoornamen.Text;
             string achternaam = tbAchternaam.Text;
             string DoB = Convert.ToString(dtpDoB.Text);
-            int BSN = Convert.ToInt32(tbBSN.Text);
+            string BSN = tbBSN.Text;
             string bloedgroep = tbBloedgroep.Text;
             string pasfoto = tbPasfoto.Text;
             string email = tbEmail.Text;
@@ -74,7 +78,7 @@ namespace $safeprojectname$
             int error = 0;
 
             // Controleren op fouten
-            if (voornaam == "")
+            if (voornamen == "")
             {
                 ++error;
                 MessageBox.Show("Voornamen mogen helaas niet leeg gelaten worden!");
@@ -116,7 +120,7 @@ namespace $safeprojectname$
                 MessageBox.Show("Het is verplicht om een email adres op te geven!");
             }
 
-            if(telefoon == "" && mobiel == "")
+            if(Convert.ToString(telefoon) == "" && Convert.ToString(mobiel) == "")
             {
                 ++error;
                 MessageBox.Show("Het is verplicht om een telefoon of mobiel nummer op te geven!");
@@ -148,12 +152,46 @@ namespace $safeprojectname$
 
             if (error == 0)
             {
-                /*
-                verbinding.Insert_User(voornaam, achternaam, DoB, BSN, bloedgroep, pasfoto, email, telefoon, mobiel, adres, gemeente, provincie, pascode);
-                MessageBox.Show("Het toevoegen van een nieuwe patient is succesvol gelukt!");
-                verbinding = null;
-                 */
+                insert.Insert_Patient(voornamen, achternaam, DoB, BSN, bloedgroep, pasfoto, email, telefoon, mobiel, adres, gemeente, provincie, pascode);
+                MessageBox.Show("Gegevens zijn succesvol toegevoegd in de database");
             }
+            else
+            {
+                MessageBox.Show("Er zijn fouten opgetreden waardoor de gegevens niet kunnen worden toegevoegd in de database");
+            }
+        }
+
+        private void btnAddZiekte_Click(object sender, EventArgs e)
+        {
+            string naam = tbZiekte.Text;
+
+            if(naam == "")
+            {
+                MessageBox.Show("Er moet een naam van de ziekte worden opgegeven voordat deze kan worden toegevoegd.");
+            }
+            else
+            {
+                insert.Insert_Ziekte(naam);
+                tbZiekte.Text = "";
+                MessageBox.Show("De ziekte is succesvol toegevoegd!");
+            }
+        }
+
+        private void btnResetZiekte_Click(object sender, EventArgs e)
+        {
+            tbZiekte.Text = "";
+        }
+
+        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            scan scan = new scan();
+            scan.Show();
         }
     }
 }

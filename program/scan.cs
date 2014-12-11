@@ -12,13 +12,13 @@ using Phidgets.Events;
 
 namespace $safeprojectname$
 {
-    public partial class Form1 : Form
+    public partial class scan : Form
     {
 
         //Fields
         
 
-        public Form1()
+        public scan()
         {
             InitializeComponent();
             WindowState = FormWindowState.Maximized;
@@ -26,15 +26,12 @@ namespace $safeprojectname$
         }
 
         // Fields
-        connect verbinding = new connect();
+        Connect verbinding = new Connect();
 
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            if(!verbinding.OpenConnection())
-            {
-                MessageBox.Show("Er kon geen verbinding worden gemaakt met de database. Functies zijn beperkt beschikbaar.");
-            }
+           
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -49,11 +46,33 @@ namespace $safeprojectname$
 
         private void beheer_Click(object sender, EventArgs e)
         {
+            
+
             // Nieuw formulier aanmaken voor beheer van programma
             beheer admin = new beheer();
 
             // Formulier tonen
             admin.Show();
+
+            // Huidig venster sluiten
+            this.Hide();
+        }
+
+        private void login_Click(object sender, EventArgs e)
+        {
+            string username = tbUsername.Text;
+            string password = tbPassword.Text;
+
+            bool result = verbinding.login(username, password);
+
+            if(result == true)
+            {
+                MessageBox.Show("Login succesvol!");
+            }
+            else
+            {
+                MessageBox.Show("Login niet gelukt!");
+            }
         }
     }
 }
