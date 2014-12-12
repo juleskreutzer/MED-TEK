@@ -16,7 +16,7 @@ namespace $safeprojectname$
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new beheer());
+            Application.Run(new Login());
         }
     }
 }

@@ -63,11 +63,11 @@ namespace $safeprojectname$
             string username = tbUsername.Text;
             string password = tbPassword.Text;
 
-            bool result = verbinding.login(username, password);
+            string result = verbinding.login(username, password);
 
-            if(result == true)
+            if(result != "")
             {
-                MessageBox.Show("Login succesvol!");
+                MessageBox.Show("Login succesvol! Locatie: " + result);
             }
             else
             {

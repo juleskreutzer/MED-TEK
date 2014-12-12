@@ -18,6 +18,8 @@ namespace $safeprojectname$
         private string database; // Database name
         private string prefix = "rhbj_";
 
+        public string locatie;
+
         // Constructor
         public Connect()
         {
@@ -26,10 +28,10 @@ namespace $safeprojectname$
 
         public MySqlConnection Initialize()
         {
-            server = "+++";
-            user = "+++";
-            password = "+++";
-            database = "+++";
+            server = "XXX";
+            user = "XXX";
+            password = "XXX";
+            database = "XXX";
 
             string connectionstring;
             connectionstring = "SERVER=" + server + ";" + "DATABASE=" + database + ";" + "UID=" + user + ";" + "PASSWORD=" + password + ";";
@@ -82,6 +84,8 @@ namespace $safeprojectname$
         {
             string query = sql;
 
+            this.Open_Connection();
+
             if(this.Open_Connection() == true)
             {
                 // Command opzetten voor het uitvoeren van de query
@@ -89,44 +93,40 @@ namespace $safeprojectname$
 
                 // Query uitvoeren, er wordt geen waarde terug gegeven
                 cmd.ExecuteNonQuery();
+                this.Close_Connection();
             }
         }
 
-        public bool login(string username, string password)
+        public string login(string username, string password)
         {
 
             // SQL-statement opstellen
-            string sql = "SELECT username, password FROM " + prefix + "login WHERE username = '" + username + "' AND password = '" + password + "'"; 
+            string sql = "SELECT naam FROM " + prefix + "locatie, " + prefix + "login WHERE " + prefix + "login.username = '" + username + "' AND " + prefix + "login.password = '" + password + "' AND " + prefix + "login.locatieID = " + prefix + "locatie.locatieID";
 
             if(this.Open_Connection() == true)
             {
                 // Command opzetten voor het uitvoeren van de query
-                MySqlCommand cmd = new MySqlCommand(sql, connection);
+                using (MySqlCommand cmd = new MySqlCommand(sql, connection))
+                {
+                    using (MySqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        StringBuilder sb = new StringBuilder();
+                        while(reader.Read())
+                        {
+                            sb.Append(reader.GetString(0)).ToString();
+                        }
+                        locatie = sb.ToString();
+                        return sb.ToString();
 
-                MySqlDataReader dr = cmd.ExecuteReader();
-                int count = 0;
-                while(dr.Read())
-                {
-                    count = count + 1;
+                    }
                 }
-
-                if(count == 1)
-                {
-                    // Login is gelukt!
-                    return true;
-                }
-                else
-                {
-                    // Login is niet gelukt!
-                    return false;
-                    this.Close_Connection();
-                }    
+                this.Close_Connection();
             }
             else
             {
-                return false;
+                string result = "Kon geen verbinding maken met database!";
+                return result;
             }
-
         }
     }
 }

@@ -10,7 +10,7 @@ namespace $safeprojectname$
 {
     class Select
     {
-
+        /*
         // Instantie aanmaken voor verbinding met database
         Connect verbinding = new Connect();
         // Elke databasetabel heeft een prefix
@@ -68,6 +68,7 @@ namespace $safeprojectname$
             // Deze methode retourneerd alle ziektes die gekoppeld zijn aan een patient
 
         }
+         * */
        
     }
 }
