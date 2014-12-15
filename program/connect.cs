@@ -28,10 +28,10 @@ namespace $safeprojectname$
 
         public MySqlConnection Initialize()
         {
-            server = "XXX";
-            user = "XXX";
-            password = "XXX";
-            database = "XXX";
+            server = "92.48.206.233";
+            user = "eu186781_test";
+            password = "kreutzer";
+            database = "eu186781_test";
 
             string connectionstring;
             connectionstring = "SERVER=" + server + ";" + "DATABASE=" + database + ";" + "UID=" + user + ";" + "PASSWORD=" + password + ";";
@@ -101,7 +101,7 @@ namespace $safeprojectname$
         {
 
             // SQL-statement opstellen
-            string sql = "SELECT naam FROM " + prefix + "locatie, " + prefix + "login WHERE " + prefix + "login.username = '" + username + "' AND " + prefix + "login.password = '" + password + "' AND " + prefix + "login.locatieID = " + prefix + "locatie.locatieID";
+            string sql = "SELECT naam FROM " + prefix + "locatie, " + prefix + "login WHERE " + prefix + "login.username = '" + username + "' AND " + prefix + "login.password = '" + password + "' AND " + prefix + "login.locatieID = " + prefix + "locatie.locatieID"; 
 
             if(this.Open_Connection() == true)
             {
@@ -116,17 +116,18 @@ namespace $safeprojectname$
                             sb.Append(reader.GetString(0)).ToString();
                         }
                         locatie = sb.ToString();
+                        this.Close_Connection();
                         return sb.ToString();
-
                     }
                 }
-                this.Close_Connection();
+                
             }
             else
             {
                 string result = "Kon geen verbinding maken met database!";
                 return result;
             }
+
         }
     }
 }

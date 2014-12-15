@@ -7,12 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Security.Cryptography; // Dit wordt gebruikt om gegevens te versleutelen
 
 namespace $safeprojectname$
 {
     public partial class Login : Form
     {
         Connect verbinding = new Connect();
+        Miscellaneous overig = new Miscellaneous();
         public Login()
         {
             InitializeComponent();
@@ -28,7 +30,6 @@ namespace $safeprojectname$
         {
             string username = tbUsername.Text;
             string password = tbPassword.Text;
-
             string login = verbinding.login(username, password);
 
             if(login != "")
@@ -38,22 +39,43 @@ namespace $safeprojectname$
                 if (login == "doctor")
                 {
                     // Open formulier van doctor
+                    this.Hide();
+                    Doctor doctor = new Doctor();
+                    doctor.Show();
                 }
                 else if (login == "ambulance")
                 {
                     // Open formulier van ambulance
+                    this.Hide();
+                    Ambulance ambulance = new Ambulance();
+                    ambulance.Show();
                 }
                 else if (login == "apotheek")
                 {
                     // Open formulier van apotheek
+                    this.Hide();
+                    Apotheek apotheek = new Apotheek();
+                    apotheek.Show();
                 }
                 else if(login == "psycholoog")
                 {
                     // Open formulier van psycholoog
+                    this.Hide();
+                    Psycholoog psycholoog = new Psycholoog();
+                    psycholoog.Show();
+                }
+                else if(login == "beheer")
+                {
+                    // Open formulier van beheer   
+                    this.Hide();
+                    beheer beheer = new beheer();
+                    beheer.Show();
                 }
             }
             else
             {
+                tbUsername.Text = "";
+                tbPassword.Text = "";
                 MessageBox.Show("Het inloggen is mislukt. Controleer uw gebruikersnaam en wachtwoord. Wanneer dit probleem zich blijf voordoen, neem dan contact op met uw systeem beheerder.");
             }
         }
