@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using MySql.Data;
 using MySql.Data.MySqlClient;
 
-namespace $safeprojectname$
+namespace MED_TEK
 {
     class Insert
     {
@@ -40,7 +40,8 @@ namespace $safeprojectname$
         {
             // Deze methode voegt een medicijn toe aan de database.
             // De velden die moeten worden ingevuld zijn naam, gebruik, bijwerking
-
+            string query = "INSERT INTO " + prefix + "medicijn (naam, gebruik, bijwerking) VALUES ('" + naam + "','" + gebruik + "','" + "','" + bijwerking + "')";
+            verbinding.Execute(query);
         }
 
         public void Insert_Afspraak(int medicatieID, int locatieID, string datum, string tijd, int actief)
@@ -48,6 +49,8 @@ namespace $safeprojectname$
             // Deze methode voegt een nieuwe afspraak toe aan de database
             // Velden die verplicht moeten worden opgegeven zijn medicatieID, locatieID en datum
             // actief geeft aan of afspraak al is geweest of niet, 0 = niet actief / 1 = actief
+            string query = "INSERT INTO " + prefix + "afspraak (medicatieID, locatieID, datm, tijd, actief) VALUES ('" + medicatieID + "','" + locatieID + "','" + datum + "','" + tijd + "','" + actief + "')";
+            verbinding.Execute(query);
 
         }
 
@@ -55,14 +58,16 @@ namespace $safeprojectname$
         {
             // Deze methode voegt een nieuwe medicatie voor een patient toe
             // PatientID en medicijnID moeten worden opgegeven
-
+            string query = "INSERT INTO " + prefix + "medicatie (patientID, medicijnID, gebruikStart, gebruikEind, hoeveelheid) VALUES ('" + patientID + "','" + medicijnID + "','" + gebruikStart + "','" + gebruikEind + "','" + hoeveelheid + "')";
+            verbinding.Execute(query);
         }
 
         public void Insert_Ziekteoverzicht(int ziekteID, int patientID)
         {
             // Deze methode wijst een bepaalde ziekte toe aan een bepaalde patient
             // De velden ziekteID en patientID zijn dus verplicht
-
+            string query = "INSERT INTO " + prefix + "ziekteoverzicht (ziekteID, patientID) VALUES ('" + ziekteID + "','" + patientID + "')";
+            verbinding.Execute(query);
         }
     }
 }
