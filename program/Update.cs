@@ -11,12 +11,16 @@ namespace $safeprojectname$
         Connect verbinding = new Connect();
         string prefix = "rhbj_";
 
-        public void Update_Patient(string voornamen, string achternaam, string geboortedatum, string bsn, string bloedgroep, string pasfoto, string email, string telefoon, string mobiel, string adres, string gemeente, string provincie, string pascode)
+        public void Update_Patient(string voornamen, string achternaam, string geboortedatum, string bsn, string bloedgroep, string pasfoto, string email, string telefoon, string mobiel, string adres, string gemeente, string provincie, string pascode, string patientID)
         {
             // Deze methode werkt de gegevens van de patient bij
 
             //string query aanmaken welke naar de database gaat
-            string query = " UPDATE " + prefix + "patient (voornamen, achternaam, geboortedatum, bsn, bloedgroep, pasfoto, email, telefoon, mobiel, adres, gemeente, provincie, pascode) SET ('" + voornamen + "','" + achternaam + "','" + geboortedatum + "','" + bsn + "','" + bloedgroep + "','" + pasfoto + "','" + email + "','" + telefoon + "','" + mobiel + "','" + adres + "','" + gemeente + "','" + provincie + "','" + pascode + "')";
+            string query = " UPDATE " + prefix + "patient SET voornamen = " + voornamen + ", achternaam = " + achternaam +
+                           ", geboortedatum = " + geboortedatum + ", bsn = " + bsn + ", bloedgroep = " + bloedgroep +
+                           ", pasfoto = " + pasfoto + ", email = " + email + ", mobiel = " + mobiel + ", adres = " +
+                           adres + ", gemeente = " + gemeente + ", provincie = " + provincie + ", pascode = " + pascode +
+                           ", patientID = " + patientID + "";
 
             //Nu de query uitvoering dmv execute
             verbinding.Execute(query);
@@ -28,7 +32,8 @@ namespace $safeprojectname$
             // Deze methode werkt de gegevens van een medicijn bij
 
             //string query aanmaken welke naar de database gaat
-            string query = " UPDATE " + prefix + "medicijn (naam, gebruik, bijwerking) SET ('" + naam + "','" + gebruik + "','" + bijwerking + "')";
+            string query = " UPDATE " + prefix + "medicijn SET naam = " + naam + ", gebruik = " + gebruik +
+                           ", bijwerking = " + bijwerking + "";
 
             //Nu de query uitvoering dmv execute
             verbinding.Execute(query);
@@ -40,7 +45,9 @@ namespace $safeprojectname$
             // Deze methode werkt de gegevens van een medicatie bij
 
             //string query aanmaken welke naar de database gaat
-            string query = " UPDATE " + prefix + "medicatie (medicatieID, patientID, medicijnID, gebruikstart, gebruikeinde, hoeveelheid) SET ('" + medicatieID + "','" + patientID + "','" + medicijnID + "','" + gebruiktstart + "','" + gebruikeinde + "','" + hoeveelheid + "')";
+            string query = " UPDATE " + prefix + "medicatie SET medicatieID = " + medicatieID + ", patientID = " +
+                           patientID + ", medicijnID = " + medicijnID + ", gebruikstart = " + gebruiktstart +
+                           ", gebruikeinde = " + gebruikeinde + "";
 
             //Nu de query uitvoering dmv execute
             verbinding.Execute(query);
@@ -52,7 +59,8 @@ namespace $safeprojectname$
             // Deze methode werkt de gegevens van een afspraak bij
 
             //string query aanmaken welke naar de database gaat
-            string query = " UPDATE " + prefix + "afspraak (medicatieID, patientID, datum, tijd, actief) SET ('" + medicatieID + "','" + patientID + "','" + datum + "','" + tijd + "','" + actief + "')";
+            string query = " UPDATE " + prefix + "afspraak SET medicatieID = " + medicatieID + ", patientID = " +
+                           patientID + ", datum = " + datum + ", tijd = " + tijd + ", actief = " + actief + "";
 
             //Nu de query uitvoering dmv execute
             verbinding.Execute(query);
@@ -64,7 +72,7 @@ namespace $safeprojectname$
             // Deze methode werkt een ziekte bij
 
             //string query aanmaken welke naar de database gaat
-            string query = " UPDATE " + prefix + "ziekte (naam) SET ('" + naam + "')";
+            string query = " UPDATE " + prefix + "ziekte SET naam = " + naam + "";
 
             //Nu de query uitvoering dmv execute
             verbinding.Execute(query);
@@ -76,7 +84,8 @@ namespace $safeprojectname$
             // Deze methode werkt een ziekteoverzicht bij
 
             //string query aanmaken welke naar de database gaat
-            string query = " UPDATE " + prefix + "ziekteoverzicht (ziekteID, patientID) SET ('" + ziekteID + "','" + patientID + "')";
+            string query = " UPDATE " + prefix + "ziekteoverzicht SET ziekteID = " + ziekteID + ", patientID = " +
+                           patientID + "";
 
             //Nu de query uitvoering dmv execute
             verbinding.Execute(query);
