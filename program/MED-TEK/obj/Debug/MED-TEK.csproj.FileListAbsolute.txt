@@ -1,0 +1,13 @@
+C:\Users\juleskreutzer\Documents\Visual Studio 2013\Projects\MED-TEK\MED-TEK\bin\Debug\MED-TEK.exe.config
+C:\Users\juleskreutzer\Documents\Visual Studio 2013\Projects\MED-TEK\MED-TEK\bin\Debug\MED-TEK.exe
+C:\Users\juleskreutzer\Documents\Visual Studio 2013\Projects\MED-TEK\MED-TEK\bin\Debug\MED-TEK.pdb
+C:\Users\juleskreutzer\Documents\Visual Studio 2013\Projects\MED-TEK\MED-TEK\bin\Debug\mysql.data.dll
+C:\Users\juleskreutzer\Documents\Visual Studio 2013\Projects\MED-TEK\MED-TEK\obj\Debug\MED_TEK.Login.resources
+C:\Users\juleskreutzer\Documents\Visual Studio 2013\Projects\MED-TEK\MED-TEK\obj\Debug\MED_TEK.scan.resources
+C:\Users\juleskreutzer\Documents\Visual Studio 2013\Projects\MED-TEK\MED-TEK\obj\Debug\MED_TEK.Properties.Resources.resources
+C:\Users\juleskreutzer\Documents\Visual Studio 2013\Projects\MED-TEK\MED-TEK\obj\Debug\MED-TEK.csproj.GenerateResource.Cache
+C:\Users\juleskreutzer\Documents\Visual Studio 2013\Projects\MED-TEK\MED-TEK\obj\Debug\MED-TEK.exe
+C:\Users\juleskreutzer\Documents\Visual Studio 2013\Projects\MED-TEK\MED-TEK\obj\Debug\MED-TEK.pdb
+C:\Users\juleskreutzer\Documents\Visual Studio 2013\Projects\MED-TEK\MED-TEK\obj\Debug\MED-TEK.csprojResolveAssemblyReference.cache
+C:\Users\juleskreutzer\Documents\Visual Studio 2013\Projects\MED-TEK\MED-TEK\obj\Debug\MED_TEK.Beheer_Overview.resources
+C:\Users\juleskreutzer\Documents\Visual Studio 2013\Projects\MED-TEK\MED-TEK\obj\Debug\MED_TEK.Beheer_Insert.resources

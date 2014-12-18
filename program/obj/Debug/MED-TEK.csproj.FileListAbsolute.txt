@@ -1,7 +1,0 @@
-C:\Users\Rick\Documents\GitHub\MED-TEK\program\bin\Debug\MED-TEK.exe.config
-C:\Users\Rick\Documents\GitHub\MED-TEK\program\obj\Debug\MED-TEK.csprojResolveAssemblyReference.cache
-C:\Users\Rick\Documents\GitHub\MED-TEK\program\obj\Debug\safeprojectname.beheer.resources
-C:\Users\Rick\Documents\GitHub\MED-TEK\program\obj\Debug\safeprojectname.Login.resources
-C:\Users\Rick\Documents\GitHub\MED-TEK\program\obj\Debug\safeprojectname.scan.resources
-C:\Users\Rick\Documents\GitHub\MED-TEK\program\obj\Debug\$safeprojectname$.Properties.Resources.resources
-C:\Users\Rick\Documents\GitHub\MED-TEK\program\obj\Debug\MED-TEK.csproj.GenerateResource.Cache

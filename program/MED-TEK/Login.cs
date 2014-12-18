@@ -1,0 +1,112 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.Security.Cryptography; // Dit wordt gebruikt om gegevens te versleutelen
+
+namespace MED_TEK
+{
+    public partial class Login : Form
+    {
+        Connect verbinding = new Connect();
+        Miscellaneous overig = new Miscellaneous();
+        scan scan = new scan();
+        public Login()
+        {
+            InitializeComponent();
+            StartPosition = FormStartPosition.CenterScreen; 
+        }
+
+        private void lblForgotPass_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            MessageBox.Show("Neem contact op met de systeem beheerder.");
+        }
+
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+            string username = tbUsername.Text;
+            string password = overig.versleutel(tbPassword.Text);
+            string login = verbinding.login(username, password);
+
+            if(login != "")
+            {
+               // De methode login() geeft een locatie terug
+               // Controleer bij welke locatie wordt aangemeld en open het bijbehorende formulier
+                if (login == "doctor")
+                {
+                    // Login locatie aanvullen zodat juiste formulier wordt geladen nadat pas is gescant
+                    verbinding.login_locatie = "doctor";
+
+                    // Open formulier van doctor
+                    this.Hide();
+                    scan.Show();
+
+                }
+                else if (login == "ambulance")
+                {
+                    // Login locatie aanvullen zodat juiste formulier wordt geladen nadat pas is gescant
+                    verbinding.login_locatie = "ambulance";
+
+                    // Open formulier van ambulance
+                    this.Hide();
+                    scan.Show();
+                }
+                else if (login == "apotheek")
+                {
+                    // Login locatie aanvullen zodat juiste formulier wordt geladen nadat pas is gescant
+                    verbinding.login_locatie = "apotheek";
+
+                    // Open formulier van apotheek
+                    this.Hide();
+                    scan.Show();
+                }
+                else if(login == "psycholoog")
+                {
+                    // Login locatie aanvullen zodat juiste formulier wordt geladen nadat pas is gescant
+                    verbinding.login_locatie = "psycholoog";
+
+                    // Open formulier van psycholoog
+                    this.Hide();
+                    scan.Show();
+                }
+                else if(login == "beheer")
+                {
+                    // Login locatie aanvullen zodat juiste formulier wordt geladen nadat pas is gescant
+                    verbinding.login_locatie = "beheer";
+
+                    // Open formulier van beheer   
+                    this.Hide();
+                    Beheer_Overview beheer = new Beheer_Overview();
+                    beheer.Show();
+                }
+            }
+            else
+            {
+                tbUsername.Text = "";
+                tbPassword.Text = "";
+                MessageBox.Show("Het inloggen is mislukt. Controleer uw gebruikersnaam en wachtwoord. Wanneer dit probleem zich blijf voordoen, neem dan contact op met uw systeem beheerder.");
+            }
+        }
+
+        private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
+        {
+
+        }
+
+        private void tbPassword_TextChanged(object sender, EventArgs e)
+        {
+            // Deze code zorgt ervoor dat het wachtwoord niet zichtbaar is wanneer het wordt ingetypt
+            tbPassword.PasswordChar = Convert.ToChar("*");
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+            panel1.BackColor = Color.FromArgb(200, 200, 200);
+        }
+    }
+}
