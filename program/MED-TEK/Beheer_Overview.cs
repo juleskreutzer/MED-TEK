@@ -61,7 +61,7 @@ namespace MED_TEK
             verbinding.locatie = null;
 
             // Huidig venster sluiten
-            this.Close();
+            this.Hide();
 
             // Login venster tonen
             Login login = new Login();

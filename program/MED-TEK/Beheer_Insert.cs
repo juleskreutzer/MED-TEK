@@ -26,19 +26,31 @@ namespace MED_TEK
 
         private void beheer_Load(object sender, EventArgs e)
         {
-            
-            // Ziektes bekend in database ophalen en weergegeven in listbox
-            var data = select.Select_Ziekte();
-            int i = 0;
+            refresh();
 
-            for (i = 0; i < data.Count; ++i)
+            var dataPatientNaam = select.Select_Patient_Naam();
+            var dataZiekteNaam = select.Select_Ziekte();
+
+            int a = 0;
+
+            for (a = 0; a < 1; ++a)
             {
-                Dictionary<string, object> row = data[i];
+                for (int i = 0; i < dataPatientNaam.Count; ++i)
+                {
+                    Dictionary<string, object> row = dataPatientNaam[i];
 
-                lbZiekte.Items.Add((string)row["naam"]);
-  
+                    cbPatient.Items.Add("ID " + row["patientID"] + " - " + row["voornamen"] + " " + row["achternaam"]);
+                }
+
+                for(int j = 0; j < dataZiekteNaam.Count; ++j)
+                {
+                    Dictionary<string, object> row = dataZiekteNaam[j];
+
+                    cbZiekte.Items.Add("ID " + row["ziekteID"] + " - " + row["naam"]);
+                }
             }
-            
+
+
 
         }
 
@@ -46,16 +58,35 @@ namespace MED_TEK
         {
             // Gegevens opnieuw laden in form
 
-            var data = select.Select_Ziekte();
+            // Listbox legen zodat dezelfde gegevens niet meerdere keren in listbox staan
+            lbZiekte.Items.Clear();
+            lbMedicijn.Items.Clear();
+
+            // Ziektes bekend in database ophalen en weergegeven in listbox
+            var dataziekte = select.Select_Ziekte();
+            var datamedicijn = select.Select_Medicijn();
             int i = 0;
 
-            for (i = 0; i < data.Count; ++i)
+            for (i = 0; i < 1; ++i)
             {
-                Dictionary<string, object> row = data[i];
+                for (int j = 0; j < dataziekte.Count; ++j)
+                {
+                    Dictionary<string, object> row = dataziekte[j];
 
-                lbZiekte.Items.Add((string)row["naam"]);
+                    lbZiekte.Items.Add((string)row["naam"]);
+                    lbZiekte.Items.Add("\n");
+                }
 
+                for (int k = 0; k < datamedicijn.Count; ++k)
+                {
+                    Dictionary<string, object> row = datamedicijn[k];
+
+                    lbMedicijn.Items.Add((string)row["naam"]);
+                    lbMedicijn.Items.Add("\n");
+
+                }
             }
+
 
         }
 
@@ -196,6 +227,8 @@ namespace MED_TEK
                 tbZiekte.Text = "";
                 MessageBox.Show("De ziekte is succesvol toegevoegd!");
             }
+
+            refresh();
         }
 
         private void btnResetZiekte_Click(object sender, EventArgs e)
@@ -256,6 +289,46 @@ namespace MED_TEK
                 MessageBox.Show("Kan geen nieuwe gebruiker toevoegen!");
             }
 
+        }
+
+        private void btnResetMedicijn_Click(object sender, EventArgs e)
+        {
+            tbmedicijn.Text = "";
+        }
+
+        private void btnAddMedicijn_Click(object sender, EventArgs e)
+        {
+            string medicijn = tbmedicijn.Text;
+            string gebruik = tbMedicijnGebruik.Text;
+            string bijwerking = tbMedicijnBijwerking.Text;
+
+            if(medicijn != "" && gebruik != "" && bijwerking != "")
+            {
+                insert.Insert_Medicijn(medicijn, gebruik, bijwerking);
+                MessageBox.Show("Nieuw medicijn is toegevoegd!");
+            }
+            else
+            {
+                MessageBox.Show("Het medicijn kan niet worden toegevoegd aan de database. Alle velden moeten worden ingevuld of er is een ander probleem ogetreden");
+            }
+
+            refresh();
+        }
+
+        private void btnKoppelZiekte_Click(object sender, EventArgs e)
+        {
+
+            string patientID = (string)cbPatient.SelectedItem;
+            string ziekteID = (string)cbZiekte.SelectedItem;
+
+            bool test = string.IsNullOrWhiteSpace(patientID.Substring(5, 6));
+            if (test != true)
+            {
+                patientID = patientID.Substring(4,5);
+                MessageBox.Show(patientID);
+            }
+
+            MessageBox.Show("PatientID: '" + patientID + "' \nZiekteID: '" + ziekteID + "'");
         }
     }
 }

@@ -65,9 +65,7 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnResetZiekte = new System.Windows.Forms.Button();
             this.btnAddZiekte = new System.Windows.Forms.Button();
-            this.lbZiekte = new System.Windows.Forms.ListView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.cbLocatie = new System.Windows.Forms.ComboBox();
             this.btNewUser = new System.Windows.Forms.Button();
@@ -76,12 +74,31 @@
             this.tbPassword = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
             this.tbUsername = new System.Windows.Forms.TextBox();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.tbmedicijn = new System.Windows.Forms.TextBox();
+            this.label19 = new System.Windows.Forms.Label();
+            this.btnResetMedicijn = new System.Windows.Forms.Button();
+            this.btnAddMedicijn = new System.Windows.Forms.Button();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.tbMedicijnGebruik = new System.Windows.Forms.TextBox();
+            this.tbMedicijnBijwerking = new System.Windows.Forms.TextBox();
+            this.lbZiekte = new System.Windows.Forms.ListBox();
+            this.lbMedicijn = new System.Windows.Forms.ListBox();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.cbPatient = new System.Windows.Forms.ComboBox();
+            this.cbZiekte = new System.Windows.Forms.ComboBox();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
+            this.btnKoppelZiekte = new System.Windows.Forms.Button();
             this.gbPersonDetails.SuspendLayout();
             this.gbPersonalOther.SuspendLayout();
             this.gbPatient.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            this.groupBox4.SuspendLayout();
+            this.groupBox5.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -428,35 +445,16 @@
             this.btnAddZiekte.UseVisualStyleBackColor = true;
             this.btnAddZiekte.Click += new System.EventHandler(this.btnAddZiekte_Click);
             // 
-            // lbZiekte
-            // 
-            this.lbZiekte.Alignment = System.Windows.Forms.ListViewAlignment.Left;
-            this.lbZiekte.Location = new System.Drawing.Point(48, 40);
-            this.lbZiekte.Name = "lbZiekte";
-            this.lbZiekte.Size = new System.Drawing.Size(344, 434);
-            this.lbZiekte.TabIndex = 0;
-            this.lbZiekte.UseCompatibleStateImageBehavior = false;
-            this.lbZiekte.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
-            // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.lbMedicijn);
             this.groupBox2.Controls.Add(this.lbZiekte);
-            this.groupBox2.Location = new System.Drawing.Point(473, 225);
+            this.groupBox2.Location = new System.Drawing.Point(473, 435);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(422, 497);
+            this.groupBox2.Size = new System.Drawing.Size(422, 287);
             this.groupBox2.TabIndex = 21;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Overzicht bestaande ziektes";
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(160, 882);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 22;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.groupBox2.Text = "Overzicht bestaande ziektes en medicijnen";
             // 
             // groupBox3
             // 
@@ -539,13 +537,173 @@
             this.tbUsername.Size = new System.Drawing.Size(200, 20);
             this.tbUsername.TabIndex = 24;
             // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.tbMedicijnBijwerking);
+            this.groupBox4.Controls.Add(this.tbMedicijnGebruik);
+            this.groupBox4.Controls.Add(this.label21);
+            this.groupBox4.Controls.Add(this.label20);
+            this.groupBox4.Controls.Add(this.btnAddMedicijn);
+            this.groupBox4.Controls.Add(this.btnResetMedicijn);
+            this.groupBox4.Controls.Add(this.label19);
+            this.groupBox4.Controls.Add(this.tbmedicijn);
+            this.groupBox4.Location = new System.Drawing.Point(473, 216);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(422, 202);
+            this.groupBox4.TabIndex = 24;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Medicijn toevoegen";
+            // 
+            // tbmedicijn
+            // 
+            this.tbmedicijn.Location = new System.Drawing.Point(192, 44);
+            this.tbmedicijn.Name = "tbmedicijn";
+            this.tbmedicijn.Size = new System.Drawing.Size(200, 20);
+            this.tbmedicijn.TabIndex = 0;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(45, 47);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(76, 13);
+            this.label19.TabIndex = 1;
+            this.label19.Text = "Naam medicijn";
+            // 
+            // btnResetMedicijn
+            // 
+            this.btnResetMedicijn.Location = new System.Drawing.Point(48, 163);
+            this.btnResetMedicijn.Name = "btnResetMedicijn";
+            this.btnResetMedicijn.Size = new System.Drawing.Size(161, 23);
+            this.btnResetMedicijn.TabIndex = 2;
+            this.btnResetMedicijn.Text = "Veld wissen";
+            this.btnResetMedicijn.UseVisualStyleBackColor = true;
+            this.btnResetMedicijn.Click += new System.EventHandler(this.btnResetMedicijn_Click);
+            // 
+            // btnAddMedicijn
+            // 
+            this.btnAddMedicijn.Location = new System.Drawing.Point(231, 163);
+            this.btnAddMedicijn.Name = "btnAddMedicijn";
+            this.btnAddMedicijn.Size = new System.Drawing.Size(161, 23);
+            this.btnAddMedicijn.TabIndex = 21;
+            this.btnAddMedicijn.Text = "Medicijn Toevoegen";
+            this.btnAddMedicijn.UseVisualStyleBackColor = true;
+            this.btnAddMedicijn.Click += new System.EventHandler(this.btnAddMedicijn_Click);
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(45, 92);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(44, 13);
+            this.label20.TabIndex = 22;
+            this.label20.Text = "Gebruik";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(45, 126);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(55, 13);
+            this.label21.TabIndex = 23;
+            this.label21.Text = "Bijwerking";
+            // 
+            // tbMedicijnGebruik
+            // 
+            this.tbMedicijnGebruik.Location = new System.Drawing.Point(192, 85);
+            this.tbMedicijnGebruik.Name = "tbMedicijnGebruik";
+            this.tbMedicijnGebruik.Size = new System.Drawing.Size(200, 20);
+            this.tbMedicijnGebruik.TabIndex = 24;
+            // 
+            // tbMedicijnBijwerking
+            // 
+            this.tbMedicijnBijwerking.Location = new System.Drawing.Point(192, 123);
+            this.tbMedicijnBijwerking.Name = "tbMedicijnBijwerking";
+            this.tbMedicijnBijwerking.Size = new System.Drawing.Size(200, 20);
+            this.tbMedicijnBijwerking.TabIndex = 25;
+            // 
+            // lbZiekte
+            // 
+            this.lbZiekte.FormattingEnabled = true;
+            this.lbZiekte.Location = new System.Drawing.Point(42, 39);
+            this.lbZiekte.Name = "lbZiekte";
+            this.lbZiekte.Size = new System.Drawing.Size(350, 95);
+            this.lbZiekte.TabIndex = 0;
+            // 
+            // lbMedicijn
+            // 
+            this.lbMedicijn.FormattingEnabled = true;
+            this.lbMedicijn.Location = new System.Drawing.Point(42, 169);
+            this.lbMedicijn.Name = "lbMedicijn";
+            this.lbMedicijn.Size = new System.Drawing.Size(350, 95);
+            this.lbMedicijn.TabIndex = 3;
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.btnKoppelZiekte);
+            this.groupBox5.Controls.Add(this.label23);
+            this.groupBox5.Controls.Add(this.label22);
+            this.groupBox5.Controls.Add(this.cbZiekte);
+            this.groupBox5.Controls.Add(this.cbPatient);
+            this.groupBox5.Location = new System.Drawing.Point(921, 312);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(386, 154);
+            this.groupBox5.TabIndex = 25;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Ziekte aan patient koppelen";
+            // 
+            // cbPatient
+            // 
+            this.cbPatient.FormattingEnabled = true;
+            this.cbPatient.Location = new System.Drawing.Point(170, 39);
+            this.cbPatient.Name = "cbPatient";
+            this.cbPatient.Size = new System.Drawing.Size(200, 21);
+            this.cbPatient.TabIndex = 0;
+            // 
+            // cbZiekte
+            // 
+            this.cbZiekte.FormattingEnabled = true;
+            this.cbZiekte.Location = new System.Drawing.Point(170, 78);
+            this.cbZiekte.Name = "cbZiekte";
+            this.cbZiekte.Size = new System.Drawing.Size(200, 21);
+            this.cbZiekte.TabIndex = 1;
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(24, 42);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(69, 13);
+            this.label22.TabIndex = 2;
+            this.label22.Text = "Patient naam";
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(30, 85);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(66, 13);
+            this.label23.TabIndex = 3;
+            this.label23.Text = "Ziekte naam";
+            // 
+            // btnKoppelZiekte
+            // 
+            this.btnKoppelZiekte.Location = new System.Drawing.Point(209, 123);
+            this.btnKoppelZiekte.Name = "btnKoppelZiekte";
+            this.btnKoppelZiekte.Size = new System.Drawing.Size(161, 23);
+            this.btnKoppelZiekte.TabIndex = 21;
+            this.btnKoppelZiekte.Text = "Ziekte koppelen";
+            this.btnKoppelZiekte.UseVisualStyleBackColor = true;
+            this.btnKoppelZiekte.Click += new System.EventHandler(this.btnKoppelZiekte_Click);
+            // 
             // Beheer_Insert
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(2164, 1087);
+            this.Controls.Add(this.groupBox5);
+            this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.gbPatient);
@@ -563,6 +721,10 @@
             this.groupBox2.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox5.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -606,10 +768,8 @@
         private System.Windows.Forms.TextBox tbZiekte;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button btnAddZiekte;
-        private System.Windows.Forms.ListView lbZiekte;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button btnResetZiekte;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Button btNewUser;
         private System.Windows.Forms.Label label18;
@@ -618,5 +778,22 @@
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.TextBox tbUsername;
         private System.Windows.Forms.ComboBox cbLocatie;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.Button btnAddMedicijn;
+        private System.Windows.Forms.Button btnResetMedicijn;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.TextBox tbmedicijn;
+        private System.Windows.Forms.TextBox tbMedicijnBijwerking;
+        private System.Windows.Forms.TextBox tbMedicijnGebruik;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.ListBox lbMedicijn;
+        private System.Windows.Forms.ListBox lbZiekte;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.Button btnKoppelZiekte;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.ComboBox cbZiekte;
+        private System.Windows.Forms.ComboBox cbPatient;
     }
 }

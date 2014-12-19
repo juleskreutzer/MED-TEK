@@ -40,7 +40,7 @@ namespace MED_TEK
         {
             // Deze methode voegt een medicijn toe aan de database.
             // De velden die moeten worden ingevuld zijn naam, gebruik, bijwerking
-            string query = "INSERT INTO " + prefix + "medicijn (naam, gebruik, bijwerking) VALUES ('" + naam + "','" + gebruik + "','" + "','" + bijwerking + "')";
+            string query = "INSERT INTO " + prefix + "medicijn (naam, gebruik, bijwerking) VALUES ('" + naam + "','" + gebruik + "','" + bijwerking + "')";
             verbinding.Execute(query);
         }
 

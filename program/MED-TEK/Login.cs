@@ -25,7 +25,7 @@ namespace MED_TEK
 
         private void lblForgotPass_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            MessageBox.Show("Neem contact op met de systeem beheerder.");
+            MessageBox.Show("Om uw wachtwoord opnieuw in te stellen, neemt u contact op met de programma beheerder.");
         }
 
         private void btnLogin_Click(object sender, EventArgs e)

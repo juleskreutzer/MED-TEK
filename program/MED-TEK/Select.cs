@@ -16,71 +16,105 @@ namespace MED_TEK
         // Elke databasetabel heeft een prefix
         string prefix = "rhbj_";
 
-        /*
-        public List<string> Select_Patient_Arts(int patientID)
+        public List<Dictionary<string, object>> Select_Patient_Naam()
         {
-            // Deze methode retourneerd de gegevens van een patient die belangrijk zijn voor een arts
-           string sql = "SELECT * FROM " + prefix + "patient";
-          
-          
-          
+            string sql = "SELECT patientID, voornamen, achternaam FROM " + prefix + "patient";
 
+            // var wilt zeggen dat C# zelf het juiste type van de variabele zoekt
+            // ExecuteQuery is een static class binnen de Connect klasse
+            // ExecuteQuery moet dus op een andere manier worden aangeroepen
+            var data = Connect.ExecuteQuery(sql);
+            return data;
         }
 
-        public List<> Select_Patient_Apotheek(int patientID)
+        public List<Dictionary<string, object>> Select_Patient_Arts(int patientID)
         {
             // Deze methode retourneerd de gegevens van een patient die belangrijk zijn voor een arts
+            string sql = "SELECT * FROM " + prefix + "patient";
+
+            var data = Connect.ExecuteQuery(sql);
+            return data;
         }
 
-        public List<> Select_Patient_Auto(int patientID)
+        public List<Dictionary<string, object>> Select_Patient_Apotheek(int patientID)
+        {
+            // Deze methode retourneerd de gegevens van een patient die belangrijk zijn voor een arts
+            string sql = "";
+
+            var data = Connect.ExecuteQuery(sql);
+            return data;
+        }
+
+        public List<Dictionary<string, object>> Select_Patient_Auto(int patientID)
         {
             // Deze methode retourneerd de gegevens van een patient die belangrijk zijn voor een ambulancebroeder
+            string sql = "";
 
+            var data = Connect.ExecuteQuery(sql);
+            return data;
         }
 
-        public List<> Select_Patient_Psycholoog(int patientID)
+        public List<Dictionary<string, object>> Select_Patient_Psycholoog(int patientID)
         {
             // Deze methode retourneerd de gegevens van een patient die belangrijk zijn voor een psycholoog
+            string sql = "";
 
+            var data = Connect.ExecuteQuery(sql);
+            return data;
         }
 
-        public List<> Select_Medicijn()
+        public List<Dictionary<string, object>> Select_Medicijn()
         {
             // Deze methode retourneerd alle medicijnen die zijn opgeslagen in de database
+            string sql = "SELECT naam FROM " + prefix + "medicijn ORDER BY naam";
+
+            var data = Connect.ExecuteQuery(sql);
+            return data;
 
         }
 
-        public List<> Select_Medicatie(int patientID)
+        public List<Dictionary<string, object>> Select_Medicatie(int patientID)
         {
             // Deze methode retourneerd alle medicijnen die een patient gebruikt
 
+            string sql = "SELECT medicatie.naam FROM " + prefix + "medicatie WHERE medicatie.medicatieID = medicijn.medicijnID AND medicatie.patientID = '" + patientID + "'";
+
+            var data = Connect.ExecuteQuery(sql);
+            return data;
+
         }
 
-        public List<> Select_Afspraak(int actief)
+        public List<Dictionary<string, object>> Select_Afspraak(int actief)
         {
             // Deze methode retourneerd alle afspraken, afhankelijk of ze actief zijn of niet
 
+            string sql = "SELECT locatie.naam, medicatie.naam, afspraak.datum, afspraak.tijd, afspraak.actief FROM " + prefix + "afspraak, " + prefix + "locatie, " + prefix + "medicatie WHERE afspraak.medicatieID = medicatie.medicatieID AND afspraak.locatieID = locatie.locatieID";
+
+            var data = Connect.ExecuteQuery(sql);
+            return data;
         }
 
-       **/
 
         public List<Dictionary<string, object>> Select_Ziekte()
         {
             // Deze methode retourneerd alle ziektes die opgeslagen zijn in de database
-            string sql = "SELECT naam FROM " + prefix + "ziekte";
+            string sql = "SELECT ziekteID, naam FROM " + prefix + "ziekte";
             
             var data = Connect.ExecuteQuery(sql);
             return data;
              
 
         }
-        /*
-        public List<> Select_Ziekteoverzicht(int patientID)
+
+        public List<Dictionary<string, object>> Select_Ziekteoverzicht(int patientID)
         {
             // Deze methode retourneerd alle ziektes die gekoppeld zijn aan een patient
+            string sql = "SELECT ziekte.naam FROM " + prefix + "ziekte WHERE ziekteoverzicht.ziekteID = ziekte.ziekteID AND ziekteoverzicht.patientID = '" + patientID + "'";
+
+            var data = Connect.ExecuteQuery(sql);
+            return data;
 
         }
-         * */
        
     }
 }
