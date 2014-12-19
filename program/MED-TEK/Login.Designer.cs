@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lblCLose = new System.Windows.Forms.LinkLabel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
             this.lblForgotPass = new System.Windows.Forms.LinkLabel();
@@ -47,6 +48,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.InfoText;
+            this.panel1.Controls.Add(this.lblCLose);
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.lblForgotPass);
@@ -61,6 +63,18 @@
             this.panel1.Size = new System.Drawing.Size(514, 232);
             this.panel1.TabIndex = 0;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // lblCLose
+            // 
+            this.lblCLose.AutoSize = true;
+            this.lblCLose.LinkColor = System.Drawing.Color.White;
+            this.lblCLose.Location = new System.Drawing.Point(16, 208);
+            this.lblCLose.Name = "lblCLose";
+            this.lblCLose.Size = new System.Drawing.Size(47, 13);
+            this.lblCLose.TabIndex = 6;
+            this.lblCLose.TabStop = true;
+            this.lblCLose.Text = "Afsluiten";
+            this.lblCLose.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblCLose_LinkClicked);
             // 
             // pictureBox1
             // 
@@ -163,6 +177,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "Login";
             this.Text = "Smart Patient Login";
+            this.Load += new System.EventHandler(this.Login_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -183,6 +198,7 @@
         private System.Windows.Forms.Label label4;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.LinkLabel lblCLose;
 
     }
 }

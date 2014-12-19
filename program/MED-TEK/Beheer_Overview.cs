@@ -12,9 +12,13 @@ namespace MED_TEK
 {
     public partial class Beheer_Overview : Form
     {
+
+        Connect verbinding = new Connect();
         public Beheer_Overview()
         {
             InitializeComponent();
+            StartPosition = FormStartPosition.CenterScreen; 
+
         }
 
         private void Beheer_Overview_Load(object sender, EventArgs e)
@@ -49,6 +53,25 @@ namespace MED_TEK
         {
             Beheer_Delete delete = new Beheer_Delete();
             delete.Show();
+        }
+
+        private void lblAfmelden_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            // Locatie van gebruiker op null zetten
+            verbinding.locatie = null;
+
+            // Huidig venster sluiten
+            this.Close();
+
+            // Login venster tonen
+            Login login = new Login();
+            login.Show();
+
+        }
+
+        private void Beheer_Overview_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            
         }
     }
 }

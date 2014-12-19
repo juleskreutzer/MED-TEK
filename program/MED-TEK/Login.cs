@@ -16,6 +16,7 @@ namespace MED_TEK
         Connect verbinding = new Connect();
         Miscellaneous overig = new Miscellaneous();
         scan scan = new scan();
+
         public Login()
         {
             InitializeComponent();
@@ -82,7 +83,9 @@ namespace MED_TEK
                     // Open formulier van beheer   
                     this.Hide();
                     Beheer_Overview beheer = new Beheer_Overview();
+                    beheer.FormClosed += beheer_FormClosed;
                     beheer.Show();
+
                 }
             }
             else
@@ -91,6 +94,11 @@ namespace MED_TEK
                 tbPassword.Text = "";
                 MessageBox.Show("Het inloggen is mislukt. Controleer uw gebruikersnaam en wachtwoord. Wanneer dit probleem zich blijf voordoen, neem dan contact op met uw systeem beheerder.");
             }
+        }
+
+        private void beheer_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            this.Close();
         }
 
         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
@@ -107,6 +115,16 @@ namespace MED_TEK
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
             panel1.BackColor = Color.FromArgb(200, 200, 200);
+        }
+
+        private void lblCLose_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void Login_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

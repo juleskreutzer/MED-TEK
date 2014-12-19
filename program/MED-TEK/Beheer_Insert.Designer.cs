@@ -65,17 +65,17 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnResetZiekte = new System.Windows.Forms.Button();
             this.btnAddZiekte = new System.Windows.Forms.Button();
-            this.listZiekte = new System.Windows.Forms.ListView();
+            this.lbZiekte = new System.Windows.Forms.ListView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.button1 = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.tbUsername = new System.Windows.Forms.TextBox();
+            this.cbLocatie = new System.Windows.Forms.ComboBox();
+            this.btNewUser = new System.Windows.Forms.Button();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
             this.tbPassword = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.lbLocatie = new System.Windows.Forms.ListBox();
-            this.label18 = new System.Windows.Forms.Label();
-            this.btNewUser = new System.Windows.Forms.Button();
+            this.tbUsername = new System.Windows.Forms.TextBox();
             this.gbPersonDetails.SuspendLayout();
             this.gbPersonalOther.SuspendLayout();
             this.gbPatient.SuspendLayout();
@@ -428,18 +428,19 @@
             this.btnAddZiekte.UseVisualStyleBackColor = true;
             this.btnAddZiekte.Click += new System.EventHandler(this.btnAddZiekte_Click);
             // 
-            // listZiekte
+            // lbZiekte
             // 
-            this.listZiekte.Location = new System.Drawing.Point(48, 40);
-            this.listZiekte.Name = "listZiekte";
-            this.listZiekte.Size = new System.Drawing.Size(344, 434);
-            this.listZiekte.TabIndex = 0;
-            this.listZiekte.UseCompatibleStateImageBehavior = false;
-            this.listZiekte.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
+            this.lbZiekte.Alignment = System.Windows.Forms.ListViewAlignment.Left;
+            this.lbZiekte.Location = new System.Drawing.Point(48, 40);
+            this.lbZiekte.Name = "lbZiekte";
+            this.lbZiekte.Size = new System.Drawing.Size(344, 434);
+            this.lbZiekte.TabIndex = 0;
+            this.lbZiekte.UseCompatibleStateImageBehavior = false;
+            this.lbZiekte.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.listZiekte);
+            this.groupBox2.Controls.Add(this.lbZiekte);
             this.groupBox2.Location = new System.Drawing.Point(473, 225);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(422, 497);
@@ -459,26 +460,61 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.cbLocatie);
             this.groupBox3.Controls.Add(this.btNewUser);
             this.groupBox3.Controls.Add(this.label18);
-            this.groupBox3.Controls.Add(this.lbLocatie);
             this.groupBox3.Controls.Add(this.label17);
             this.groupBox3.Controls.Add(this.tbPassword);
             this.groupBox3.Controls.Add(this.label16);
             this.groupBox3.Controls.Add(this.tbUsername);
             this.groupBox3.Location = new System.Drawing.Point(921, 80);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(386, 245);
+            this.groupBox3.Size = new System.Drawing.Size(386, 225);
             this.groupBox3.TabIndex = 23;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Nieuwe gebruiker";
             // 
-            // tbUsername
+            // cbLocatie
             // 
-            this.tbUsername.Location = new System.Drawing.Point(170, 41);
-            this.tbUsername.Name = "tbUsername";
-            this.tbUsername.Size = new System.Drawing.Size(200, 20);
-            this.tbUsername.TabIndex = 24;
+            this.cbLocatie.FormattingEnabled = true;
+            this.cbLocatie.Items.AddRange(new object[] {
+            "Doctor",
+            "Ambulance",
+            "Apotheek",
+            "Psycholoog",
+            "Beheer"});
+            this.cbLocatie.Location = new System.Drawing.Point(170, 145);
+            this.cbLocatie.Name = "cbLocatie";
+            this.cbLocatie.Size = new System.Drawing.Size(200, 21);
+            this.cbLocatie.TabIndex = 24;
+            // 
+            // btNewUser
+            // 
+            this.btNewUser.Location = new System.Drawing.Point(209, 188);
+            this.btNewUser.Name = "btNewUser";
+            this.btNewUser.Size = new System.Drawing.Size(161, 23);
+            this.btNewUser.TabIndex = 29;
+            this.btNewUser.Text = "Nieuwe gebruiker toevoegen";
+            this.btNewUser.UseVisualStyleBackColor = true;
+            this.btNewUser.Click += new System.EventHandler(this.btNewUser_Click);
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(27, 148);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(42, 13);
+            this.label18.TabIndex = 28;
+            this.label18.Text = "Locatie";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(27, 99);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(68, 13);
+            this.label17.TabIndex = 26;
+            this.label17.Text = "Wachtwoord";
             // 
             // tbPassword
             // 
@@ -496,49 +532,14 @@
             this.label16.TabIndex = 25;
             this.label16.Text = "gebruikersnaam";
             // 
-            // label17
+            // tbUsername
             // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(27, 99);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(68, 13);
-            this.label17.TabIndex = 26;
-            this.label17.Text = "Wachtwoord";
+            this.tbUsername.Location = new System.Drawing.Point(170, 41);
+            this.tbUsername.Name = "tbUsername";
+            this.tbUsername.Size = new System.Drawing.Size(200, 20);
+            this.tbUsername.TabIndex = 24;
             // 
-            // lbLocatie
-            // 
-            this.lbLocatie.FormattingEnabled = true;
-            this.lbLocatie.Items.AddRange(new object[] {
-            "Ambulance",
-            "Apotheek",
-            "Beheer",
-            "Doctor",
-            "Psycholoog"});
-            this.lbLocatie.Location = new System.Drawing.Point(170, 120);
-            this.lbLocatie.Name = "lbLocatie";
-            this.lbLocatie.Size = new System.Drawing.Size(200, 69);
-            this.lbLocatie.TabIndex = 27;
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(30, 120);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(42, 13);
-            this.label18.TabIndex = 28;
-            this.label18.Text = "Locatie";
-            // 
-            // btNewUser
-            // 
-            this.btNewUser.Location = new System.Drawing.Point(209, 208);
-            this.btNewUser.Name = "btNewUser";
-            this.btNewUser.Size = new System.Drawing.Size(161, 23);
-            this.btNewUser.TabIndex = 29;
-            this.btNewUser.Text = "Nieuwe gebruiker toevoegen";
-            this.btNewUser.UseVisualStyleBackColor = true;
-            this.btNewUser.Click += new System.EventHandler(this.btNewUser_Click);
-            // 
-            // beheer
+            // Beheer_Insert
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -549,7 +550,7 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.gbPatient);
             this.Controls.Add(this.label1);
-            this.Name = "beheer";
+            this.Name = "Beheer_Insert";
             this.Text = "SMART-PATIENT - Beheer";
             this.Load += new System.EventHandler(this.beheer_Load);
             this.gbPersonDetails.ResumeLayout(false);
@@ -605,17 +606,17 @@
         private System.Windows.Forms.TextBox tbZiekte;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button btnAddZiekte;
-        private System.Windows.Forms.ListView listZiekte;
+        private System.Windows.Forms.ListView lbZiekte;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button btnResetZiekte;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Button btNewUser;
         private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.ListBox lbLocatie;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.TextBox tbPassword;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.TextBox tbUsername;
+        private System.Windows.Forms.ComboBox cbLocatie;
     }
 }

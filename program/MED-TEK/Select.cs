@@ -10,12 +10,13 @@ namespace MED_TEK
 {
     class Select
     {
-        /*
+        
         // Instantie aanmaken voor verbinding met database
         Connect verbinding = new Connect();
         // Elke databasetabel heeft een prefix
         string prefix = "rhbj_";
 
+        /*
         public List<string> Select_Patient_Arts(int patientID)
         {
             // Deze methode retourneerd de gegevens van een patient die belangrijk zijn voor een arts
@@ -61,12 +62,19 @@ namespace MED_TEK
 
         }
 
-        public List<> Select_Ziekte()
+       **/
+
+        public List<Dictionary<string, object>> Select_Ziekte()
         {
             // Deze methode retourneerd alle ziektes die opgeslagen zijn in de database
+            string sql = "SELECT naam FROM " + prefix + "ziekte";
+            
+            var data = Connect.ExecuteQuery(sql);
+            return data;
+             
 
         }
-
+        /*
         public List<> Select_Ziekteoverzicht(int patientID)
         {
             // Deze methode retourneerd alle ziektes die gekoppeld zijn aan een patient

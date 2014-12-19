@@ -22,20 +22,40 @@ namespace MED_TEK
         Connect verbinding = new Connect();
         Insert insert = new Insert();
         Miscellaneous overig = new Miscellaneous();
+        Select select = new Select();
 
         private void beheer_Load(object sender, EventArgs e)
         {
-            /*
-            // Ziektes bekend in database ophalen en weergegeven in listbox
-            int i = 0;
-            List<string> data = verbinding.Select_Ziekte();
-            foreach (string d in data)
-            {
-                listZiekte.Items.Add(d);
-                ++i;
-            }
-             * */
             
+            // Ziektes bekend in database ophalen en weergegeven in listbox
+            var data = select.Select_Ziekte();
+            int i = 0;
+
+            for (i = 0; i < data.Count; ++i)
+            {
+                Dictionary<string, object> row = data[i];
+
+                lbZiekte.Items.Add((string)row["naam"]);
+  
+            }
+            
+
+        }
+
+        public void refresh()
+        {
+            // Gegevens opnieuw laden in form
+
+            var data = select.Select_Ziekte();
+            int i = 0;
+
+            for (i = 0; i < data.Count; ++i)
+            {
+                Dictionary<string, object> row = data[i];
+
+                lbZiekte.Items.Add((string)row["naam"]);
+
+            }
 
         }
 
@@ -199,7 +219,7 @@ namespace MED_TEK
         {
             string username = tbUsername.Text;
             string password = overig.versleutel(tbPassword.Text);
-            string locatie = lbLocatie.Text;
+            string locatie = cbLocatie.Text;
             int locatieID = 0;
 
             if (locatie == "Doctor")
@@ -226,6 +246,9 @@ namespace MED_TEK
             if(locatieID != 0)
             {
                 insert.Insert_User(username, password, locatieID);
+                tbUsername.Text = "";
+                tbPassword.Text = "";
+                cbLocatie.Text = "";
                 MessageBox.Show("Nieuwe gebruiker toegevoegd!");
             }
             else

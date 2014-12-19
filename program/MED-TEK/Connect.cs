@@ -18,6 +18,7 @@ namespace MED_TEK
         private string database; // Database name
         private string prefix = "rhbj_";
         public string login_locatie = "";
+        private string connectionstring;
 
         public string locatie;
 
@@ -34,7 +35,6 @@ namespace MED_TEK
             password = "kreutzer";
             database = "eu186781_test";
 
-            string connectionstring;
             connectionstring = "SERVER=" + server + ";" + "DATABASE=" + database + ";" + "UID=" + user + ";" + "PASSWORD=" + password + ";";
 
             return connection = new MySqlConnection(connectionstring);
@@ -67,7 +67,7 @@ namespace MED_TEK
         }
 
         //Close connection
-        private bool Close_Connection()
+        public bool Close_Connection()
         {
             try
             {
@@ -125,6 +125,43 @@ namespace MED_TEK
 
            this.Close_Connection();
         }
+
+       // <summary>
+       /// Executes query and returns the result in a processable format. MySqlExceptions will be had.
+       /// </summary>
+       /// <returns>List&lt;Dictionary&lt;&lt;fieldName, value&gt;&gt; or null on failure</returns>
+       public static List<Dictionary<string, object>> ExecuteQuery(string query)
+       {
+           List<Dictionary<string, object>> result = new List<Dictionary<string, object>>();
+
+           Connect verbinding = new Connect();
+
+           verbinding.Close_Connection();
+           verbinding.Initialize();
+
+           if (verbinding.Open_Connection() == true)
+           {
+
+               MySqlDataReader resultReader = new MySqlCommand(query, verbinding.connection).ExecuteReader();
+               //loop through the rows and add them to the result
+               while (resultReader.Read())
+               {
+                   Dictionary<string, object> row = new Dictionary<string, object>();
+
+                   //loop through the fields and add them to the row
+                   for (int fieldId = 0; fieldId < resultReader.FieldCount; fieldId++)
+                       row.Add(resultReader.GetName(fieldId), resultReader.GetValue(fieldId));
+
+                   result.Add(row);
+               }
+
+               return result;
+           }
+           else
+           {
+               return result;
+           }
+       }
 
         public string login(string username, string password)
         {
