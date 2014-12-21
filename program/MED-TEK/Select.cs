@@ -84,6 +84,16 @@ namespace MED_TEK
 
         }
 
+        public List<Dictionary<string, object>> Select_Medicatie_All()
+        {
+            // Deze methode retourneerd alle medicijnen voor alle patienten
+
+            string sql = "SELECT '" + prefix + "medicatie.medicatieID', '" + prefix + "patient.voornamen', '" + prefix + "patient.achternaam', '" + prefix + "medicijn.naam' FROM " + prefix + "patient, " + prefix + "medicijn WHERE '" + prefix + "medicatie.medicijnID' = '" + prefix + "medicijn.medicijnID' AND '" + prefix + "medicatie.patientID' = '" + prefix + "patient.patientID'";
+
+            var data = Connect.ExecuteQuery(sql);
+            return data;
+        }
+
         public List<Dictionary<string, object>> Select_Afspraak(int actief)
         {
             // Deze methode retourneerd alle afspraken, afhankelijk of ze actief zijn of niet
@@ -114,6 +124,15 @@ namespace MED_TEK
             var data = Connect.ExecuteQuery(sql);
             return data;
 
+        }
+
+        public List<Dictionary<string, object>> Select_Locatie()
+        {
+            // Deze methode retourneerd een lijst van alle locaties in de database met bijbehorende ID
+            string sql = "SELECT * FROM " + prefix + "locatie";
+
+            var data = Connect.ExecuteQuery(sql);
+            return data;
         }
        
     }

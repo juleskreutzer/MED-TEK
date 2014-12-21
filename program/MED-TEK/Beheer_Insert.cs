@@ -27,7 +27,7 @@ namespace MED_TEK
         private void beheer_Load(object sender, EventArgs e)
         {
             refresh();
-
+            // OPVRAGEN GEGEVENS VOOR TOEKENNEN ZIEKTE AAN PATIENT
             var dataPatientNaam = select.Select_Patient_Naam();
             var dataZiekteNaam = select.Select_Ziekte();
 
@@ -47,6 +47,28 @@ namespace MED_TEK
                     Dictionary<string, object> row = dataZiekteNaam[j];
 
                     cbZiekte.Items.Add("ID " + row["ziekteID"] + " - " + row["naam"]);
+                }
+            }
+            // EINDE OPVRAGEN GEGEVENS VOOR TOEKENNEN ZIEKTE AAN PATIENT
+
+            // OPVRAGEN GEGEVENS VOOR MAKEN NIEUWE AFSPRAAK
+            var dataMedicatie = select.Select_Medicatie_All();
+            var dataLocatie = select.Select_Locatie();
+
+            int b = 0;
+            for (b = 0; b < 1; ++b)
+            {
+                for (int i = 0; i < dataMedicatie.Count; ++i)
+                {
+                    Dictionary<string, object> row = dataMedicatie[i];
+
+                    cbMedicatie.Items.Add("ID " + row["medicatieID"] + " - " + row["naam"] + " - " + row["voornamen"] + " " + row["achternaam"]);
+                }
+                for(int j = 0; j < dataLocatie.Count; ++j)
+                {
+                    Dictionary<string, object> row = dataLocatie[j];
+
+                    cbLocAfspraak.Items.Add("ID " + row["locatieID"] + " - " + row["naam"]);
                 }
             }
 
@@ -318,17 +340,36 @@ namespace MED_TEK
         private void btnKoppelZiekte_Click(object sender, EventArgs e)
         {
 
-            string patientID = (string)cbPatient.SelectedItem;
-            string ziekteID = (string)cbZiekte.SelectedItem;
+            string patientIDstring = (string)cbPatient.SelectedItem;
+            string ziekteIDstring = (string)cbZiekte.SelectedItem;
 
-            bool test = string.IsNullOrWhiteSpace(patientID.Substring(5, 6));
-            if (test != true)
+            if (patientIDstring == "")
             {
-                patientID = patientID.Substring(4,5);
-                MessageBox.Show(patientID);
+                MessageBox.Show("Selecteer een patient");
+            }
+            else if(ziekteIDstring == "")
+            {
+                MessageBox.Show("Selecteer een ziekte");
+            }
+            else
+            {
+                int patientID = Convert.ToInt32(overig.GetSubstringByString("ID ", " -", patientIDstring));
+                int ziekteID = Convert.ToInt32(overig.GetSubstringByString("ID ", " -", ziekteIDstring));
+
+                insert.Insert_Ziekteoverzicht(ziekteID, patientID);
+                MessageBox.Show("De ziekte is met succes toegewezen aan de patient.");
             }
 
-            MessageBox.Show("PatientID: '" + patientID + "' \nZiekteID: '" + ziekteID + "'");
+
+        }
+
+        private void btnClearAfspraak_Click(object sender, EventArgs e)
+        {
+            cbMedicatie.Text = "";
+            cbLocAfspraak.Text = "";
+            dtpAfspraak.Text = "";
+            tbTijd.Text = "00 : 00";
+            cbActief.Text = "";
         }
     }
 }
