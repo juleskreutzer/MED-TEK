@@ -66,7 +66,7 @@ namespace MED_TEK
         public List<Dictionary<string, object>> Select_Medicijn()
         {
             // Deze methode retourneerd alle medicijnen die zijn opgeslagen in de database
-            string sql = "SELECT naam FROM " + prefix + "medicijn ORDER BY naam";
+            string sql = "SELECT medicijnID, naam FROM " + prefix + "medicijn ORDER BY naam ASC";
 
             var data = Connect.ExecuteQuery(sql);
             return data;
@@ -108,7 +108,7 @@ namespace MED_TEK
         public List<Dictionary<string, object>> Select_Ziekte()
         {
             // Deze methode retourneerd alle ziektes die opgeslagen zijn in de database
-            string sql = "SELECT ziekteID, naam FROM " + prefix + "ziekte";
+            string sql = "SELECT ziekteID, naam FROM " + prefix + "ziekte ORDER BY naam ASC";
             
             var data = Connect.ExecuteQuery(sql);
             return data;

@@ -27,9 +27,19 @@ namespace MED_TEK
         private void beheer_Load(object sender, EventArgs e)
         {
             refresh();
-            // OPVRAGEN GEGEVENS VOOR TOEKENNEN ZIEKTE AAN PATIENT
+
+            // custom format instellen voor tijd van een afspraak en tijd op 00:00 zetten
+            dtpTijd.CustomFormat = "HH : mm";
+            dtpTijd.Text = "00:00";
+
+            // Custom format instellen voor het opslaan van de datum gebruikstart en gebruikeind in de database
+            dtpGebruikStart.CustomFormat = "dd / MM / yyyy";
+            dtpGebruikEind.CustomFormat = "dd / MM / yyyy";
+
+            // OPVRAGEN GEGEVENS VOOR TOEKENNEN ZIEKTE AAN PATIENT EN TOEKENNEN MEDICATIE AAN PATIENT
             var dataPatientNaam = select.Select_Patient_Naam();
             var dataZiekteNaam = select.Select_Ziekte();
+            var dataMedicijnNaam = select.Select_Medicijn();
 
             int a = 0;
 
@@ -40,6 +50,7 @@ namespace MED_TEK
                     Dictionary<string, object> row = dataPatientNaam[i];
 
                     cbPatient.Items.Add("ID " + row["patientID"] + " - " + row["voornamen"] + " " + row["achternaam"]);
+                    cbPatientMedicatie.Items.Add("ID " + row["patientID"] + " - " + row["voornamen"] + " " + row["achternaam"]);
                 }
 
                 for(int j = 0; j < dataZiekteNaam.Count; ++j)
@@ -47,6 +58,13 @@ namespace MED_TEK
                     Dictionary<string, object> row = dataZiekteNaam[j];
 
                     cbZiekte.Items.Add("ID " + row["ziekteID"] + " - " + row["naam"]);
+                }
+
+                for (int c = 0; c < dataMedicijnNaam.Count; ++c)
+                {
+                    Dictionary<string, object> row = dataMedicijnNaam[c];
+
+                    cbMedicijn.Items.Add("ID " + row["medicijnID"] + " - " + row["naam"]);
                 }
             }
             // EINDE OPVRAGEN GEGEVENS VOOR TOEKENNEN ZIEKTE AAN PATIENT
@@ -97,6 +115,7 @@ namespace MED_TEK
 
                     lbZiekte.Items.Add((string)row["naam"]);
                     lbZiekte.Items.Add("\n");
+
                 }
 
                 for (int k = 0; k < datamedicijn.Count; ++k)
@@ -114,6 +133,7 @@ namespace MED_TEK
 
         private void btnResetUser_Click(object sender, EventArgs e)
         {
+            // Alle velden voor toevoegen van nieuwe patient leegmaken
 
             // Alle velden leeg maken zodat gegevens opnieuw ingevuld kunnen worden
             tbVoornamen.Text = "";
@@ -133,6 +153,8 @@ namespace MED_TEK
 
         private void btnAddPatient_Click(object sender, EventArgs e)
         {
+            // Nieuwe patient toevoegen aan database
+
             // Waarden van de velden in een variabele zetten
             string voornamen = tbVoornamen.Text;
             string achternaam = tbAchternaam.Text;
@@ -237,6 +259,7 @@ namespace MED_TEK
 
         private void btnAddZiekte_Click(object sender, EventArgs e)
         {
+            // Ziekte toevoegen aan database
             string naam = tbZiekte.Text;
 
             if(naam == "")
@@ -255,6 +278,7 @@ namespace MED_TEK
 
         private void btnResetZiekte_Click(object sender, EventArgs e)
         {
+            // tbZiekte leeg maken
             tbZiekte.Text = "";
         }
 
@@ -272,6 +296,7 @@ namespace MED_TEK
 
         private void btNewUser_Click(object sender, EventArgs e)
         {
+            // Nieuwe gebruiker toevoegen waarmee kan worden ingelogd
             string username = tbUsername.Text;
             string password = overig.versleutel(tbPassword.Text);
             string locatie = cbLocatie.Text;
@@ -315,11 +340,14 @@ namespace MED_TEK
 
         private void btnResetMedicijn_Click(object sender, EventArgs e)
         {
+            // tbmedicijn leeg maken
             tbmedicijn.Text = "";
         }
 
         private void btnAddMedicijn_Click(object sender, EventArgs e)
         {
+            // Medicijn toevoegen aan database
+
             string medicijn = tbmedicijn.Text;
             string gebruik = tbMedicijnGebruik.Text;
             string bijwerking = tbMedicijnBijwerking.Text;
@@ -339,6 +367,7 @@ namespace MED_TEK
 
         private void btnKoppelZiekte_Click(object sender, EventArgs e)
         {
+            // Ziekte aan patient koppelen
 
             string patientIDstring = (string)cbPatient.SelectedItem;
             string ziekteIDstring = (string)cbZiekte.SelectedItem;
@@ -365,11 +394,53 @@ namespace MED_TEK
 
         private void btnClearAfspraak_Click(object sender, EventArgs e)
         {
+            // alle velden voor afspraak leeg maken
             cbMedicatie.Text = "";
             cbLocAfspraak.Text = "";
             dtpAfspraak.Text = "";
-            tbTijd.Text = "00 : 00";
-            cbActief.Text = "";
+            dtpTijd.Text = "00 : 00";
+            cbActief.Checked = false;
         }
+
+        private void btnAfspraak_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Waarde check box: " + cbActief.Checked);
+        }
+
+        private void btnMedicatieToevoegen_Click(object sender, EventArgs e)
+        {
+            // Toevoegen van medicatie voor een patient aan de database
+
+            string patientIDstring = (string)cbPatientMedicatie.SelectedItem;
+            string medicijnIDstring = (string)cbMedicijn.SelectedItem;
+
+            if (patientIDstring == "")
+            {
+                MessageBox.Show("Selecteerd een patient voordat deze bewerking kan worden voltooid");
+            }
+            if (medicijnIDstring == "")
+            {
+                MessageBox.Show("Selecteer een medicijn voordat deze bewerking kan worden voltooid");
+            }
+
+            // ID opvragen van patient en medicijn voordat het opgeslagen wordt in database
+            int patientID = Convert.ToInt32(overig.GetSubstringByString("ID ", " -", patientIDstring));
+            int medicijnID = Convert.ToInt32(overig.GetSubstringByString("ID ", " -", medicijnIDstring));
+
+            string hoeveelheid = tbHoeveelheid.Text;
+
+            if (hoeveelheid == "")
+            {
+                MessageBox.Show("Er moet een hoeveelheid worden opgegeven");
+            }
+
+            string GebruikStart = dtpGebruikStart.Text;
+            string GebruikEind = dtpGebruikEind.Text;
+
+            insert.Insert_Medicatie(patientID, medicijnID, GebruikStart, GebruikEind, hoeveelheid);
+            MessageBox.Show("De medicatie is met succes opgeslagen voor de patient!");
+
+        }
+
     }
 }

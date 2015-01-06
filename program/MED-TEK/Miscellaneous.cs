@@ -18,6 +18,11 @@ namespace MED_TEK
         }
         public string GetSubstringByString(string a, string b, string c)
         {
+            // String a geeft aan welke tekens voor het resultaat moeten staan
+            // String b geeft aan welke tekens achter het resultaat moet staan
+            // String c geeft aan in welke tekens gezocht moet worden
+            
+            // return geeft de/het teken(s) terug die overblijven nadat string a en b eraf gehaald zijn
             return c.Substring((c.IndexOf(a) + a.Length), (c.IndexOf(b) - c.IndexOf(a) - a.Length));
         }
 

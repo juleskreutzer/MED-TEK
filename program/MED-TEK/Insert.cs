@@ -58,7 +58,7 @@ namespace MED_TEK
         {
             // Deze methode voegt een nieuwe medicatie voor een patient toe
             // PatientID en medicijnID moeten worden opgegeven
-            string query = "INSERT INTO " + prefix + "medicatie (patientID, medicijnID, gebruikStart, gebruikEind, hoeveelheid) VALUES ('" + patientID + "','" + medicijnID + "','" + gebruikStart + "','" + gebruikEind + "','" + hoeveelheid + "')";
+            string query = "INSERT INTO " + prefix + "medicatie (patientID, medicijnID, gebruikstart, gebruikeind, hoeveelheid) VALUES ('" + patientID + "','" + medicijnID + "','" + gebruikStart + "','" + gebruikEind + "','" + hoeveelheid + "')";
             verbinding.Execute(query);
         }
 
