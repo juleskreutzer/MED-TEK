@@ -16,5 +16,15 @@ namespace MED_TEK
         {
             InitializeComponent();
         }
+
+        private void Ambulance_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+            panel1.BackColor = Color.FromArgb(255, 255, 255);
+        }
     }
 }
