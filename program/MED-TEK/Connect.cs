@@ -19,6 +19,8 @@ namespace MED_TEK
         private string prefix = "rhbj_";
         public string login_locatie = "";
         private string connectionstring;
+        public string pasfoto;
+        public int patientID;
 
         public string locatie;
 

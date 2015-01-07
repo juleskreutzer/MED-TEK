@@ -48,7 +48,7 @@ namespace MED_TEK
         public List<Dictionary<string, object>> Select_Patient_Auto(int patientID)
         {
             // Deze methode retourneerd de gegevens van een patient die belangrijk zijn voor een ambulancebroeder
-            string sql = "";
+            string sql = "SELECT voornamen, achternaam, geboortedatum, bloedgroep, pasfoto FROM " + prefix + "patient WHERE patientID = " + patientID;
 
             var data = Connect.ExecuteQuery(sql);
             return data;

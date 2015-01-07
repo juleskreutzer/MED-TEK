@@ -17,6 +17,9 @@ namespace MED_TEK
 
         //Fields
         string prefix = "rhbj_";
+        public string patientID;
+        Connect verbinding = new Connect();
+
 
         public scan()
         {
@@ -27,10 +30,6 @@ namespace MED_TEK
            
 
         }
-
-        // Fields
-        Connect verbinding = new Connect();
-
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -88,9 +87,42 @@ namespace MED_TEK
                 tbScan.Enabled = false;
                 // Alle tekens zijn Ingevoerd, methode aanroepen om de nodige gegevens erbij op te zoeken
                 string pascode = tbScan.Text;
-                string sql = "SELECT patientID, pasfoto FROM " + prefix + "patient WHERE pascode = '" + pascode + "'"; 
-                List<string> result = verbinding.Execute_values(sql);
-                MessageBox.Show("Waarde 1 (positie 0) van de list: " + result[0] + "\nWaarde 2 (positie 1) van de lijst: " + result[1]);
+                string sql = "SELECT patientID, pasfoto FROM " + prefix + "patient WHERE pascode = '" + pascode + "'";
+                var data = Connect.ExecuteQuery(sql);
+                MessageBox.Show("Statement uitgevoerd!");
+                for (int i = 0; i < data.Count; ++i)
+                {
+                    Dictionary<string, object> row = data[i];
+                    verbinding.patientID = Convert.ToInt32(row["patientID"]);
+                    verbinding.pasfoto = (string)row["pasfoto"];
+                }
+
+                string locatie = verbinding.login_locatie;
+
+                if (locatie == "ambulance")
+                {
+                    Ambulance ambulance = new Ambulance();
+                    this.Hide();
+                    ambulance.Show();
+                }
+                if (locatie == "doctor")
+                {
+                    Doctor doctor = new Doctor();
+                    this.Hide();
+                    doctor.Show();
+                }
+                if (locatie == "apotheek")
+                {
+                    Apotheek apotheek = new Apotheek();
+                    this.Hide();
+                    apotheek.Show();
+                }
+                if (locatie == "psycholoog")
+                {
+                    Psycholoog psycholoog = new Psycholoog();
+                    this.Hide();
+                    psycholoog.Show();
+                }
 
 
             }
