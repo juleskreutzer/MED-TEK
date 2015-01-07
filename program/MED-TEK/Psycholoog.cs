@@ -12,9 +12,11 @@ namespace MED_TEK
 {
     public partial class Psycholoog : Form
     {
-        public Psycholoog()
+        Connect verbinding;
+        public Psycholoog(Connect _verbinding)
         {
             InitializeComponent();
+            verbinding = _verbinding;
         }
     }
 }

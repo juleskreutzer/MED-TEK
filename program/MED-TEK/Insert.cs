@@ -62,11 +62,11 @@ namespace MED_TEK
             verbinding.Execute(query);
         }
 
-        public void Insert_Ziekteoverzicht(int ziekteID, int patientID)
+        public void Insert_Ziekteoverzicht(int ziekteID, int patientID, string symptomen)
         {
             // Deze methode wijst een bepaalde ziekte toe aan een bepaalde patient
             // De velden ziekteID en patientID zijn dus verplicht
-            string query = "INSERT INTO " + prefix + "ziekteoverzicht (ziekteID, patientID) VALUES ('" + ziekteID + "','" + patientID + "')";
+            string query = "INSERT INTO " + prefix + "ziekteoverzicht (ziekteID, patientID, symptomen) VALUES ('" + ziekteID + "','" + patientID + "', '" + symptomen + "')";
             verbinding.Execute(query);
         }
 

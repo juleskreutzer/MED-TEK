@@ -18,14 +18,14 @@ namespace MED_TEK
         //Fields
         string prefix = "rhbj_";
         public string patientID;
-        Connect verbinding = new Connect();
+        Connect verbinding;
 
-
-        public scan()
+        public scan(Connect _verbinding)
         {
             InitializeComponent();
             WindowState = FormWindowState.Maximized;
             webBrowser1.Navigate("http://www.fontys.nl");
+            verbinding = _verbinding;
 
            
 
@@ -89,37 +89,37 @@ namespace MED_TEK
                 string pascode = tbScan.Text;
                 string sql = "SELECT patientID, pasfoto FROM " + prefix + "patient WHERE pascode = '" + pascode + "'";
                 var data = Connect.ExecuteQuery(sql);
-                MessageBox.Show("Statement uitgevoerd!");
                 for (int i = 0; i < data.Count; ++i)
                 {
                     Dictionary<string, object> row = data[i];
                     verbinding.patientID = Convert.ToInt32(row["patientID"]);
                     verbinding.pasfoto = (string)row["pasfoto"];
+                    Console.WriteLine("patientID en pasfoto opgehaald: " + verbinding.patientID + " " + verbinding.pasfoto);
                 }
 
                 string locatie = verbinding.login_locatie;
 
                 if (locatie == "ambulance")
                 {
-                    Ambulance ambulance = new Ambulance();
+                    Ambulance ambulance = new Ambulance(verbinding);
                     this.Hide();
                     ambulance.Show();
                 }
                 if (locatie == "doctor")
                 {
-                    Doctor doctor = new Doctor();
+                    Doctor doctor = new Doctor(verbinding);
                     this.Hide();
                     doctor.Show();
                 }
                 if (locatie == "apotheek")
                 {
-                    Apotheek apotheek = new Apotheek();
+                    Apotheek apotheek = new Apotheek(verbinding);
                     this.Hide();
                     apotheek.Show();
                 }
                 if (locatie == "psycholoog")
                 {
-                    Psycholoog psycholoog = new Psycholoog();
+                    Psycholoog psycholoog = new Psycholoog(verbinding);
                     this.Hide();
                     psycholoog.Show();
                 }

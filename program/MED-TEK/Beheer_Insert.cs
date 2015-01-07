@@ -114,8 +114,6 @@ namespace MED_TEK
                     Dictionary<string, object> row = dataziekte[j];
 
                     lbZiekte.Items.Add((string)row["naam"]);
-                    lbZiekte.Items.Add("\n");
-
                 }
 
                 for (int k = 0; k < datamedicijn.Count; ++k)
@@ -123,8 +121,6 @@ namespace MED_TEK
                     Dictionary<string, object> row = datamedicijn[k];
 
                     lbMedicijn.Items.Add((string)row["naam"]);
-                    lbMedicijn.Items.Add("\n");
-
                 }
             }
 
@@ -282,18 +278,6 @@ namespace MED_TEK
             tbZiekte.Text = "";
         }
 
-        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            scan scan = new scan();
-            scan.Show();
-        }
-
         private void btNewUser_Click(object sender, EventArgs e)
         {
             // Nieuwe gebruiker toevoegen waarmee kan worden ingelogd
@@ -372,6 +356,7 @@ namespace MED_TEK
             string patientIDstring = (string)cbPatient.SelectedItem;
             string ziekteIDstring = (string)cbZiekte.SelectedItem;
 
+
             if (patientIDstring == "")
             {
                 MessageBox.Show("Selecteer een patient");
@@ -384,8 +369,9 @@ namespace MED_TEK
             {
                 int patientID = Convert.ToInt32(overig.GetSubstringByString("ID ", " -", patientIDstring));
                 int ziekteID = Convert.ToInt32(overig.GetSubstringByString("ID ", " -", ziekteIDstring));
+                string symptomen = tbSymptomen.Text;
 
-                insert.Insert_Ziekteoverzicht(ziekteID, patientID);
+                insert.Insert_Ziekteoverzicht(ziekteID, patientID, symptomen);
                 MessageBox.Show("De ziekte is met succes toegewezen aan de patient.");
             }
 

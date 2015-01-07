@@ -12,9 +12,11 @@ namespace MED_TEK
 {
     public partial class Doctor : Form
     {
-        public Doctor()
+        Connect verbinding;
+        public Doctor(Connect _verbinding)
         {
             InitializeComponent();
+            verbinding = _verbinding;
         }
     }
 }

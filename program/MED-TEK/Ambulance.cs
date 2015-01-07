@@ -7,22 +7,43 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Globalization;
 
 namespace MED_TEK
 {
     public partial class Ambulance : Form
     {
-        public Ambulance()
+        Connect verbinding;
+        public Ambulance(Connect _verbinding)
         {
             InitializeComponent();
+            verbinding = _verbinding;
+
+            refresh_data();
         }
 
         Select select = new Select();
-        Connect verbinding = new Connect();
+        Miscellaneous overig = new Miscellaneous();
 
         private void refresh_data()
         {
+            // Benodigde patientgegevens voor ambulance ophalen en weergeven
             var patientgegevens = select.Select_Patient_Auto(verbinding.patientID);
+            int i = 0;
+            for (i = 0; i < patientgegevens.Count; ++i)
+            {
+                Dictionary<string, object> row = patientgegevens[i];
+                tbVoornamen.Text = (string)row["voornamen"];
+                tbAchternaam.Text = (string)row["achternaam"];
+                tbBloedgroep.Text = (string)row["bloedgroep"];
+                string date = (string)row["geboortedatum"];
+                dtpDoB.Text = date;
+            }
+
+            // Pasfoto van patient laten zien in picturebox
+            pbPasfoto.Load(verbinding.pasfoto);
+            // pasfoto passend maken voor picturebox
+            pbPasfoto.SizeMode = PictureBoxSizeMode.Zoom;
         }
 
         private void Ambulance_Load(object sender, EventArgs e)

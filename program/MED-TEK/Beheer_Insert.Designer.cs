@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.GroupBox groupBox7;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Beheer_Insert));
             this.btnMedicatieToevoegen = new System.Windows.Forms.Button();
@@ -116,6 +117,9 @@
             this.cbLocAfspraak = new System.Windows.Forms.ComboBox();
             this.label24 = new System.Windows.Forms.Label();
             this.cbMedicatie = new System.Windows.Forms.ComboBox();
+            this.label33 = new System.Windows.Forms.Label();
+            this.tbSymptomen = new System.Windows.Forms.TextBox();
+            this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             groupBox7 = new System.Windows.Forms.GroupBox();
             groupBox7.SuspendLayout();
             this.gbPersonDetails.SuspendLayout();
@@ -780,6 +784,8 @@
             // 
             // groupBox5
             // 
+            this.groupBox5.Controls.Add(this.tbSymptomen);
+            this.groupBox5.Controls.Add(this.label33);
             this.groupBox5.Controls.Add(this.btnKoppelZiekte);
             this.groupBox5.Controls.Add(this.label23);
             this.groupBox5.Controls.Add(this.label22);
@@ -787,14 +793,14 @@
             this.groupBox5.Controls.Add(this.cbPatient);
             this.groupBox5.Location = new System.Drawing.Point(921, 312);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(386, 154);
+            this.groupBox5.Size = new System.Drawing.Size(386, 210);
             this.groupBox5.TabIndex = 25;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Ziekte aan patient koppelen";
             // 
             // btnKoppelZiekte
             // 
-            this.btnKoppelZiekte.Location = new System.Drawing.Point(209, 123);
+            this.btnKoppelZiekte.Location = new System.Drawing.Point(209, 181);
             this.btnKoppelZiekte.Name = "btnKoppelZiekte";
             this.btnKoppelZiekte.Size = new System.Drawing.Size(161, 23);
             this.btnKoppelZiekte.TabIndex = 21;
@@ -849,9 +855,9 @@
             this.groupBox6.Controls.Add(this.cbLocAfspraak);
             this.groupBox6.Controls.Add(this.label24);
             this.groupBox6.Controls.Add(this.cbMedicatie);
-            this.groupBox6.Location = new System.Drawing.Point(921, 474);
+            this.groupBox6.Location = new System.Drawing.Point(921, 528);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(386, 248);
+            this.groupBox6.Size = new System.Drawing.Size(386, 194);
             this.groupBox6.TabIndex = 22;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Nieuwe afspraak toevoegen";
@@ -952,6 +958,23 @@
             this.cbMedicatie.Name = "cbMedicatie";
             this.cbMedicatie.Size = new System.Drawing.Size(200, 21);
             this.cbMedicatie.TabIndex = 0;
+            // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.Location = new System.Drawing.Point(24, 123);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(62, 13);
+            this.label33.TabIndex = 22;
+            this.label33.Text = "Symptomen";
+            // 
+            // tbSymptomen
+            // 
+            this.tbSymptomen.Location = new System.Drawing.Point(170, 115);
+            this.tbSymptomen.Multiline = true;
+            this.tbSymptomen.Name = "tbSymptomen";
+            this.tbSymptomen.Size = new System.Drawing.Size(200, 48);
+            this.tbSymptomen.TabIndex = 23;
             // 
             // Beheer_Insert
             // 
@@ -1082,5 +1105,8 @@
         private System.Windows.Forms.Label label29;
         private System.Windows.Forms.Label label28;
         private System.Windows.Forms.ComboBox cbPatientMedicatie;
+        private System.Windows.Forms.TextBox tbSymptomen;
+        private System.Windows.Forms.Label label33;
+        private System.Windows.Forms.NotifyIcon notifyIcon1;
     }
 }

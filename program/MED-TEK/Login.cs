@@ -15,7 +15,6 @@ namespace MED_TEK
     {
         Connect verbinding = new Connect();
         Miscellaneous overig = new Miscellaneous();
-        scan scan = new scan();
 
         public Login()
         {
@@ -30,6 +29,8 @@ namespace MED_TEK
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
+            scan scan = new scan(verbinding);
+
             string username = tbUsername.Text;
             string password = overig.versleutel(tbPassword.Text);
             string login = verbinding.login(username, password);
@@ -41,7 +42,7 @@ namespace MED_TEK
                 if (login == "doctor")
                 {
                     // Login locatie aanvullen zodat juiste formulier wordt geladen nadat pas is gescant
-                    verbinding.login_locatie = "doctor";
+                    verbinding.login_locatie = login;
 
                     // Open formulier van doctor
                     this.Hide();
@@ -51,7 +52,7 @@ namespace MED_TEK
                 else if (login == "ambulance")
                 {
                     // Login locatie aanvullen zodat juiste formulier wordt geladen nadat pas is gescant
-                    verbinding.login_locatie = "ambulance";
+                    verbinding.login_locatie = login;
 
                     // Open formulier van ambulance
                     this.Hide();
@@ -60,7 +61,7 @@ namespace MED_TEK
                 else if (login == "apotheek")
                 {
                     // Login locatie aanvullen zodat juiste formulier wordt geladen nadat pas is gescant
-                    verbinding.login_locatie = "apotheek";
+                    verbinding.login_locatie = login;
 
                     // Open formulier van apotheek
                     this.Hide();
@@ -69,7 +70,7 @@ namespace MED_TEK
                 else if(login == "psycholoog")
                 {
                     // Login locatie aanvullen zodat juiste formulier wordt geladen nadat pas is gescant
-                    verbinding.login_locatie = "psycholoog";
+                    verbinding.login_locatie = login;
 
                     // Open formulier van psycholoog
                     this.Hide();
@@ -78,7 +79,7 @@ namespace MED_TEK
                 else if(login == "beheer")
                 {
                     // Login locatie aanvullen zodat juiste formulier wordt geladen nadat pas is gescant
-                    verbinding.login_locatie = "beheer";
+                    verbinding.login_locatie = login;
 
                     // Open formulier van beheer   
                     this.Hide();

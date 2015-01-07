@@ -8,7 +8,7 @@ using MySql.Data;
 
 namespace MED_TEK
 {
-    class Connect
+    public class Connect
     {
         // Fields
         public MySqlConnection connection;

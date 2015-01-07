@@ -12,9 +12,11 @@ namespace MED_TEK
 {
     public partial class Apotheek : Form
     {
-        public Apotheek()
+        Connect verbinding;
+        public Apotheek(Connect _verbinding)
         {
             InitializeComponent();
+            verbinding = _verbinding;
         }
     }
 }
