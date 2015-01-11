@@ -23,9 +23,8 @@ namespace MED_TEK
         public scan(Connect _verbinding)
         {
             InitializeComponent();
-            WindowState = FormWindowState.Maximized;
-            webBrowser1.Navigate("http://www.fontys.nl");
             verbinding = _verbinding;
+            panel1.BackColor = Color.FromArgb(255, 255, 255);
 
            
 
@@ -47,38 +46,7 @@ namespace MED_TEK
             tbScan.Enabled = true;
             tbScan.Text = "";
         }
-
-        private void beheer_Click(object sender, EventArgs e)
-        {
-            
-
-            // Nieuw formulier aanmaken voor beheer van programma
-            Beheer_Insert admin = new Beheer_Insert();
-
-            // Formulier tonen
-            admin.Show();
-
-            // Huidig venster sluiten
-            this.Hide();
-        }
-
-        private void login_Click(object sender, EventArgs e)
-        {
-            string username = tbUsername.Text;
-            string password = tbPassword.Text;
-
-            string result = verbinding.login(username, password);
-
-            if(result != "")
-            {
-                MessageBox.Show("Login succesvol! Locatie: " + result);
-            }
-            else
-            {
-                MessageBox.Show("Login niet gelukt!");
-            }
-        }
-
+       
         private void timer1_Tick(object sender, EventArgs e)
         {
             if (tbScan.Text.Length == 10)

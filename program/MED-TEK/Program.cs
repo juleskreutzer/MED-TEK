@@ -16,7 +16,7 @@ namespace MED_TEK
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Beheer_Update());
+            Application.Run(new Login());
         }
     }
 }

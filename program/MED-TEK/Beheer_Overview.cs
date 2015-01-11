@@ -28,7 +28,7 @@ namespace MED_TEK
 
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
-            panel1.BackColor = Color.FromArgb(200, 200, 200);
+            panel1.BackColor = Color.FromArgb(255, 255, 255);
         }
 
 

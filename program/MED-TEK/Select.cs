@@ -63,10 +63,10 @@ namespace MED_TEK
             return data;
         }
 
-        public List<Dictionary<string, object>> Select_Patient_All(int pascode)
+        public List<Dictionary<string, object>> Select_Patient_All(string pascode)
         {
             // Deze methode retourneerd alle patientgegevens. Enkel gebruiken in het beheer gedeelte!
-            string sql = "SELECT * FROM " + prefix + "patient WHERE pascode = " + pascode;
+            string sql = "SELECT * FROM " + prefix + "patient WHERE pascode = '" + pascode + "'";
 
             var data = Connect.ExecuteQuery(sql);
             return data;

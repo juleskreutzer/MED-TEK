@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Phidgets;
+using Phidgets.Events;
 
 namespace MED_TEK
 {
@@ -44,6 +46,8 @@ namespace MED_TEK
             tbPascode.Enabled = false;
             tbZiekte.Enabled = false;
             btnUpdateZiekte.Enabled = false;
+            btnUpdatePatient.Enabled = false;
+
             // Zorgen dat alle elementen van data worden voorzien, voor zover dat nodig is
             refresh();
 
@@ -67,7 +71,7 @@ namespace MED_TEK
 
         private void btnActivate_Click(object sender, EventArgs e)
         {
-            int pascode = Convert.ToInt32(tbCode.Text);
+            string pascode = tbCode.Text;
             var data = select.Select_Patient_All(pascode);
 
             for (int i = 0; i < data.Count; ++i)
@@ -198,16 +202,24 @@ namespace MED_TEK
 
         private void btnChangeZiekte_Click(object sender, EventArgs e)
         {
-            string data = Convert.ToString(cbZiekte.SelectedItem);
-            ziekteID = Convert.ToInt32(overig.GetSubstringByString("ID ", " -", data));
-            string ziekteNaam = overig.GetSubstringByString(" - ", ".", data);
+            if (cbZiekte.SelectedItem == null)
+            {
+                MessageBox.Show("Selecteer een ziekte voordat u kunt verder gaan.");
+            }
+            else
+            {
+                string data = Convert.ToString(cbZiekte.SelectedItem);
+                ziekteID = Convert.ToInt32(overig.GetSubstringByString("ID ", " -", data));
+                string ziekteNaam = overig.GetSubstringByString(" - ", ".", data);
 
-            btnChangeZiekte.Enabled = false;
-            tbZiekte.Text = ziekteNaam;
+                btnChangeZiekte.Enabled = false;
+                cbZiekte.Enabled = false;
+                tbZiekte.Text = ziekteNaam;
 
-            // Veld en knop mogen nu gebruikt worden, dus enabled = true
-            tbZiekte.Enabled = true;
-            btnUpdateZiekte.Enabled = true;
+                // Veld en knop mogen nu gebruikt worden, dus enabled = true
+                tbZiekte.Enabled = true;
+                btnUpdateZiekte.Enabled = true;
+            }
         }
 
         private void btnUpdateZiekte_Click(object sender, EventArgs e)
@@ -226,6 +238,14 @@ namespace MED_TEK
             {
                 update.Update_Ziekte(ziekteID, ziekte);
                 MessageBox.Show("De ziekte is succesvol bijgewerk!");
+
+                Refresh();
+
+                cbZiekte.Enabled = true;
+                btnChangeZiekte.Enabled = true;
+
+                tbZiekte.Enabled = false;
+                btnUpdateZiekte.Enabled = false;
             }
 
         }
