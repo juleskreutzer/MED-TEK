@@ -63,6 +63,15 @@ namespace MED_TEK
             return data;
         }
 
+        public List<Dictionary<string, object>> Select_Patient_All(int pascode)
+        {
+            // Deze methode retourneerd alle patientgegevens. Enkel gebruiken in het beheer gedeelte!
+            string sql = "SELECT * FROM " + prefix + "patient WHERE pascode = " + pascode;
+
+            var data = Connect.ExecuteQuery(sql);
+            return data;
+        }
+
         public List<Dictionary<string, object>> Select_Medicijn()
         {
             // Deze methode retourneerd alle medicijnen die zijn opgeslagen in de database
@@ -77,7 +86,7 @@ namespace MED_TEK
         {
             // Deze methode retourneerd alle medicijnen die een patient gebruikt
 
-            string sql = "SELECT medicatie.naam FROM " + prefix + "medicatie WHERE medicatie.medicatieID = medicijn.medicijnID AND medicatie.patientID = '" + patientID + "'";
+            string sql = "SELECT " + prefix + "medicijn.naam FROM " + prefix + "medicijn, " + prefix + "medicatie WHERE  " + prefix + "medicatie.medicatieID = " + prefix + "medicijn.medicijnID AND " + prefix + "medicatie.patientID = '" + patientID + "'";
 
             var data = Connect.ExecuteQuery(sql);
             return data;
@@ -116,10 +125,11 @@ namespace MED_TEK
 
         }
 
+
         public List<Dictionary<string, object>> Select_Ziekteoverzicht(int patientID)
         {
             // Deze methode retourneerd alle ziektes die gekoppeld zijn aan een patient
-            string sql = "SELECT ziekte.naam FROM " + prefix + "ziekte WHERE ziekteoverzicht.ziekteID = ziekte.ziekteID AND ziekteoverzicht.patientID = '" + patientID + "'";
+            string sql = "SELECT " + prefix + "ziekte.naam FROM " + prefix + "ziekte, " + prefix + "ziekteoverzicht WHERE " + prefix + "ziekteoverzicht.ziekteID = " + prefix + "ziekte.ziekteID AND " + prefix + "ziekteoverzicht.patientID = '" + patientID + "'";
 
             var data = Connect.ExecuteQuery(sql);
             return data;

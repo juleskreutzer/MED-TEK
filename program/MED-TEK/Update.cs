@@ -11,7 +11,7 @@ namespace MED_TEK
         Connect verbinding = new Connect();
         string prefix = "rhbj_";
 
-        public void Update_Patient(string patientID, string voornamen, string achternaam, string geboortedatum, string bsn, string bloedgroep, string pasfoto, string email, string telefoon, string mobiel, string adres, string gemeente, string provincie, string pascode)
+        public void Update_Patient(int patientID, string voornamen, string achternaam, string geboortedatum, string bsn, string bloedgroep, string pasfoto, string email, string telefoon, string mobiel, string adres, string gemeente, string provincie, string pascode)
         {
             // Deze methode werkt de gegevens van de patient bij
 
@@ -19,7 +19,7 @@ namespace MED_TEK
             string query = " UPDATE " + prefix + "patient SET voornamen = '" + voornamen + "', achternaam = '" + achternaam +
                            "', geboortedatum = '" + geboortedatum + "', bsn = '" + bsn + "', bloedgroep = '" + bloedgroep +
                            "', pasfoto = '" + pasfoto + "', email = '" + email + "', mobiel = '" + mobiel + "', adres = '" +
-                           adres + "', gemeente = " + gemeente + "', provincie = '" + provincie + "', pascode = '" + pascode +
+                           adres + "', gemeente = '" + gemeente + "', provincie = '" + provincie + "', pascode = '" + pascode +
                            "' WHERE  patientID = '" + patientID + "'";
 
             //Nu de query uitvoering dmv execute
@@ -67,12 +67,12 @@ namespace MED_TEK
 
         }
 
-        public void Update_Ziekte(string naam)
+        public void Update_Ziekte(int ziekteID, string naam)
         {
             // Deze methode werkt een ziekte bij
 
             //string query aanmaken welke naar de database gaat
-            string query = " UPDATE " + prefix + "ziekte SET naam = " + naam + "";
+            string query = " UPDATE " + prefix + "ziekte SET naam = '" + naam + "' WHERE ziekteID = '" + ziekteID + "'";
 
             //Nu de query uitvoering dmv execute
             verbinding.Execute(query);

@@ -29,15 +29,37 @@ namespace MED_TEK
         {
             // Benodigde patientgegevens voor ambulance ophalen en weergeven
             var patientgegevens = select.Select_Patient_Auto(verbinding.patientID);
+            var ziektegegevens = select.Select_Ziekteoverzicht(verbinding.patientID);
+            var medicatiegegevens = select.Select_Medicatie(verbinding.patientID);
             int i = 0;
-            for (i = 0; i < patientgegevens.Count; ++i)
+            int j = 0;
+            int a = 0;
+            int x = 0;
+
+            for (j = 0; j < 1; ++j)
             {
-                Dictionary<string, object> row = patientgegevens[i];
-                tbVoornamen.Text = (string)row["voornamen"];
-                tbAchternaam.Text = (string)row["achternaam"];
-                tbBloedgroep.Text = (string)row["bloedgroep"];
-                string date = (string)row["geboortedatum"];
-                dtpDoB.Text = date;
+                for (i = 0; i < patientgegevens.Count; ++i)
+                {
+                    Dictionary<string, object> row = patientgegevens[i];
+                    tbVoornamen.Text = (string)row["voornamen"];
+                    tbAchternaam.Text = (string)row["achternaam"];
+                    tbBloedgroep.Text = (string)row["bloedgroep"];
+                    string date = (string)row["geboortedatum"];
+                    dtpDoB.Text = date;
+                }
+
+                for (a = 0; a < ziektegegevens.Count; ++a)
+                {
+                    Dictionary<string, object> row = ziektegegevens[a];
+                    lbZiektes.Items.Add(row["naam"]);
+                    
+                }
+
+                for (x = 0; x < medicatiegegevens.Count; ++x)
+                {
+                    Dictionary<string, object> row = medicatiegegevens[x];
+                    lbMedicatie.Items.Add(row["naam"]);
+                }
             }
 
             // Pasfoto van patient laten zien in picturebox

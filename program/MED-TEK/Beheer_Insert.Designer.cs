@@ -100,6 +100,8 @@
             this.label19 = new System.Windows.Forms.Label();
             this.tbmedicijn = new System.Windows.Forms.TextBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.tbSymptomen = new System.Windows.Forms.TextBox();
+            this.label33 = new System.Windows.Forms.Label();
             this.btnKoppelZiekte = new System.Windows.Forms.Button();
             this.label23 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
@@ -117,8 +119,6 @@
             this.cbLocAfspraak = new System.Windows.Forms.ComboBox();
             this.label24 = new System.Windows.Forms.Label();
             this.cbMedicatie = new System.Windows.Forms.ComboBox();
-            this.label33 = new System.Windows.Forms.Label();
-            this.tbSymptomen = new System.Windows.Forms.TextBox();
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             groupBox7 = new System.Windows.Forms.GroupBox();
             groupBox7.SuspendLayout();
@@ -251,9 +251,9 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(12, 24);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(292, 39);
+            this.label1.Size = new System.Drawing.Size(549, 39);
             this.label1.TabIndex = 0;
-            this.label1.Text = "SMART PATIENT";
+            this.label1.Text = "SMART PATIENT - INSERT DATA";
             // 
             // label4
             // 
@@ -798,6 +798,23 @@
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Ziekte aan patient koppelen";
             // 
+            // tbSymptomen
+            // 
+            this.tbSymptomen.Location = new System.Drawing.Point(170, 115);
+            this.tbSymptomen.Multiline = true;
+            this.tbSymptomen.Name = "tbSymptomen";
+            this.tbSymptomen.Size = new System.Drawing.Size(200, 48);
+            this.tbSymptomen.TabIndex = 23;
+            // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.Location = new System.Drawing.Point(24, 123);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(62, 13);
+            this.label33.TabIndex = 22;
+            this.label33.Text = "Symptomen";
+            // 
             // btnKoppelZiekte
             // 
             this.btnKoppelZiekte.Location = new System.Drawing.Point(209, 181);
@@ -958,23 +975,6 @@
             this.cbMedicatie.Name = "cbMedicatie";
             this.cbMedicatie.Size = new System.Drawing.Size(200, 21);
             this.cbMedicatie.TabIndex = 0;
-            // 
-            // label33
-            // 
-            this.label33.AutoSize = true;
-            this.label33.Location = new System.Drawing.Point(24, 123);
-            this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(62, 13);
-            this.label33.TabIndex = 22;
-            this.label33.Text = "Symptomen";
-            // 
-            // tbSymptomen
-            // 
-            this.tbSymptomen.Location = new System.Drawing.Point(170, 115);
-            this.tbSymptomen.Multiline = true;
-            this.tbSymptomen.Name = "tbSymptomen";
-            this.tbSymptomen.Size = new System.Drawing.Size(200, 48);
-            this.tbSymptomen.TabIndex = 23;
             // 
             // Beheer_Insert
             // 
