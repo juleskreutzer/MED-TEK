@@ -51,6 +51,10 @@ namespace MED_TEK
             // Zorgen dat alle elementen van data worden voorzien, voor zover dat nodig is
             refresh();
 
+            // Format van DTP aanpassen zodat er geen fouten onstaan met verwerking van SQL
+            dtpDoB.Format = DateTimePickerFormat.Custom;
+            dtpDoB.CustomFormat = "yyyy-MM-dd";
+
 
         }
 
@@ -109,6 +113,7 @@ namespace MED_TEK
 
                 tbCode.Enabled = false;
                 btnActivate.Enabled = false;
+                btnUpdatePatient.Enabled = true;
 
             }
 
@@ -195,8 +200,10 @@ namespace MED_TEK
 
             if (error == 0)
             {
-                update.Update_Patient(verbinding.patientID, voornamen, achternaam, DoB, bsn, bloedgroep, pasfoto, email, telefoon, mobiel, adres, gemeente, provincie, pascode);
+                MessageBox.Show("geboortedatum waarde: " + dtpDoB.Text);
+                /*update.Update_Patient(verbinding.patientID, voornamen, achternaam, DoB, bsn, bloedgroep, pasfoto, email, telefoon, mobiel, adres, gemeente, provincie, pascode);
                 MessageBox.Show("De patientgegevens zijn succesvol bijgewerkt!");
+                 * */
             }
         }
 
