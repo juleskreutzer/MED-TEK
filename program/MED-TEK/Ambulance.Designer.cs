@@ -30,6 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Ambulance));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.linkLabel2 = new System.Windows.Forms.LinkLabel();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.lbMedicatie = new System.Windows.Forms.ListBox();
             this.lbZiektes = new System.Windows.Forms.ListBox();
@@ -43,8 +45,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
-            this.linkLabel2 = new System.Windows.Forms.LinkLabel();
             this.panel1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -64,31 +64,57 @@
             this.panel1.TabIndex = 0;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
+            // linkLabel2
+            // 
+            this.linkLabel2.AutoSize = true;
+            this.linkLabel2.Location = new System.Drawing.Point(1520, 916);
+            this.linkLabel2.Name = "linkLabel2";
+            this.linkLabel2.Size = new System.Drawing.Size(86, 13);
+            this.linkLabel2.TabIndex = 4;
+            this.linkLabel2.TabStop = true;
+            this.linkLabel2.Text = "Patient afmelden";
+            this.linkLabel2.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel2_LinkClicked);
+            // 
+            // linkLabel1
+            // 
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Location = new System.Drawing.Point(1632, 916);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(119, 13);
+            this.linkLabel1.TabIndex = 3;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "Afmelden bij programma";
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.lbMedicatie);
             this.groupBox2.Controls.Add(this.lbZiektes);
-            this.groupBox2.Location = new System.Drawing.Point(432, 34);
+            this.groupBox2.Location = new System.Drawing.Point(778, 34);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(369, 416);
+            this.groupBox2.Size = new System.Drawing.Size(700, 895);
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Ziekte Patient";
             // 
             // lbMedicatie
             // 
+            this.lbMedicatie.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbMedicatie.FormattingEnabled = true;
-            this.lbMedicatie.Location = new System.Drawing.Point(7, 130);
+            this.lbMedicatie.ItemHeight = 25;
+            this.lbMedicatie.Location = new System.Drawing.Point(6, 451);
             this.lbMedicatie.Name = "lbMedicatie";
-            this.lbMedicatie.Size = new System.Drawing.Size(356, 134);
+            this.lbMedicatie.Size = new System.Drawing.Size(688, 404);
             this.lbMedicatie.TabIndex = 1;
             // 
             // lbZiektes
             // 
+            this.lbZiektes.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbZiektes.FormattingEnabled = true;
+            this.lbZiektes.ItemHeight = 25;
             this.lbZiektes.Location = new System.Drawing.Point(6, 25);
             this.lbZiektes.Name = "lbZiektes";
-            this.lbZiektes.Size = new System.Drawing.Size(357, 95);
+            this.lbZiektes.Size = new System.Drawing.Size(688, 404);
             this.lbZiektes.TabIndex = 0;
             // 
             // groupBox1
@@ -104,104 +130,90 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(22, 34);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(336, 416);
+            this.groupBox1.Size = new System.Drawing.Size(700, 895);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Patient Gegevens";
             // 
             // pbPasfoto
             // 
-            this.pbPasfoto.Location = new System.Drawing.Point(9, 148);
+            this.pbPasfoto.Location = new System.Drawing.Point(93, 300);
             this.pbPasfoto.Name = "pbPasfoto";
-            this.pbPasfoto.Size = new System.Drawing.Size(321, 262);
+            this.pbPasfoto.Size = new System.Drawing.Size(500, 500);
             this.pbPasfoto.TabIndex = 8;
             this.pbPasfoto.TabStop = false;
             // 
             // tbBloedgroep
             // 
-            this.tbBloedgroep.Location = new System.Drawing.Point(112, 112);
+            this.tbBloedgroep.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbBloedgroep.Location = new System.Drawing.Point(192, 200);
             this.tbBloedgroep.Name = "tbBloedgroep";
-            this.tbBloedgroep.Size = new System.Drawing.Size(220, 20);
+            this.tbBloedgroep.Size = new System.Drawing.Size(502, 31);
             this.tbBloedgroep.TabIndex = 7;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(12, 115);
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(6, 203);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(61, 13);
+            this.label4.Size = new System.Drawing.Size(122, 25);
             this.label4.TabIndex = 6;
             this.label4.Text = "Bloedgroep";
             // 
             // dtpDoB
             // 
-            this.dtpDoB.Location = new System.Drawing.Point(112, 77);
+            this.dtpDoB.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpDoB.Location = new System.Drawing.Point(192, 139);
             this.dtpDoB.Name = "dtpDoB";
-            this.dtpDoB.Size = new System.Drawing.Size(220, 20);
+            this.dtpDoB.Size = new System.Drawing.Size(502, 31);
             this.dtpDoB.TabIndex = 5;
             // 
             // tbAchternaam
             // 
-            this.tbAchternaam.Location = new System.Drawing.Point(112, 51);
+            this.tbAchternaam.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbAchternaam.Location = new System.Drawing.Point(192, 80);
             this.tbAchternaam.Name = "tbAchternaam";
-            this.tbAchternaam.Size = new System.Drawing.Size(220, 20);
+            this.tbAchternaam.Size = new System.Drawing.Size(502, 31);
             this.tbAchternaam.TabIndex = 4;
             // 
             // tbVoornamen
             // 
-            this.tbVoornamen.Location = new System.Drawing.Point(112, 25);
+            this.tbVoornamen.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbVoornamen.Location = new System.Drawing.Point(192, 25);
             this.tbVoornamen.Name = "tbVoornamen";
-            this.tbVoornamen.Size = new System.Drawing.Size(220, 20);
+            this.tbVoornamen.Size = new System.Drawing.Size(502, 31);
             this.tbVoornamen.TabIndex = 3;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 80);
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(6, 144);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(80, 13);
+            this.label3.Size = new System.Drawing.Size(160, 25);
             this.label3.TabIndex = 2;
             this.label3.Text = "Geboortedatum";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(9, 54);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(6, 83);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(64, 13);
+            this.label2.Size = new System.Drawing.Size(127, 25);
             this.label2.TabIndex = 1;
             this.label2.Text = "Achternaam";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(6, 28);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(61, 13);
+            this.label1.Size = new System.Drawing.Size(122, 25);
             this.label1.TabIndex = 0;
             this.label1.Text = "Voornamen";
-            // 
-            // linkLabel1
-            // 
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(1632, 916);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(119, 13);
-            this.linkLabel1.TabIndex = 3;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "Afmelden bij programma";
-            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
-            // 
-            // linkLabel2
-            // 
-            this.linkLabel2.AutoSize = true;
-            this.linkLabel2.Location = new System.Drawing.Point(1520, 916);
-            this.linkLabel2.Name = "linkLabel2";
-            this.linkLabel2.Size = new System.Drawing.Size(86, 13);
-            this.linkLabel2.TabIndex = 4;
-            this.linkLabel2.TabStop = true;
-            this.linkLabel2.Text = "Patient afmelden";
-            this.linkLabel2.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel2_LinkClicked);
             // 
             // Ambulance
             // 

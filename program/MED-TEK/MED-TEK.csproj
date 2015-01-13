@@ -140,6 +140,9 @@
     <EmbeddedResource Include="Ambulance.resx">
       <DependentUpon>Ambulance.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Apotheek.resx">
+      <DependentUpon>Apotheek.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Beheer_Insert.resx">
       <DependentUpon>Beheer_Insert.cs</DependentUpon>
     </EmbeddedResource>
@@ -148,6 +151,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Beheer_Update.resx">
       <DependentUpon>Beheer_Update.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Doctor.resx">
+      <DependentUpon>Doctor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
