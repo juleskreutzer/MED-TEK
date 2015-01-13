@@ -125,6 +125,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "Beheer_Overview";
             this.Text = "Beheer Keuze Overzicht";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Beheer_Overview_FormClosing);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Beheer_Overview_FormClosed);
             this.Load += new System.EventHandler(this.Beheer_Overview_Load);
             this.panel1.ResumeLayout(false);

@@ -71,7 +71,12 @@ namespace MED_TEK
 
         private void Beheer_Overview_FormClosed(object sender, FormClosedEventArgs e)
         {
-            
+
+        }
+
+        private void Beheer_Overview_FormClosing(object sender, FormClosingEventArgs e)
+        {
+
         }
     }
 }

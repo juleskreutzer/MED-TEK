@@ -83,5 +83,10 @@ namespace MED_TEK
         {
             panel1.BackColor = Color.FromArgb(255, 255, 255);
         }
+
+        private void Ambulance_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }
