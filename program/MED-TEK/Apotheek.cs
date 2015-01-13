@@ -18,5 +18,10 @@ namespace MED_TEK
             InitializeComponent();
             verbinding = _verbinding;
         }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
