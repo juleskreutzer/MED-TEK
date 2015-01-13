@@ -97,5 +97,18 @@ namespace MED_TEK
             login.Show();
             
         }
+
+        private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            // Patient afmelden
+            // Gegevens weghalen en scan form weergeven
+
+            verbinding.patientID = 0; // int, dus null gaat niet
+            verbinding.pasfoto = null;
+
+            scan scan = new scan(verbinding);
+            this.Hide();
+            scan.Show();
+        }
     }
 }
