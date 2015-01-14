@@ -420,7 +420,7 @@ namespace MED_TEK
         {
             if(tbPascodeMedicatie.TextLength == 8)
             {
-                var medicatie = select.Select_PatientID(Convert.ToString(tbPascodeMedicatie.Text);
+                var medicatie = select.Select_PatientID(Convert.ToString(tbPascodeMedicatie.Text));
 
                 for(int i = 0; i < medicatie.Count; ++i)
                 {

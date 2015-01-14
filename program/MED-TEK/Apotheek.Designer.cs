@@ -28,9 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-<<<<<<< HEAD
-        
-=======
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.lbMedicatie = new System.Windows.Forms.ListBox();
             this.dtpGeboorte = new System.Windows.Forms.DateTimePicker();
@@ -62,7 +59,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
->>>>>>> origin/master
             this.SuspendLayout();
             // 
             // groupBox1
@@ -337,7 +333,6 @@
             this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
 
-<<<<<<< HEAD
             this.components = new System.ComponentModel.Container();
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Text = "Apotheek";
@@ -346,8 +341,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Text = "Apotheek";
 
-=======
->>>>>>> origin/master
         }
 
         #endregion

@@ -42,3 +42,6 @@ C:\Users\Rick\Documents\GitHub\MED-TEK\program\MED-TEK\obj\Debug\MED_TEK.Beheer_
 C:\Users\Rick\Documents\GitHub\MED-TEK\program\MED-TEK\obj\Debug\MED_TEK.Apotheek.resources
 C:\Users\Rick\Documents\GitHub\MED-TEK\program\MED-TEK\obj\Debug\MED_TEK.Doctor.resources
 C:\Users\Rick\Documents\GitHub\MED-TEK\program\MED-TEK\obj\Debug\MED_TEK.Psycholoog.resources
+\\vmware-host\Shared Folders\Documents\github\MED-TEK\program\MED-TEK\obj\Debug\MED_TEK.Apotheek.resources
+\\vmware-host\Shared Folders\Documents\github\MED-TEK\program\MED-TEK\obj\Debug\MED_TEK.Doctor.resources
+\\vmware-host\Shared Folders\Documents\github\MED-TEK\program\MED-TEK\obj\Debug\MED_TEK.Psycholoog.resources
