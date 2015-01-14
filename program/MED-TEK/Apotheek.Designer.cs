@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
 <<<<<<< HEAD
+<<<<<<< HEAD
             this.SuspendLayout();
             // 
 =======
@@ -210,6 +211,11 @@
 >>>>>>> FETCH_HEAD
             this.ResumeLayout(false);
 
+=======
+            this.components = new System.ComponentModel.Container();
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Text = "Apotheek";
+>>>>>>> parent of 0d7d8ba... latest updates
         }
 
         #endregion
