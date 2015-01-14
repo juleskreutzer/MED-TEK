@@ -57,6 +57,8 @@ namespace MED_TEK
                     tbGebruiksStart.Text = (string) row["gebruikstart"];
                     tbGebruiksEinde.Text = (string) row["gebruikeind"];
                     tbHoeveelheid.Text = (string) row["hoeveelheid"];
+
+                    
                 }
 
                 for (z = 0; z < medicijngegevens.Count; ++z)
@@ -65,6 +67,13 @@ namespace MED_TEK
                     tbNaamMedicijn.Text = (string) row["naam"];
                     lbGebruikMedicijn.Text = (string) row["gebruik"];
                     lbBijwerkingenMedicijn.Text = (string) row["bijwerking"];
+
+                    
+                }
+
+                if (cbOpgehaald.Checked)
+                {
+
                 }
             }
         }

@@ -34,13 +34,13 @@
             this.tbAdres = new System.Windows.Forms.TextBox();
             this.tbAchternaam = new System.Windows.Forms.TextBox();
             this.tbVoorNamen = new System.Windows.Forms.TextBox();
-            this.cbActief = new System.Windows.Forms.CheckBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.cbOpgehaald = new System.Windows.Forms.CheckBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.tbHoeveelheid = new System.Windows.Forms.TextBox();
             this.tbGebruiksEinde = new System.Windows.Forms.TextBox();
@@ -49,12 +49,12 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.tbNaamMedicijn = new System.Windows.Forms.TextBox();
-            this.lbGebruikMedicijn = new System.Windows.Forms.ListBox();
             this.lbBijwerkingenMedicijn = new System.Windows.Forms.ListBox();
+            this.lbGebruikMedicijn = new System.Windows.Forms.ListBox();
+            this.tbNaamMedicijn = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -120,16 +120,6 @@
             this.tbVoorNamen.Size = new System.Drawing.Size(150, 20);
             this.tbVoorNamen.TabIndex = 8;
             // 
-            // cbActief
-            // 
-            this.cbActief.AutoSize = true;
-            this.cbActief.Location = new System.Drawing.Point(20, 169);
-            this.cbActief.Name = "cbActief";
-            this.cbActief.Size = new System.Drawing.Size(92, 17);
-            this.cbActief.TabIndex = 7;
-            this.cbActief.Text = "Actief Ja/Nee";
-            this.cbActief.UseVisualStyleBackColor = true;
-            // 
             // pictureBox1
             // 
             this.pictureBox1.Location = new System.Drawing.Point(35, 262);
@@ -183,13 +173,23 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Voornamen";
             // 
+            // cbOpgehaald
+            // 
+            this.cbOpgehaald.AutoSize = true;
+            this.cbOpgehaald.Location = new System.Drawing.Point(20, 169);
+            this.cbOpgehaald.Name = "cbOpgehaald";
+            this.cbOpgehaald.Size = new System.Drawing.Size(84, 17);
+            this.cbOpgehaald.TabIndex = 7;
+            this.cbOpgehaald.Text = "Opgehaald?";
+            this.cbOpgehaald.UseVisualStyleBackColor = true;
+            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.tbHoeveelheid);
             this.groupBox2.Controls.Add(this.tbGebruiksEinde);
             this.groupBox2.Controls.Add(this.tbGebruiksStart);
             this.groupBox2.Controls.Add(this.label9);
-            this.groupBox2.Controls.Add(this.cbActief);
+            this.groupBox2.Controls.Add(this.cbOpgehaald);
             this.groupBox2.Controls.Add(this.label8);
             this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Location = new System.Drawing.Point(430, 12);
@@ -219,7 +219,6 @@
             this.tbGebruiksStart.Name = "tbGebruiksStart";
             this.tbGebruiksStart.Size = new System.Drawing.Size(130, 20);
             this.tbGebruiksStart.TabIndex = 5;
-            this.tbGebruiksStart.Text = "Dicti";
             // 
             // label9
             // 
@@ -263,23 +262,28 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Medicijn informatie";
             // 
-            // label10
+            // lbBijwerkingenMedicijn
             // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(17, 28);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(35, 13);
-            this.label10.TabIndex = 0;
-            this.label10.Text = "Naam";
+            this.lbBijwerkingenMedicijn.FormattingEnabled = true;
+            this.lbBijwerkingenMedicijn.Location = new System.Drawing.Point(154, 190);
+            this.lbBijwerkingenMedicijn.Name = "lbBijwerkingenMedicijn";
+            this.lbBijwerkingenMedicijn.Size = new System.Drawing.Size(130, 95);
+            this.lbBijwerkingenMedicijn.TabIndex = 5;
             // 
-            // label11
+            // lbGebruikMedicijn
             // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(17, 78);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(44, 13);
-            this.label11.TabIndex = 1;
-            this.label11.Text = "Gebruik";
+            this.lbGebruikMedicijn.FormattingEnabled = true;
+            this.lbGebruikMedicijn.Location = new System.Drawing.Point(154, 78);
+            this.lbGebruikMedicijn.Name = "lbGebruikMedicijn";
+            this.lbGebruikMedicijn.Size = new System.Drawing.Size(130, 95);
+            this.lbGebruikMedicijn.TabIndex = 4;
+            // 
+            // tbNaamMedicijn
+            // 
+            this.tbNaamMedicijn.Location = new System.Drawing.Point(154, 28);
+            this.tbNaamMedicijn.Name = "tbNaamMedicijn";
+            this.tbNaamMedicijn.Size = new System.Drawing.Size(130, 20);
+            this.tbNaamMedicijn.TabIndex = 3;
             // 
             // label12
             // 
@@ -290,28 +294,23 @@
             this.label12.TabIndex = 2;
             this.label12.Text = "Bijwerkingen";
             // 
-            // tbNaamMedicijn
+            // label11
             // 
-            this.tbNaamMedicijn.Location = new System.Drawing.Point(154, 28);
-            this.tbNaamMedicijn.Name = "tbNaamMedicijn";
-            this.tbNaamMedicijn.Size = new System.Drawing.Size(130, 20);
-            this.tbNaamMedicijn.TabIndex = 3;
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(17, 78);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(44, 13);
+            this.label11.TabIndex = 1;
+            this.label11.Text = "Gebruik";
             // 
-            // lbGebruikMedicijn
+            // label10
             // 
-            this.lbGebruikMedicijn.FormattingEnabled = true;
-            this.lbGebruikMedicijn.Location = new System.Drawing.Point(154, 78);
-            this.lbGebruikMedicijn.Name = "lbGebruikMedicijn";
-            this.lbGebruikMedicijn.Size = new System.Drawing.Size(130, 95);
-            this.lbGebruikMedicijn.TabIndex = 4;
-            // 
-            // lbBijwerkingenMedicijn
-            // 
-            this.lbBijwerkingenMedicijn.FormattingEnabled = true;
-            this.lbBijwerkingenMedicijn.Location = new System.Drawing.Point(154, 190);
-            this.lbBijwerkingenMedicijn.Name = "lbBijwerkingenMedicijn";
-            this.lbBijwerkingenMedicijn.Size = new System.Drawing.Size(130, 95);
-            this.lbBijwerkingenMedicijn.TabIndex = 5;
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(17, 28);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(35, 13);
+            this.label10.TabIndex = 0;
+            this.label10.Text = "Naam";
             // 
             // Apotheek
             // 
@@ -348,7 +347,7 @@
         private System.Windows.Forms.TextBox tbAdres;
         private System.Windows.Forms.TextBox tbAchternaam;
         private System.Windows.Forms.TextBox tbVoorNamen;
-        private System.Windows.Forms.CheckBox cbActief;
+        private System.Windows.Forms.CheckBox cbOpgehaald;
         private System.Windows.Forms.DateTimePicker dtpGeboorte;
         private System.Windows.Forms.ListBox lbMedicatie;
         private System.Windows.Forms.GroupBox groupBox2;
