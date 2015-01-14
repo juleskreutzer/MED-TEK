@@ -20,6 +20,8 @@ namespace MED_TEK
         Update update = new Update();
         Miscellaneous overig = new Miscellaneous();
 
+        string userpassword;
+
         int ziekteID;
 
         public Beheer_Update()
@@ -29,6 +31,18 @@ namespace MED_TEK
         }
 
         private void Beheer_Update_Load(object sender, EventArgs e)
+        {
+            // Zorgen dat alle elementen van data worden voorzien, voor zover dat nodig is
+            refresh();
+
+            // Format van DTP aanpassen zodat er geen fouten onstaan met verwerking van SQL
+            dtpDoB.Format = DateTimePickerFormat.Custom;
+            dtpDoB.CustomFormat = "yyyy-MM-dd";
+
+
+        }
+
+        public void refresh()
         {
             // alle textboxes van patientgegevens uitschakelen, totdat patient gegevens worden opgehaald.
             tbVoornamen.Enabled = false;
@@ -52,21 +66,16 @@ namespace MED_TEK
             tbBijwerkingMedicijn.Enabled = false;
             btnUpdateMedicijn.Enabled = false;
 
-            // Zorgen dat alle elementen van data worden voorzien, voor zover dat nodig is
-            refresh();
+            // Gebruiker aanpassen
+            tbPwdNew.Enabled = false;
+            tbPwdNewRepeat.Enabled = false;
+            tbPwdOld.Enabled = false;
+            btnUpdatePwd.Enabled = false;
 
-            // Format van DTP aanpassen zodat er geen fouten onstaan met verwerking van SQL
-            dtpDoB.Format = DateTimePickerFormat.Custom;
-            dtpDoB.CustomFormat = "yyyy-MM-dd";
-
-
-        }
-
-        public void refresh()
-        {
             // form elementen van data voorzien.
             var ziekte = select.Select_Ziekte();
             var medicijn = select.Select_Medicijn();
+            var user = select.Select_User_Name();
 
             for (int i = 0; i < 1; ++i)
             {
@@ -79,6 +88,11 @@ namespace MED_TEK
                 {
                     Dictionary<string, object> row = medicijn[b];
                     cbSelectMedicijn.Items.Add("ID " + row["medicijnID"] + " - " + row["naam"] + ".");
+                }
+                for(int c = 0; c < user.Count; ++c)
+                {
+                    Dictionary<string, object> row = user[c];
+                    cbSelectUser.Items.Add(row["username"]);
                 }
             }
         }
@@ -210,10 +224,10 @@ namespace MED_TEK
 
             if (error == 0)
             {
-                MessageBox.Show("geboortedatum waarde: " + dtpDoB.Text);
-                /*update.Update_Patient(verbinding.patientID, voornamen, achternaam, DoB, bsn, bloedgroep, pasfoto, email, telefoon, mobiel, adres, gemeente, provincie, pascode);
+                update.Update_Patient(verbinding.patientID, voornamen, achternaam, DoB, bsn, bloedgroep, pasfoto, email, telefoon, mobiel, adres, gemeente, provincie, pascode);
                 MessageBox.Show("De patientgegevens zijn succesvol bijgewerkt!");
-                 * */
+
+                refresh();
             }
         }
 
@@ -256,7 +270,7 @@ namespace MED_TEK
                 update.Update_Ziekte(ziekteID, ziekte);
                 MessageBox.Show("De ziekte is succesvol bijgewerk!");
 
-                Refresh();
+                refresh();
 
                 cbZiekte.Enabled = true;
                 btnChangeZiekte.Enabled = true;
@@ -277,7 +291,6 @@ namespace MED_TEK
             {
                 string data = Convert.ToString(cbSelectMedicijn.SelectedItem);
                 string medicijnID = overig.GetSubstringByString("ID ", " -", data);
-                MessageBox.Show("ziekteID is " + medicijnID);
                 cbSelectMedicijn.Enabled = false;
                 btnChangeMedicijn.Enabled = false;
 
@@ -285,7 +298,123 @@ namespace MED_TEK
                 tbMedicijnNaam.Enabled = true;
                 tbBijwerkingMedicijn.Enabled = true;
                 tbGebruikMedicijn.Enabled = true;
+                btnUpdateMedicijn.Enabled = true;
+
+                // We weten het medicijn ID, juiste elementen vullen met gegevens
+                var medicijn = select.Select_Medicijn_Data(Convert.ToInt32(medicijnID));
+
+                for (int i = 0; i < medicijn.Count; ++i)
+                {
+                    Dictionary<string, object> row = medicijn[i];
+                    tbMedicijnNaam.Text = row["naam"].ToString();
+                    tbGebruikMedicijn.Text = row["gebruik"].ToString();
+                    tbBijwerkingMedicijn.Text = row["bijwerking"].ToString();
+                }
             }
         }
+
+        private void btnUpdateMedicijn_Click(object sender, EventArgs e)
+        {
+            string naam = tbMedicijnNaam.Text;
+            string gebruik = tbGebruikMedicijn.Text;
+            string bijwerking = tbBijwerkingMedicijn.Text;
+
+            int error = 0;
+
+            if(naam == "")
+            {
+                ++error;
+                MessageBox.Show("Geef een naam op van de medicijn!");
+            }
+            if (gebruik == "")
+            {
+                ++error;
+                MessageBox.Show("Geef het gebruik van het medicijn op!");
+            }
+            if (bijwerking == "")
+            {
+                ++error;
+                MessageBox.Show("Geef een bijwerking voor het medicijn op!");
+            }
+
+            if(error == 0)
+            {
+                int medicijnID = Convert.ToInt32(overig.GetSubstringByString("ID ", " -", cbSelectMedicijn.Text));
+                update.Update_Medicijn(medicijnID, naam, gebruik, bijwerking);
+                MessageBox.Show("Medicijn succesvol aangepast!");
+
+                refresh();
+            }
+        }
+
+        private void btnChangeUser_Click(object sender, EventArgs e)
+        {
+            if (cbSelectUser.SelectedItem != null)
+            {
+                tbUsername.Text = cbSelectUser.Text;
+                cbSelectUser.Enabled = false;
+                btnChangeUser.Enabled = false;
+
+                tbUsername.Enabled = true;
+                tbPwdNew.Enabled = true;
+                tbPwdNewRepeat.Enabled = true;
+                tbPwdOld.Enabled = true;
+                btnUpdatePwd.Enabled = true;
+
+                var data = select.Select_User_Password(Convert.ToString(cbSelectUser.SelectedItem));
+
+                for(int i = 0; i < data.Count; ++i)
+                {
+                    Dictionary<string, object> row = data[i];
+                    userpassword = (string)(row["password"]);
+                }
+            }
+        }
+
+        private void btnUpdatePwd_Click(object sender, EventArgs e)
+        {
+            string oldpassword = overig.versleutel(tbPwdOld.Text);
+            string newPwd = overig.versleutel(tbPwdNew.Text);
+            string newPwdCheck = overig.versleutel(tbPwdNewRepeat.Text);
+            string username = tbUsername.Text;
+
+            int error = 0;
+
+            if (oldpassword == "")
+            {
+                ++error;
+                MessageBox.Show("Vul het oude wachtwoord in!");
+            }
+            if (oldpassword != userpassword)
+            {
+                ++error;
+                MessageBox.Show("Het oude wachtwoord is onjuist.");
+            }
+            if(newPwd == "")
+            {
+                ++error;
+                MessageBox.Show("Vul een nieuw wachtwoord in!");
+            }
+            if(newPwdCheck == "")
+            {
+                ++error;
+                MessageBox.Show("Herhaal het wachtwoord opnieuw.");
+            }
+            if (newPwd != newPwdCheck)
+            {
+                ++error;
+                MessageBox.Show("Beide nieuwe wachtwoorden komen niet overeen.");
+            }
+
+            if(error == 0)
+            {
+                string password = newPwd;
+                update.Update_User(username, password);
+                MessageBox.Show("Het wachtwoord is succesvol gewijzigd!");
+
+                refresh();
+            }
+        }
+
     }
 }

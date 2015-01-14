@@ -27,13 +27,13 @@ namespace MED_TEK
 
         }
 
-        public void Update_Medicijn(string medicijnID, string naam, string gebruik, string bijwerking)
+        public void Update_Medicijn(int medicijnID, string naam, string gebruik, string bijwerking)
         {
             // Deze methode werkt de gegevens van een medicijn bij
 
             //string query aanmaken welke naar de database gaat
-            string query = " UPDATE " + prefix + "medicijn SET naam = " + naam + ", gebruik = " + gebruik +
-                           ", bijwerking = " + bijwerking + "";
+            string query = " UPDATE " + prefix + "medicijn SET naam = '" + naam + "', gebruik = '" + gebruik +
+                           "', bijwerking = '" + bijwerking + "' WHERE medicijnID = '" + medicijnID + "'";
 
             //Nu de query uitvoering dmv execute
             verbinding.Execute(query);
@@ -90,6 +90,15 @@ namespace MED_TEK
             //Nu de query uitvoering dmv execute
             verbinding.Execute(query);
 
+        }
+
+        public void Update_User(string username, string password)
+        {
+            // Deze methode werkt de gegevens van een gebruik bij om in te loggen bij Smart Patient
+
+            string sql = "UPDATE " + prefix + "login SET password = '" + password + "' WHERE username = '" + username + "'";
+
+            verbinding.Execute(sql);
         }
     }
 }

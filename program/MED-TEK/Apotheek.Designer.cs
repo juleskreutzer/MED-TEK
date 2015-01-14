@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+        
             this.SuspendLayout();
             // 
             // Apotheek
@@ -43,6 +44,11 @@
             this.components = new System.ComponentModel.Container();
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Text = "Apotheek";
+
+            this.components = new System.ComponentModel.Container();
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Text = "Apotheek";
+
         }
 
         #endregion

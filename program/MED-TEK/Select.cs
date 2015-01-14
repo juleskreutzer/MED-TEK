@@ -82,6 +82,15 @@ namespace MED_TEK
 
         }
 
+        public List<Dictionary<string, object>> Select_Medicijn_Data(int medicijnID)
+        {
+            string sql = "SELECT naam, gebruik, bijwerking FROM " + prefix + "medicijn WHERE medicijnID = '" + medicijnID + "'";
+
+            var data = Connect.ExecuteQuery(sql);
+            return data;
+        }
+
+
         public List<Dictionary<string, object>> Select_Medicatie(int patientID)
         {
             // Deze methode retourneerd alle medicijnen die een patient gebruikt
@@ -140,6 +149,23 @@ namespace MED_TEK
         {
             // Deze methode retourneerd een lijst van alle locaties in de database met bijbehorende ID
             string sql = "SELECT * FROM " + prefix + "locatie";
+
+            var data = Connect.ExecuteQuery(sql);
+            return data;
+        }
+
+        public List<Dictionary<string, object>> Select_User_Name()
+        {
+            // Deze methode retourneerd een lijst van alle gebruikersnamen voor het inloggen bij Smart Patient
+            string sql = "SELECT username FROM " + prefix + "login";
+
+            var data = Connect.ExecuteQuery(sql);
+            return data;
+        }
+
+        public List<Dictionary<string, object>> Select_User_Password(string username)
+        {
+            string sql = "SELECT password FROM " + prefix + "login WHERE username = '" + username + "'";
 
             var data = Connect.ExecuteQuery(sql);
             return data;
