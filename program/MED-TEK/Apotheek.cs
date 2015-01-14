@@ -32,10 +32,12 @@ namespace MED_TEK
             //benodigde patiëntgegevens ophalen en weergeven
             var patientgegevens = select.Select_Patient_Auto(verbinding.patientID);
             var medicatiegegevens = select.Select_Medicatie(verbinding.patientID);
+            var medicijngegevens = select.Select_Medicijn();
 
             int i = 0;
             int j = 0;
             int a = 0;
+            int z = 0;
 
             for (i = 0; i < 1; ++i)
             {
@@ -52,7 +54,17 @@ namespace MED_TEK
                 for (a = 0; a < medicatiegegevens.Count; ++a)
                 {
                     Dictionary<string, object> row = medicatiegegevens[a];
-                    
+                    tbGebruiksStart.Text = (string) row["gebruikstart"];
+                    tbGebruiksEinde.Text = (string) row["gebruikeind"];
+                    tbHoeveelheid.Text = (string) row["hoeveelheid"];
+                }
+
+                for (z = 0; z < medicijngegevens.Count; ++z)
+                {
+                    Dictionary<string, object> row = medicijngegevens[z];
+                    tbNaamMedicijn.Text = (string) row["naam"];
+                    lbGebruikMedicijn.Text = (string) row["gebruik"];
+                    lbBijwerkingenMedicijn.Text = (string) row["bijwerking"];
                 }
             }
         }
