@@ -72,6 +72,14 @@ namespace MED_TEK
             return data;
         }
 
+        public List<Dictionary<string, object>> Select_PatientID(string pascode)
+        {
+            string sql = "SELECT patientID FROM " + prefix + "patient WHERE pascode = '" + pascode + "'";
+
+            var data = Connect.ExecuteQuery(sql);
+            return data;
+        }
+
         public List<Dictionary<string, object>> Select_Medicijn()
         {
             // Deze methode retourneerd alle medicijnen die zijn opgeslagen in de database

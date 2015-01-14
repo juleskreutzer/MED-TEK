@@ -82,24 +82,29 @@
             this.label18 = new System.Windows.Forms.Label();
             this.cbSelectMedicijn = new System.Windows.Forms.ComboBox();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.cbSelectUser = new System.Windows.Forms.ComboBox();
-            this.label22 = new System.Windows.Forms.Label();
-            this.btnChangeUser = new System.Windows.Forms.Button();
-            this.tbUsername = new System.Windows.Forms.TextBox();
-            this.label23 = new System.Windows.Forms.Label();
-            this.tbPwdOld = new System.Windows.Forms.TextBox();
-            this.label24 = new System.Windows.Forms.Label();
-            this.tbPwdNew = new System.Windows.Forms.TextBox();
-            this.tbPwdNewRepeat = new System.Windows.Forms.TextBox();
-            this.label25 = new System.Windows.Forms.Label();
-            this.label26 = new System.Windows.Forms.Label();
             this.btnUpdatePwd = new System.Windows.Forms.Button();
+            this.label26 = new System.Windows.Forms.Label();
+            this.label25 = new System.Windows.Forms.Label();
+            this.tbPwdNewRepeat = new System.Windows.Forms.TextBox();
+            this.tbPwdNew = new System.Windows.Forms.TextBox();
+            this.label24 = new System.Windows.Forms.Label();
+            this.tbPwdOld = new System.Windows.Forms.TextBox();
+            this.label23 = new System.Windows.Forms.Label();
+            this.tbUsername = new System.Windows.Forms.TextBox();
+            this.btnChangeUser = new System.Windows.Forms.Button();
+            this.label22 = new System.Windows.Forms.Label();
+            this.cbSelectUser = new System.Windows.Forms.ComboBox();
+            this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.tbPascodeMedicatie = new System.Windows.Forms.TextBox();
+            this.label27 = new System.Windows.Forms.Label();
+            this.btnSelectMedicaite = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.groupBox6.SuspendLayout();
+            this.groupBox7.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -610,22 +615,79 @@
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Gebruiker aanpassen";
             // 
-            // cbSelectUser
+            // btnUpdatePwd
             // 
-            this.cbSelectUser.FormattingEnabled = true;
-            this.cbSelectUser.Location = new System.Drawing.Point(117, 22);
-            this.cbSelectUser.Name = "cbSelectUser";
-            this.cbSelectUser.Size = new System.Drawing.Size(157, 21);
-            this.cbSelectUser.TabIndex = 0;
+            this.btnUpdatePwd.Location = new System.Drawing.Point(117, 181);
+            this.btnUpdatePwd.Name = "btnUpdatePwd";
+            this.btnUpdatePwd.Size = new System.Drawing.Size(157, 23);
+            this.btnUpdatePwd.TabIndex = 11;
+            this.btnUpdatePwd.Text = "Wachtwoord aanpassen";
+            this.btnUpdatePwd.UseVisualStyleBackColor = true;
+            this.btnUpdatePwd.Click += new System.EventHandler(this.btnUpdatePwd_Click);
             // 
-            // label22
+            // label26
             // 
-            this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(6, 25);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(99, 13);
-            this.label22.TabIndex = 1;
-            this.label22.Text = "Selecteer gebruiker";
+            this.label26.AutoSize = true;
+            this.label26.Location = new System.Drawing.Point(6, 158);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(105, 13);
+            this.label26.TabIndex = 10;
+            this.label26.Text = "Herhaal wachtwoord";
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(6, 131);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(98, 13);
+            this.label25.TabIndex = 9;
+            this.label25.Text = "Nieuw wachtwoord";
+            // 
+            // tbPwdNewRepeat
+            // 
+            this.tbPwdNewRepeat.Location = new System.Drawing.Point(117, 155);
+            this.tbPwdNewRepeat.Name = "tbPwdNewRepeat";
+            this.tbPwdNewRepeat.Size = new System.Drawing.Size(157, 20);
+            this.tbPwdNewRepeat.TabIndex = 8;
+            // 
+            // tbPwdNew
+            // 
+            this.tbPwdNew.Location = new System.Drawing.Point(117, 128);
+            this.tbPwdNew.Name = "tbPwdNew";
+            this.tbPwdNew.Size = new System.Drawing.Size(157, 20);
+            this.tbPwdNew.TabIndex = 7;
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(6, 105);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(98, 13);
+            this.label24.TabIndex = 6;
+            this.label24.Text = "Huidig wachtwoord";
+            // 
+            // tbPwdOld
+            // 
+            this.tbPwdOld.Location = new System.Drawing.Point(117, 102);
+            this.tbPwdOld.Name = "tbPwdOld";
+            this.tbPwdOld.Size = new System.Drawing.Size(157, 20);
+            this.tbPwdOld.TabIndex = 5;
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(6, 78);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(84, 13);
+            this.label23.TabIndex = 4;
+            this.label23.Text = "Gebruikersnaam";
+            // 
+            // tbUsername
+            // 
+            this.tbUsername.Location = new System.Drawing.Point(117, 75);
+            this.tbUsername.Name = "tbUsername";
+            this.tbUsername.Size = new System.Drawing.Size(157, 20);
+            this.tbUsername.TabIndex = 3;
             // 
             // btnChangeUser
             // 
@@ -637,85 +699,67 @@
             this.btnChangeUser.UseVisualStyleBackColor = true;
             this.btnChangeUser.Click += new System.EventHandler(this.btnChangeUser_Click);
             // 
-            // tbUsername
+            // label22
             // 
-            this.tbUsername.Location = new System.Drawing.Point(117, 75);
-            this.tbUsername.Name = "tbUsername";
-            this.tbUsername.Size = new System.Drawing.Size(157, 20);
-            this.tbUsername.TabIndex = 3;
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(6, 25);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(99, 13);
+            this.label22.TabIndex = 1;
+            this.label22.Text = "Selecteer gebruiker";
             // 
-            // label23
+            // cbSelectUser
             // 
-            this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(6, 78);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(84, 13);
-            this.label23.TabIndex = 4;
-            this.label23.Text = "Gebruikersnaam";
+            this.cbSelectUser.FormattingEnabled = true;
+            this.cbSelectUser.Location = new System.Drawing.Point(117, 22);
+            this.cbSelectUser.Name = "cbSelectUser";
+            this.cbSelectUser.Size = new System.Drawing.Size(157, 21);
+            this.cbSelectUser.TabIndex = 0;
             // 
-            // tbPwdOld
+            // groupBox7
             // 
-            this.tbPwdOld.Location = new System.Drawing.Point(117, 102);
-            this.tbPwdOld.Name = "tbPwdOld";
-            this.tbPwdOld.Size = new System.Drawing.Size(157, 20);
-            this.tbPwdOld.TabIndex = 5;
+            this.groupBox7.Controls.Add(this.btnSelectMedicaite);
+            this.groupBox7.Controls.Add(this.label27);
+            this.groupBox7.Controls.Add(this.tbPascodeMedicatie);
+            this.groupBox7.Location = new System.Drawing.Point(855, 326);
+            this.groupBox7.Name = "groupBox7";
+            this.groupBox7.Size = new System.Drawing.Size(280, 258);
+            this.groupBox7.TabIndex = 11;
+            this.groupBox7.TabStop = false;
+            this.groupBox7.Text = "Medicatie Patient";
             // 
-            // label24
+            // tbPascodeMedicatie
             // 
-            this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(6, 105);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(98, 13);
-            this.label24.TabIndex = 6;
-            this.label24.Text = "Huidig wachtwoord";
+            this.tbPascodeMedicatie.Location = new System.Drawing.Point(117, 22);
+            this.tbPascodeMedicatie.Name = "tbPascodeMedicatie";
+            this.tbPascodeMedicatie.Size = new System.Drawing.Size(157, 20);
+            this.tbPascodeMedicatie.TabIndex = 0;
+            this.tbPascodeMedicatie.TextChanged += new System.EventHandler(this.tbPascodeMedicatie_TextChanged);
             // 
-            // tbPwdNew
+            // label27
             // 
-            this.tbPwdNew.Location = new System.Drawing.Point(117, 128);
-            this.tbPwdNew.Name = "tbPwdNew";
-            this.tbPwdNew.Size = new System.Drawing.Size(157, 20);
-            this.tbPwdNew.TabIndex = 7;
+            this.label27.AutoSize = true;
+            this.label27.Location = new System.Drawing.Point(6, 25);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(89, 13);
+            this.label27.TabIndex = 1;
+            this.label27.Text = "Geef pascode op";
             // 
-            // tbPwdNewRepeat
+            // btnSelectMedicaite
             // 
-            this.tbPwdNewRepeat.Location = new System.Drawing.Point(117, 155);
-            this.tbPwdNewRepeat.Name = "tbPwdNewRepeat";
-            this.tbPwdNewRepeat.Size = new System.Drawing.Size(157, 20);
-            this.tbPwdNewRepeat.TabIndex = 8;
-            // 
-            // label25
-            // 
-            this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(6, 131);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(98, 13);
-            this.label25.TabIndex = 9;
-            this.label25.Text = "Nieuw wachtwoord";
-            // 
-            // label26
-            // 
-            this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(6, 158);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(105, 13);
-            this.label26.TabIndex = 10;
-            this.label26.Text = "Herhaal wachtwoord";
-            // 
-            // btnUpdatePwd
-            // 
-            this.btnUpdatePwd.Location = new System.Drawing.Point(117, 181);
-            this.btnUpdatePwd.Name = "btnUpdatePwd";
-            this.btnUpdatePwd.Size = new System.Drawing.Size(157, 23);
-            this.btnUpdatePwd.TabIndex = 11;
-            this.btnUpdatePwd.Text = "Wachtwoord aanpassen";
-            this.btnUpdatePwd.UseVisualStyleBackColor = true;
-            this.btnUpdatePwd.Click += new System.EventHandler(this.btnUpdatePwd_Click);
+            this.btnSelectMedicaite.Location = new System.Drawing.Point(117, 75);
+            this.btnSelectMedicaite.Name = "btnSelectMedicaite";
+            this.btnSelectMedicaite.Size = new System.Drawing.Size(157, 23);
+            this.btnSelectMedicaite.TabIndex = 2;
+            this.btnSelectMedicaite.Text = "Zoek medicatie";
+            this.btnSelectMedicaite.UseVisualStyleBackColor = true;
             // 
             // Beheer_Update
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1784, 961);
+            this.Controls.Add(this.groupBox7);
             this.Controls.Add(this.groupBox6);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.groupBox4);
@@ -737,6 +781,8 @@
             this.groupBox5.PerformLayout();
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
+            this.groupBox7.ResumeLayout(false);
+            this.groupBox7.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -809,5 +855,9 @@
         private System.Windows.Forms.TextBox tbPwdOld;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.TextBox tbUsername;
+        private System.Windows.Forms.GroupBox groupBox7;
+        private System.Windows.Forms.Button btnSelectMedicaite;
+        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.TextBox tbPascodeMedicatie;
     }
 }

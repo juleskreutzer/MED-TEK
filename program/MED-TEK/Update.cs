@@ -67,6 +67,13 @@ namespace MED_TEK
 
         }
 
+        public void Update_Afspraak_actief(string medicatieID, string actief)
+        {
+            string sql = "Update " + prefix + "medicatie SET actief = '" + actief + "' WHERE medicatieID = '" + medicatieID + "'";
+
+            verbinding.Execute(sql);
+        }
+
         public void Update_Ziekte(int ziekteID, string naam)
         {
             // Deze methode werkt een ziekte bij
