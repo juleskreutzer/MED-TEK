@@ -13,6 +13,7 @@ namespace MED_TEK
     public partial class Apotheek : Form
     {
         Connect verbinding;
+        int medicatieID;
         public Apotheek(Connect _verbinding)
         {
             InitializeComponent();
@@ -26,7 +27,7 @@ namespace MED_TEK
 
         Select select = new Select();
         Miscellaneous overig = new Miscellaneous();
-
+        private Update update = new Update();
         private void refresh_data()
         {
             //benodigde patiëntgegevens ophalen en weergeven
@@ -57,8 +58,9 @@ namespace MED_TEK
                     tbGebruiksStart.Text = (string) row["gebruikstart"];
                     tbGebruiksEinde.Text = (string) row["gebruikeind"];
                     tbHoeveelheid.Text = (string) row["hoeveelheid"];
+                    medicatieID = Convert.ToInt32(row["medicatieID"]);
 
-                    
+
                 }
 
                 for (z = 0; z < medicijngegevens.Count; ++z)
@@ -73,9 +75,16 @@ namespace MED_TEK
 
                 if (cbOpgehaald.Checked)
                 {
-
+                    int actief = 1;
+                    update.Update_Afspraak_actief(Convert.ToString(medicatieID), Convert.ToString(actief));
+                    MessageBox.Show("Afspraak is geupdate.");
                 }
             }
+        }
+
+        private void cbOpgehaald_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -182,6 +182,7 @@
             this.cbOpgehaald.TabIndex = 7;
             this.cbOpgehaald.Text = "Opgehaald?";
             this.cbOpgehaald.UseVisualStyleBackColor = true;
+            this.cbOpgehaald.CheckedChanged += new System.EventHandler(this.cbOpgehaald_CheckedChanged);
             // 
             // groupBox2
             // 
@@ -332,14 +333,6 @@
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
-
-            this.components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Text = "Apotheek";
-
-            this.components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Text = "Apotheek";
 
         }
 
