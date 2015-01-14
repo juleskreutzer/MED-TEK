@@ -158,6 +158,9 @@
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Psycholoog.resx">
+      <DependentUpon>Psycholoog.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="scan.resx">
       <DependentUpon>scan.cs</DependentUpon>
     </EmbeddedResource>
