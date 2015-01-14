@@ -13,13 +13,13 @@ namespace MED_TEK
     public partial class Apotheek : Form
     {
         Connect verbinding;
-        public Apotheek(Connect _verbinding)
+        public Apotheek(Connect _verbiding)
         {
             InitializeComponent();
-            verbinding = _verbinding;
+            verbinding = _verbiding;
         }
 
-        private void label2_Click(object sender, EventArgs e)
+        private void Apotheek_Load(object sender, EventArgs e)
         {
 
         }

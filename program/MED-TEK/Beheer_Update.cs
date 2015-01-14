@@ -47,6 +47,10 @@ namespace MED_TEK
             tbZiekte.Enabled = false;
             btnUpdateZiekte.Enabled = false;
             btnUpdatePatient.Enabled = false;
+            tbMedicijnNaam.Enabled = false;
+            tbGebruikMedicijn.Enabled = false;
+            tbBijwerkingMedicijn.Enabled = false;
+            btnUpdateMedicijn.Enabled = false;
 
             // Zorgen dat alle elementen van data worden voorzien, voor zover dat nodig is
             refresh();
@@ -62,6 +66,7 @@ namespace MED_TEK
         {
             // form elementen van data voorzien.
             var ziekte = select.Select_Ziekte();
+            var medicijn = select.Select_Medicijn();
 
             for (int i = 0; i < 1; ++i)
             {
@@ -69,6 +74,11 @@ namespace MED_TEK
                 {
                     Dictionary<string, object> row = ziekte[a];
                     cbZiekte.Items.Add("ID " + row["ziekteID"] + " - " + row["naam"] + ".");
+                }
+                for (int b = 0; b < medicijn.Count; ++b)
+                {
+                    Dictionary<string, object> row = medicijn[b];
+                    cbSelectMedicijn.Items.Add("ID " + row["medicijnID"] + " - " + row["naam"] + ".");
                 }
             }
         }
@@ -255,6 +265,27 @@ namespace MED_TEK
                 btnUpdateZiekte.Enabled = false;
             }
 
+        }
+
+        private void btnChangeMedicijn_Click(object sender, EventArgs e)
+        {
+            if (cbSelectMedicijn.SelectedItem == null)
+            {
+                MessageBox.Show("Selecteer eerst een medicijn voordat deze bewerkt kan worden!");
+            }
+            else
+            {
+                string data = Convert.ToString(cbSelectMedicijn.SelectedItem);
+                string medicijnID = overig.GetSubstringByString("ID ", " -", data);
+                MessageBox.Show("ziekteID is " + medicijnID);
+                cbSelectMedicijn.Enabled = false;
+                btnChangeMedicijn.Enabled = false;
+
+                // Elementen voor bewerken medicijn activeren
+                tbMedicijnNaam.Enabled = true;
+                tbBijwerkingMedicijn.Enabled = true;
+                tbGebruikMedicijn.Enabled = true;
+            }
         }
     }
 }

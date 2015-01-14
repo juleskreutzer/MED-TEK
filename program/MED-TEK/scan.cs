@@ -96,5 +96,10 @@ namespace MED_TEK
             }
 
         }
+
+        private void scan_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

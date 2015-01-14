@@ -80,6 +80,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "scan";
             this.Text = "SMART PATIENT - Scan code...";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.scan_FormClosed);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
