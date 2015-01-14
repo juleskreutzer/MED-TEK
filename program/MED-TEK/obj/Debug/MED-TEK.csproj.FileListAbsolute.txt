@@ -39,3 +39,5 @@ C:\Users\Rick\Documents\GitHub\MED-TEK\program\MED-TEK\obj\Debug\MED-TEK.exe
 \\vmware-host\Shared Folders\Documents\github\MED-TEK\program\MED-TEK\obj\Debug\MED_TEK.Beheer_Update.resources
 \\vmware-host\Shared Folders\Documents\github\MED-TEK\program\MED-TEK\obj\Debug\MED_TEK.Doctor.resources
 \\vmware-host\Shared Folders\Documents\github\MED-TEK\program\MED-TEK\obj\Debug\MED_TEK.Apotheek.resources
+C:\Users\Rick\Documents\GitHub\MED-TEK\program\MED-TEK\obj\Debug\MED_TEK.Ambulance.resources
+C:\Users\Rick\Documents\GitHub\MED-TEK\program\MED-TEK\obj\Debug\MED_TEK.Beheer_Update.resources

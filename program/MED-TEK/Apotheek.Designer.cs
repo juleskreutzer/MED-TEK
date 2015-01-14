@@ -28,11 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> FETCH_HEAD
             this.SuspendLayout();
             // 
             // Apotheek
@@ -45,11 +40,9 @@
             this.Load += new System.EventHandler(this.Apotheek_Load);
             this.ResumeLayout(false);
 
-=======
             this.components = new System.ComponentModel.Container();
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Text = "Apotheek";
->>>>>>> parent of 0d7d8ba... latest updates
         }
 
         #endregion
