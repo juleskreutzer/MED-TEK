@@ -29,30 +29,30 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.cbActief = new System.Windows.Forms.CheckBox();
-            this.tbVoorNamen = new System.Windows.Forms.TextBox();
-            this.tbAchternaam = new System.Windows.Forms.TextBox();
-            this.tbGeboorteDatum = new System.Windows.Forms.TextBox();
-            this.tbAdres = new System.Windows.Forms.TextBox();
-            this.tbMedicatie = new System.Windows.Forms.TextBox();
             this.tbHoeveelheid = new System.Windows.Forms.TextBox();
+            this.tbMedicatie = new System.Windows.Forms.TextBox();
+            this.tbAdres = new System.Windows.Forms.TextBox();
+            this.tbAchternaam = new System.Windows.Forms.TextBox();
+            this.tbVoorNamen = new System.Windows.Forms.TextBox();
+            this.cbActief = new System.Windows.Forms.CheckBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.dateTimePicker1);
             this.groupBox1.Controls.Add(this.tbHoeveelheid);
             this.groupBox1.Controls.Add(this.tbMedicatie);
             this.groupBox1.Controls.Add(this.tbAdres);
-            this.groupBox1.Controls.Add(this.tbGeboorteDatum);
             this.groupBox1.Controls.Add(this.tbAchternaam);
             this.groupBox1.Controls.Add(this.tbVoorNamen);
             this.groupBox1.Controls.Add(this.cbActief);
@@ -70,67 +70,45 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Patiënt gegevens";
             // 
-            // label1
+            // tbHoeveelheid
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(32, 55);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(61, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Voornamen";
+            this.tbHoeveelheid.Location = new System.Drawing.Point(188, 201);
+            this.tbHoeveelheid.Name = "tbHoeveelheid";
+            this.tbHoeveelheid.ReadOnly = true;
+            this.tbHoeveelheid.Size = new System.Drawing.Size(150, 20);
+            this.tbHoeveelheid.TabIndex = 13;
             // 
-            // label2
+            // tbMedicatie
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(32, 86);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(64, 13);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Achternaam";
+            this.tbMedicatie.Location = new System.Drawing.Point(188, 173);
+            this.tbMedicatie.Name = "tbMedicatie";
+            this.tbMedicatie.ReadOnly = true;
+            this.tbMedicatie.Size = new System.Drawing.Size(150, 20);
+            this.tbMedicatie.TabIndex = 12;
             // 
-            // label3
+            // tbAdres
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(32, 118);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(80, 13);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Geboortedatum";
+            this.tbAdres.Location = new System.Drawing.Point(188, 146);
+            this.tbAdres.Name = "tbAdres";
+            this.tbAdres.ReadOnly = true;
+            this.tbAdres.Size = new System.Drawing.Size(150, 20);
+            this.tbAdres.TabIndex = 11;
             // 
-            // label4
+            // tbAchternaam
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(32, 146);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(34, 13);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "Adres";
+            this.tbAchternaam.Location = new System.Drawing.Point(188, 86);
+            this.tbAchternaam.Name = "tbAchternaam";
+            this.tbAchternaam.ReadOnly = true;
+            this.tbAchternaam.Size = new System.Drawing.Size(150, 20);
+            this.tbAchternaam.TabIndex = 9;
             // 
-            // label5
+            // tbVoorNamen
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(32, 173);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(53, 13);
-            this.label5.TabIndex = 4;
-            this.label5.Text = "Medicatie";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(32, 201);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(67, 13);
-            this.label6.TabIndex = 5;
-            this.label6.Text = "Hoeveelheid";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Location = new System.Drawing.Point(35, 283);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(321, 262);
-            this.pictureBox1.TabIndex = 6;
-            this.pictureBox1.TabStop = false;
+            this.tbVoorNamen.Location = new System.Drawing.Point(188, 48);
+            this.tbVoorNamen.Name = "tbVoorNamen";
+            this.tbVoorNamen.ReadOnly = true;
+            this.tbVoorNamen.Size = new System.Drawing.Size(150, 20);
+            this.tbVoorNamen.TabIndex = 8;
             // 
             // cbActief
             // 
@@ -142,53 +120,74 @@
             this.cbActief.Text = "Actief Ja/Nee";
             this.cbActief.UseVisualStyleBackColor = true;
             // 
-            // tbVoorNamen
+            // pictureBox1
             // 
-            this.tbVoorNamen.Location = new System.Drawing.Point(188, 48);
-            this.tbVoorNamen.Name = "tbVoorNamen";
-            this.tbVoorNamen.ReadOnly = true;
-            this.tbVoorNamen.Size = new System.Drawing.Size(150, 20);
-            this.tbVoorNamen.TabIndex = 8;
+            this.pictureBox1.Location = new System.Drawing.Point(35, 283);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(321, 262);
+            this.pictureBox1.TabIndex = 6;
+            this.pictureBox1.TabStop = false;
             // 
-            // tbAchternaam
+            // label6
             // 
-            this.tbAchternaam.Location = new System.Drawing.Point(188, 86);
-            this.tbAchternaam.Name = "tbAchternaam";
-            this.tbAchternaam.ReadOnly = true;
-            this.tbAchternaam.Size = new System.Drawing.Size(150, 20);
-            this.tbAchternaam.TabIndex = 9;
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(32, 201);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(67, 13);
+            this.label6.TabIndex = 5;
+            this.label6.Text = "Hoeveelheid";
             // 
-            // tbGeboorteDatum
+            // label5
             // 
-            this.tbGeboorteDatum.Location = new System.Drawing.Point(188, 118);
-            this.tbGeboorteDatum.Name = "tbGeboorteDatum";
-            this.tbGeboorteDatum.ReadOnly = true;
-            this.tbGeboorteDatum.Size = new System.Drawing.Size(150, 20);
-            this.tbGeboorteDatum.TabIndex = 10;
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(32, 173);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(53, 13);
+            this.label5.TabIndex = 4;
+            this.label5.Text = "Medicatie";
             // 
-            // tbAdres
+            // label4
             // 
-            this.tbAdres.Location = new System.Drawing.Point(188, 146);
-            this.tbAdres.Name = "tbAdres";
-            this.tbAdres.ReadOnly = true;
-            this.tbAdres.Size = new System.Drawing.Size(150, 20);
-            this.tbAdres.TabIndex = 11;
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(32, 146);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(34, 13);
+            this.label4.TabIndex = 3;
+            this.label4.Text = "Adres";
             // 
-            // tbMedicatie
+            // label3
             // 
-            this.tbMedicatie.Location = new System.Drawing.Point(188, 173);
-            this.tbMedicatie.Name = "tbMedicatie";
-            this.tbMedicatie.ReadOnly = true;
-            this.tbMedicatie.Size = new System.Drawing.Size(150, 20);
-            this.tbMedicatie.TabIndex = 12;
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(32, 118);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(80, 13);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "Geboortedatum";
             // 
-            // tbHoeveelheid
+            // label2
             // 
-            this.tbHoeveelheid.Location = new System.Drawing.Point(188, 201);
-            this.tbHoeveelheid.Name = "tbHoeveelheid";
-            this.tbHoeveelheid.ReadOnly = true;
-            this.tbHoeveelheid.Size = new System.Drawing.Size(150, 20);
-            this.tbHoeveelheid.TabIndex = 13;
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(32, 86);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(64, 13);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Achternaam";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(32, 55);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(61, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Voornamen";
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(188, 112);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(150, 20);
+            this.dateTimePicker1.TabIndex = 14;
             // 
             // Apotheek
             // 
@@ -220,9 +219,9 @@
         private System.Windows.Forms.TextBox tbHoeveelheid;
         private System.Windows.Forms.TextBox tbMedicatie;
         private System.Windows.Forms.TextBox tbAdres;
-        private System.Windows.Forms.TextBox tbGeboorteDatum;
         private System.Windows.Forms.TextBox tbAchternaam;
         private System.Windows.Forms.TextBox tbVoorNamen;
         private System.Windows.Forms.CheckBox cbActief;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
     }
 }
