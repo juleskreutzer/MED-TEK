@@ -20,9 +20,13 @@ namespace MED_TEK
         Update update = new Update();
         Miscellaneous overig = new Miscellaneous();
 
+        // Deze variabele wordt gebruikt voor de controle of het oude wachtwoord van een gebruiker juist is ingevuld
         string userpassword;
 
+        // Deze fields worden dmv verschillende event handlers ingevuld
         int ziekteID;
+        int medicatieID;
+        int afspraakID;
 
         public Beheer_Update()
         {
@@ -38,6 +42,13 @@ namespace MED_TEK
             // Format van DTP aanpassen zodat er geen fouten onstaan met verwerking van SQL
             dtpDoB.Format = DateTimePickerFormat.Custom;
             dtpDoB.CustomFormat = "yyyy-MM-dd";
+            dtpGebruikEind.Format = DateTimePickerFormat.Custom;
+            dtpGebruikEind.CustomFormat = "yyyy-MM-dd";
+            dtpGebruikStart.Format = DateTimePickerFormat.Custom;
+            dtpGebruikStart.CustomFormat = "yyyy-MM-dd";
+            dtpAfspraak.Format = DateTimePickerFormat.Custom;
+            dtpAfspraak.CustomFormat = "yyyy-MM-dd";
+
 
 
         }
@@ -72,10 +83,32 @@ namespace MED_TEK
             tbPwdOld.Enabled = false;
             btnUpdatePwd.Enabled = false;
 
+            // Medicatie aanpassen
+            cbSelectMedicatie.Enabled = false;
+            btnSelectMedicatie2.Enabled = false;
+            dtpGebruikEind.Enabled = false;
+            dtpGebruikStart.Enabled = false;
+            tbHoeveelheid.Enabled = false;
+            btnUpdateMedicatie.Enabled = false;
+
             // form elementen van data voorzien.
             var ziekte = select.Select_Ziekte();
             var medicijn = select.Select_Medicijn();
             var user = select.Select_User_Name();
+
+            // Ziekte van patient aanpassen
+            cbSelectZiekte.Enabled = false;
+            btnSelectZiekte2.Enabled = false;
+            tbSymptomen.Enabled = false;
+            btnUpdateZiektePatient.Enabled = false;
+
+            // Afspraak van patient aanpassen
+            cbAfspraak.Enabled = false;
+            btnSelectAfspraak2.Enabled = false;
+            cbLocatie.Enabled = false;
+            dtpAfspraak.Enabled = false;
+            tbTijd.Enabled = false;
+            cbActief.Enabled = false;
 
             for (int i = 0; i < 1; ++i)
             {
@@ -418,14 +451,230 @@ namespace MED_TEK
 
         private void tbPascodeMedicatie_TextChanged(object sender, EventArgs e)
         {
-            if(tbPascodeMedicatie.TextLength == 8)
+            
+        }
+
+        private void btnSelectMedicaite_Click(object sender, EventArgs e)
+        {
+            tbPascodeMedicatie.Enabled = false;
+            btnSelectMedicaite.Enabled = false;
+
+            cbSelectMedicatie.Enabled = true;
+            btnSelectMedicatie2.Enabled = true;
+
+            string pascode = tbPascodeMedicatie.Text;
+            var medicatiedata = select.Select_Medicatie_Data(pascode);
+            for(int j = 0; j < medicatiedata.Count; ++j)
             {
-                var medicatie = select.Select_PatientID(Convert.ToString(tbPascodeMedicatie.Text));
+                Dictionary<string, object> row = medicatiedata[j];
+                cbSelectMedicatie.Items.Add("ID " + row["medicatieID"] + " - " + row["naam"] + ", Start: " + row["gebruikstart"]);
+            }
+        }
 
-                for(int i = 0; i < medicatie.Count; ++i)
+        private void btnSelectMedicatie2_Click(object sender, EventArgs e)
+        {
+            cbSelectMedicatie.Enabled = false;
+            btnSelectMedicatie2.Enabled = false;
+
+            dtpGebruikEind.Enabled = true;
+            dtpGebruikStart.Enabled = true;
+            tbHoeveelheid.Enabled = true;
+            btnUpdateMedicatie.Enabled = true;
+            
+            string data = Convert.ToString(cbSelectMedicatie.SelectedItem);
+
+            medicatieID = Convert.ToInt32(overig.GetSubstringByString("ID ", " -", data));
+            var medicatie = select.Select_Medicaite_MedicatieID(medicatieID);
+            
+            for( int i = 0; i < medicatie.Count; ++i)
+            {
+                Dictionary<string, object> row = medicatie[i];
+                dtpGebruikEind.Text = Convert.ToString(row["gebruikstart"]);
+                dtpGebruikEind.Text = Convert.ToString(row["gebruikeind"]);
+                tbHoeveelheid.Text = Convert.ToString(row["hoeveelheid"]);
+            }
+        }
+
+        private void btnUpdateMedicatie_Click(object sender, EventArgs e)
+        {
+            string gebruiksstart = dtpGebruikStart.Text;
+            string gebruikeind = dtpGebruikEind.Text;
+            string hoeveelheid = tbHoeveelheid.Text;
+
+            int error = 0;
+
+            if(gebruiksstart == "")
+            {
+                ++error;
+                MessageBox.Show("Geef een begin datum voor de medicatie op!");
+            }
+            if(gebruikeind == "" )
+            {
+                ++error;
+                MessageBox.Show("Geef een einddatum voor de medicatie op!");
+            }
+            if(hoeveelheid == "")
+            {
+                ++error;
+                MessageBox.Show("Geef een hoeveelheid op voor de medicatie!");
+            }
+
+            if(error == 0)
+            {
+                update.Update_Medicatie(medicatieID, gebruiksstart, gebruikeind, hoeveelheid);
+                MessageBox.Show("De medicatie is succesvol aangepast!");
+
+                refresh();
+                tbPascodeMedicatie.Enabled = true;
+                btnSelectMedicaite.Enabled = true;
+            }
+
+
+        }
+
+        private void btnSelectZiekte_Click(object sender, EventArgs e)
+        {
+            tbPascodeZiekte.Enabled = false;
+            btnSelectZiekte.Enabled = false;
+
+            cbSelectZiekte.Enabled = true;
+            btnSelectZiekte2.Enabled = true;
+
+            string pascode = tbPascodeZiekte.Text;
+
+            var ziekteData = select.Select_Ziekte_Data(pascode);
+            for (int i = 0; i < ziekteData.Count; ++i)
+            {
+                Dictionary<string, object> row = ziekteData[i];
+                cbSelectZiekte.Items.Add("ID " + row["ziekteID"] + " - " + row["naam"]);
+            }
+
+
+
+        }
+
+        private void btnSelectZiekte2_Click(object sender, EventArgs e)
+        {
+            cbSelectZiekte.Enabled = false;
+            btnSelectZiekte2.Enabled = false;
+
+            tbSymptomen.Enabled = true;
+            btnUpdateZiektePatient.Enabled = true;
+
+            string data = Convert.ToString(cbSelectZiekte.SelectedItem);
+            ziekteID = Convert.ToInt32(overig.GetSubstringByString("ID ", " -", data));
+
+            var ziekte = select.Select_Ziekte_Symptomen(ziekteID);
+            for(int i = 0; i < ziekte.Count; ++i)
+            {
+                Dictionary<string, object> row = ziekte[i];
+                tbSymptomen.Text = Convert.ToString(row["symptomen"]);
+            }
+        }
+
+        private void btnUpdateZiektePatient_Click(object sender, EventArgs e)
+        {
+            string symptomen = tbSymptomen.Text;
+
+            if(symptomen == "" )
+            {
+                MessageBox.Show("Geef de symptomen van de ziekte op!");
+            }
+            else
+            {
+                update.Update_Ziekteoverzicht(ziekteID, symptomen);
+                MessageBox.Show("De symptomen van de ziekte zijn succesvol bijgewerkt!");
+
+                refresh();
+
+                tbPascodeZiekte.Enabled = true;
+                btnSelectZiekte.Enabled = true;
+            }
+        }
+
+        private void btnSelectAfspraak_Click(object sender, EventArgs e)
+        {
+            string pascode = tbPascodeAfspraak.Text;
+
+            tbPascodeAfspraak.Enabled = false;
+            btnSelectAfspraak.Enabled = false;
+
+            cbAfspraak.Enabled = true;
+            btnSelectAfspraak2.Enabled = true;
+
+            var data = select.Select_Afspraak_Patient(pascode);
+            for(int i = 0; i < data.Count; ++i)
+            {
+                Dictionary<string, object> row = data[i];
+                cbAfspraak.Items.Add("ID " + row["medicatieID"] + " - " + row["naam"] + ", " + row["datum"]);
+            }
+        }
+
+        private void btnSelectAfspraak2_Click(object sender, EventArgs e)
+        {
+            cbAfspraak.Enabled = false;
+            btnSelectAfspraak2.Enabled = false;
+
+            dtpAfspraak.Enabled = true;
+            tbTijd.Enabled = true;
+            cbActief.Enabled = true;
+            btnUpdateAfspraak.Enabled = true;
+
+            string data = Convert.ToString(cbAfspraak.SelectedItem);
+            int medicatieID = (Convert.ToInt32(overig.GetSubstringByString("ID ", " -", data)));
+
+            var afspraakdata = select.Select_Afspraak_Data(medicatieID);
+            for(int i = 0; i < afspraakdata.Count; ++i)
+            {
+                Dictionary<string, object> row = afspraakdata[i];
+                cbLocatie.Items.Add(Convert.ToString(row["naam"]));
+                dtpAfspraak.Text = Convert.ToString(row["datum"]);
+                tbTijd.Text = Convert.ToString(row["tijd"]);
+                afspraakID = Convert.ToInt32(row["medicatieID"]);
+                if(Convert.ToInt32(row["actief"]) == 1)
                 {
-
+                    cbActief.Checked = true;
                 }
+            }
+        }
+
+        private void btnUpdateAfspraak_Click(object sender, EventArgs e)
+        {
+            string datum = dtpAfspraak.Text;
+            string tijd = tbTijd.Text;
+            bool actief = cbActief.Checked;
+
+            int error = 0;
+
+            if(datum == "")
+            {
+                ++error;
+                MessageBox.Show("Geef een datum van de afspraak op!");
+            }
+            if(tijd == "")
+            {
+                ++error;
+                MessageBox.Show("Geef een tijd van de afspraak op!");
+            }
+
+            if(error == 0)
+            {
+                int actiefstatus;
+                if(actief)
+                {
+                    actiefstatus = 1;
+                }
+                else
+                {
+                    actiefstatus = 0;
+                }
+                
+                update.Update_Afspraak(afspraakID, datum, tijd, actiefstatus);
+                MessageBox.Show("Afspraak is succesvol bijgewerkt!");
+                refresh();
+                tbPascodeAfspraak.Enabled = true;
+                btnSelectAfspraak.Enabled = true;
+                
             }
         }
 

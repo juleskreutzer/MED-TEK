@@ -40,36 +40,32 @@ namespace MED_TEK
 
         }
 
-        public void Update_Medicatie(int medicatieID, int patientID, int medicijnID, string gebruiktstart, string gebruikeinde, string hoeveelheid)
+        public void Update_Medicatie(int medicatieID, string gebruiktstart, string gebruikeinde, string hoeveelheid)
         {
             // Deze methode werkt de gegevens van een medicatie bij
 
             //string query aanmaken welke naar de database gaat
-            string query = " UPDATE " + prefix + "medicatie SET medicatieID = " + medicatieID + ", patientID = " +
-                           patientID + ", medicijnID = " + medicijnID + ", gebruikstart = " + gebruiktstart +
-                           ", gebruikeinde = " + gebruikeinde + "";
+            string query = "UPDATE " + prefix + "medicatie SET gebruikstart = '" + gebruiktstart + "', gebruikeind = '" + gebruikeinde + "', hoeveelheid = '" + hoeveelheid + "' WHERE medicatieID = '" + medicatieID + "'";
+
 
             //Nu de query uitvoering dmv execute
             verbinding.Execute(query);
 
         }
 
-        public void Update_Afspraak(string medicatieID, string patientID, string datum, string tijd, string actief)
-        {
-            // Deze methode werkt de gegevens van een afspraak bij
-
-            //string query aanmaken welke naar de database gaat
-            string query = " UPDATE " + prefix + "afspraak SET medicatieID = " + medicatieID + ", patientID = " +
-                           patientID + ", datum = " + datum + ", tijd = " + tijd + ", actief = " + actief + "";
-
-            //Nu de query uitvoering dmv execute
-            verbinding.Execute(query);
-
-        }
 
         public void Update_Afspraak_actief(string medicatieID, string actief)
         {
             string sql = "Update " + prefix + "medicatie SET actief = '" + actief + "' WHERE medicatieID = '" + medicatieID + "'";
+
+            verbinding.Execute(sql);
+        }
+
+        public void Update_Afspraak(int medicatieID, string datum, string tijd, int actief)
+        {
+            // Deze methode werkt een afspraak bij
+
+            string sql = "UPDATE " + prefix + "afspraak SET datum = '" + datum + "', tijd = '" + tijd + "', actief = '" + actief + "' WHERE medicatieID = '" + medicatieID + "'";
 
             verbinding.Execute(sql);
         }
@@ -86,13 +82,12 @@ namespace MED_TEK
 
         }
 
-        public void Update_Ziekteoverzicht(string ziekteID, string patientID)
+        public void Update_Ziekteoverzicht(int ziekteID, string symptomen)
         {
             // Deze methode werkt een ziekteoverzicht bij
 
             //string query aanmaken welke naar de database gaat
-            string query = " UPDATE " + prefix + "ziekteoverzicht SET ziekteID = " + ziekteID + ", patientID = " +
-                           patientID + "";
+            string query = "UPDATE " + prefix + "ziekteoverzicht SET symptomen = '" + symptomen + "' WHERE ziekteID = '" + ziekteID + "'";
 
             //Nu de query uitvoering dmv execute
             verbinding.Execute(query);

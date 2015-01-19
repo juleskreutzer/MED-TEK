@@ -9,10 +9,8 @@ namespace MED_TEK
 {
     class Miscellaneous
     {
-        Connect verbinding;
-        string prefix = "rhbj_";
 
-        public void miscellaneous(string username, string password)
+        public void miscellaneous()
         {
             
         }

@@ -110,6 +110,16 @@ namespace MED_TEK
 
         }
 
+        public List<Dictionary<string, object>> Select_Medicatie_Data(string pascode)
+        {
+            //Deze methode retourneerd de gegevens van alle medicatie voor een patient
+
+            string sql = "SELECT rhbj_medicatie.medicatieID, rhbj_medicijn.naam, rhbj_medicatie.gebruikstart, rhbj_medicatie.gebruikeind, rhbj_medicatie.hoeveelheid FROM rhbj_medicatie, rhbj_medicijn, rhbj_patient WHERE rhbj_medicatie.medicijnID = rhbj_medicijn.medicijnID AND rhbj_medicatie.patientID = rhbj_patient.patientID AND rhbj_patient.pascode = '" + pascode + "'";
+
+            var data = Connect.ExecuteQuery(sql);
+            return data;
+        }
+
         public List<Dictionary<string, object>> Select_Medicatie_All()
         {
             // Deze methode retourneerd alle medicijnen voor alle patienten
@@ -120,11 +130,37 @@ namespace MED_TEK
             return data;
         }
 
+        public List<Dictionary<string, object>> Select_Medicaite_MedicatieID(int medicatieID)
+        {
+            // Deze methode retourneerd de gegevens van een medicatie
+            string sql = "SELECT gebruikstart, gebruikeind, hoeveelheid FROM " + prefix + "medicatie WHERE medicatieID = '" + medicatieID + "'";
+
+            var data = Connect.ExecuteQuery(sql);
+            return data;
+        }
+
         public List<Dictionary<string, object>> Select_Afspraak(int actief)
         {
             // Deze methode retourneerd alle afspraken, afhankelijk of ze actief zijn of niet
 
-            string sql = "SELECT locatie.naam, medicatie.naam, afspraak.datum, afspraak.tijd, afspraak.actief FROM " + prefix + "afspraak, " + prefix + "locatie, " + prefix + "medicatie WHERE afspraak.medicatieID = medicatie.medicatieID AND afspraak.locatieID = locatie.locatieID";
+            string sql = "SELECT " + prefix + "locatie.naam, " + prefix + "medicatie.naam, " + prefix + "afspraak.datum, " + prefix + "afspraak.tijd, " + prefix + "afspraak.actief FROM " + prefix + "afspraak, " + prefix + "locatie, " + prefix + "medicatie WHERE afspraak.medicatieID = medicatie.medicatieID AND afspraak.locatieID = locatie.locatieID";
+
+            var data = Connect.ExecuteQuery(sql);
+            return data;
+        }
+
+        public List<Dictionary<string, object>> Select_Afspraak_Data(int medicatieID)
+        {
+            string sql = "SELECT " + prefix + "afspraak.medicatieID, " + prefix + "locatie.naam, " + prefix + "afspraak.datum, " + prefix + "afspraak.tijd, " + prefix + "afspraak.actief FROM " + prefix + "locatie, " + prefix + "afspraak WHERE " + prefix + "afspraak.locatieID = " + prefix + "locatie.locatieID AND " + prefix + "afspraak.medicatieID = '" + medicatieID + "'";
+
+            var data = Connect.ExecuteQuery(sql);
+            return data;
+        }
+
+        public List<Dictionary<string, object>> Select_Afspraak_Patient(string pascode)
+        {
+            // Deze methode retourneerd de afspraken van een bepaalde patient
+            string sql = "SELECT " + prefix + "afspraak.medicatieID, " + prefix + "locatie.naam, " + prefix + "afspraak.datum FROM " + prefix + "afspraak, " + prefix + "medicatie, " + prefix + "patient, " + prefix + "locatie WHERE " + prefix + "afspraak.medicatieID = " + prefix + "medicatie.medicatieID AND " + prefix + "afspraak.locatieID = " + prefix + "locatie.locatieID AND " + prefix + "medicatie.patientID = " + prefix + "patient.patientID AND " + prefix + "patient.pascode = '" + pascode + "'";
 
             var data = Connect.ExecuteQuery(sql);
             return data;
@@ -142,6 +178,23 @@ namespace MED_TEK
 
         }
 
+        public List<Dictionary<string, object>> Select_Ziekte_Data(string pascode)
+        {
+            // Deze methode retourneerd te ziektes van een bepaalde patient
+            string sql = "SELECT " + prefix + "ziekteoverzicht.ziekteID, " + prefix + "ziekte.naam, " + prefix + "ziekteoverzicht.symptomen FROM " + prefix + "patient, " + prefix + "ziekteoverzicht, " + prefix + "ziekte WHERE " + prefix + "ziekte.ziekteID = " + prefix + "ziekteoverzicht.ziekteID AND " + prefix + "ziekteoverzicht.patientID = " + prefix + "patient.patientID AND " + prefix + "patient.pascode = '" + pascode + "'";
+
+            var data = Connect.ExecuteQuery(sql);
+            return data;
+        }
+
+        public List<Dictionary<string, object>> Select_Ziekte_Symptomen(int ziekteID)
+        {
+            // Deze methode retourneerd de symptomen van een bepaald ziekteID
+            string sql = "SELECT symptomen FROM " + prefix + "ziekteoverzicht WHERE ziekteID = '" + ziekteID + "'";
+
+            var data = Connect.ExecuteQuery(sql);
+            return data;
+        }
 
         public List<Dictionary<string, object>> Select_Ziekteoverzicht(int patientID)
         {

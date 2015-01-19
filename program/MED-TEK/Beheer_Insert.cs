@@ -33,8 +33,8 @@ namespace MED_TEK
             dtpTijd.Text = "00:00";
 
             // Custom format instellen voor het opslaan van de datum gebruikstart en gebruikeind in de database
-            dtpGebruikStart.CustomFormat = "dd / MM / yyyy";
-            dtpGebruikEind.CustomFormat = "dd / MM / yyyy";
+            dtpGebruikStart.CustomFormat = "yyyy-MM-dd";
+            dtpGebruikEind.CustomFormat = "yyyy-MM-dd";
 
             // OPVRAGEN GEGEVENS VOOR TOEKENNEN ZIEKTE AAN PATIENT EN TOEKENNEN MEDICATIE AAN PATIENT
             var dataPatientNaam = select.Select_Patient_Naam();
