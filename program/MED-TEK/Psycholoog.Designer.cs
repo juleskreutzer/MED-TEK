@@ -42,14 +42,22 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.btnNieuweAfspraak = new System.Windows.Forms.Button();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.label5 = new System.Windows.Forms.Label();
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.cbActief = new System.Windows.Forms.CheckBox();
+            this.dtpTijd = new System.Windows.Forms.DateTimePicker();
+            this.btnClearAfspraak = new System.Windows.Forms.Button();
+            this.btnAfspraak = new System.Windows.Forms.Button();
+            this.label27 = new System.Windows.Forms.Label();
+            this.label26 = new System.Windows.Forms.Label();
+            this.dtpAfspraak = new System.Windows.Forms.DateTimePicker();
+            this.label25 = new System.Windows.Forms.Label();
+            this.cbLocAfspraak = new System.Windows.Forms.ComboBox();
+            this.linkAfmelden = new System.Windows.Forms.LinkLabel();
+            this.linkProgramAfmelden = new System.Windows.Forms.LinkLabel();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbPasfoto)).BeginInit();
-            this.groupBox3.SuspendLayout();
+            this.groupBox6.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -181,43 +189,124 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Voornamen";
             // 
-            // groupBox3
+            // groupBox6
             // 
-            this.groupBox3.Controls.Add(this.btnNieuweAfspraak);
-            this.groupBox3.Controls.Add(this.dateTimePicker2);
-            this.groupBox3.Controls.Add(this.label5);
-            this.groupBox3.Location = new System.Drawing.Point(817, 12);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(284, 78);
-            this.groupBox3.TabIndex = 6;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Nieuwe afspraak";
+            this.groupBox6.Controls.Add(this.cbActief);
+            this.groupBox6.Controls.Add(this.dtpTijd);
+            this.groupBox6.Controls.Add(this.btnClearAfspraak);
+            this.groupBox6.Controls.Add(this.btnAfspraak);
+            this.groupBox6.Controls.Add(this.label27);
+            this.groupBox6.Controls.Add(this.label26);
+            this.groupBox6.Controls.Add(this.dtpAfspraak);
+            this.groupBox6.Controls.Add(this.label25);
+            this.groupBox6.Controls.Add(this.cbLocAfspraak);
+            this.groupBox6.Location = new System.Drawing.Point(819, 12);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(386, 159);
+            this.groupBox6.TabIndex = 23;
+            this.groupBox6.TabStop = false;
+            this.groupBox6.Text = "Nieuwe afspraak toevoegen";
             // 
-            // btnNieuweAfspraak
+            // cbActief
             // 
-            this.btnNieuweAfspraak.Location = new System.Drawing.Point(24, 48);
-            this.btnNieuweAfspraak.Name = "btnNieuweAfspraak";
-            this.btnNieuweAfspraak.Size = new System.Drawing.Size(95, 23);
-            this.btnNieuweAfspraak.TabIndex = 3;
-            this.btnNieuweAfspraak.Text = "Maak afspraak";
-            this.btnNieuweAfspraak.UseVisualStyleBackColor = true;
-            this.btnNieuweAfspraak.Click += new System.EventHandler(this.button1_Click);
+            this.cbActief.AutoSize = true;
+            this.cbActief.Location = new System.Drawing.Point(170, 103);
+            this.cbActief.Name = "cbActief";
+            this.cbActief.Size = new System.Drawing.Size(103, 17);
+            this.cbActief.TabIndex = 26;
+            this.cbActief.Text = "Afspraak actief?";
+            this.cbActief.UseVisualStyleBackColor = true;
             // 
-            // dateTimePicker2
+            // dtpTijd
             // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(121, 25);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(147, 20);
-            this.dateTimePicker2.TabIndex = 2;
+            this.dtpTijd.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpTijd.Location = new System.Drawing.Point(170, 75);
+            this.dtpTijd.Name = "dtpTijd";
+            this.dtpTijd.Size = new System.Drawing.Size(200, 20);
+            this.dtpTijd.TabIndex = 25;
             // 
-            // label5
+            // btnClearAfspraak
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(21, 25);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(77, 13);
-            this.label5.TabIndex = 0;
-            this.label5.Text = "Kies datum/tijd";
+            this.btnClearAfspraak.Location = new System.Drawing.Point(30, 128);
+            this.btnClearAfspraak.Name = "btnClearAfspraak";
+            this.btnClearAfspraak.Size = new System.Drawing.Size(161, 23);
+            this.btnClearAfspraak.TabIndex = 24;
+            this.btnClearAfspraak.Text = "Alle velden wissen";
+            this.btnClearAfspraak.UseVisualStyleBackColor = true;
+            // 
+            // btnAfspraak
+            // 
+            this.btnAfspraak.Location = new System.Drawing.Point(209, 128);
+            this.btnAfspraak.Name = "btnAfspraak";
+            this.btnAfspraak.Size = new System.Drawing.Size(161, 23);
+            this.btnAfspraak.TabIndex = 22;
+            this.btnAfspraak.Text = "Nieuwe afspraak toevoegen";
+            this.btnAfspraak.UseVisualStyleBackColor = true;
+            this.btnAfspraak.Click += new System.EventHandler(this.btnAfspraak_Click);
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Location = new System.Drawing.Point(27, 81);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(24, 13);
+            this.label27.TabIndex = 7;
+            this.label27.Text = "Tijd";
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Location = new System.Drawing.Point(24, 54);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(38, 13);
+            this.label26.TabIndex = 6;
+            this.label26.Text = "Datum";
+            // 
+            // dtpAfspraak
+            // 
+            this.dtpAfspraak.Location = new System.Drawing.Point(170, 48);
+            this.dtpAfspraak.Name = "dtpAfspraak";
+            this.dtpAfspraak.Size = new System.Drawing.Size(200, 20);
+            this.dtpAfspraak.TabIndex = 4;
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(24, 24);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(42, 13);
+            this.label25.TabIndex = 3;
+            this.label25.Text = "Locatie";
+            // 
+            // cbLocAfspraak
+            // 
+            this.cbLocAfspraak.FormattingEnabled = true;
+            this.cbLocAfspraak.Location = new System.Drawing.Point(170, 21);
+            this.cbLocAfspraak.Name = "cbLocAfspraak";
+            this.cbLocAfspraak.Size = new System.Drawing.Size(200, 21);
+            this.cbLocAfspraak.TabIndex = 2;
+            // 
+            // linkAfmelden
+            // 
+            this.linkAfmelden.AutoSize = true;
+            this.linkAfmelden.Location = new System.Drawing.Point(22, 592);
+            this.linkAfmelden.Name = "linkAfmelden";
+            this.linkAfmelden.Size = new System.Drawing.Size(86, 13);
+            this.linkAfmelden.TabIndex = 25;
+            this.linkAfmelden.TabStop = true;
+            this.linkAfmelden.Text = "Patient afmelden";
+            this.linkAfmelden.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel2_LinkClicked);
+            // 
+            // linkProgramAfmelden
+            // 
+            this.linkProgramAfmelden.AutoSize = true;
+            this.linkProgramAfmelden.Location = new System.Drawing.Point(134, 592);
+            this.linkProgramAfmelden.Name = "linkProgramAfmelden";
+            this.linkProgramAfmelden.Size = new System.Drawing.Size(119, 13);
+            this.linkProgramAfmelden.TabIndex = 24;
+            this.linkProgramAfmelden.TabStop = true;
+            this.linkProgramAfmelden.Text = "Afmelden bij programma";
+            this.linkProgramAfmelden.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkProgramAfmelden_LinkClicked);
             // 
             // Psycholoog
             // 
@@ -225,7 +314,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Highlight;
             this.ClientSize = new System.Drawing.Size(1684, 927);
-            this.Controls.Add(this.groupBox3);
+            this.Controls.Add(this.linkAfmelden);
+            this.Controls.Add(this.linkProgramAfmelden);
+            this.Controls.Add(this.groupBox6);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox2);
             this.Name = "Psycholoog";
@@ -235,9 +326,10 @@
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbPasfoto)).EndInit();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
+            this.groupBox6.ResumeLayout(false);
+            this.groupBox6.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -257,9 +349,17 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.Button btnNieuweAfspraak;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.GroupBox groupBox6;
+        private System.Windows.Forms.CheckBox cbActief;
+        private System.Windows.Forms.DateTimePicker dtpTijd;
+        private System.Windows.Forms.Button btnClearAfspraak;
+        private System.Windows.Forms.Button btnAfspraak;
+        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.DateTimePicker dtpAfspraak;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.ComboBox cbLocAfspraak;
+        private System.Windows.Forms.LinkLabel linkAfmelden;
+        private System.Windows.Forms.LinkLabel linkProgramAfmelden;
     }
 }

@@ -67,7 +67,7 @@
             // linkLabel2
             // 
             this.linkLabel2.AutoSize = true;
-            this.linkLabel2.Location = new System.Drawing.Point(1520, 916);
+            this.linkLabel2.Location = new System.Drawing.Point(34, 468);
             this.linkLabel2.Name = "linkLabel2";
             this.linkLabel2.Size = new System.Drawing.Size(86, 13);
             this.linkLabel2.TabIndex = 4;
@@ -78,7 +78,7 @@
             // linkLabel1
             // 
             this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(1632, 916);
+            this.linkLabel1.Location = new System.Drawing.Point(146, 468);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(119, 13);
             this.linkLabel1.TabIndex = 3;
@@ -209,7 +209,11 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Highlight;
+<<<<<<< HEAD
             this.ClientSize = new System.Drawing.Size(1784, 961);
+=======
+            this.ClientSize = new System.Drawing.Size(984, 762);
+>>>>>>> FETCH_HEAD
             this.Controls.Add(this.panel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2);

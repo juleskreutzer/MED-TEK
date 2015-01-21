@@ -18,5 +18,10 @@ namespace MED_TEK
             InitializeComponent();
             verbinding = _verbinding;
         }
+
+        private void Doctor_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
