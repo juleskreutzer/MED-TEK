@@ -630,7 +630,7 @@ namespace MED_TEK
             for(int i = 0; i < afspraakdata.Count; ++i)
             {
                 Dictionary<string, object> row = afspraakdata[i];
-                cbLocatie.Items.Add(Convert.ToString(row["naam"]));
+                cbLocatie.Items.Add(Convert.ToString(row["locatienaam"]));
                 dtpAfspraak.Text = Convert.ToString(row["datum"]);
                 dtpTijd.Text = Convert.ToString(row["tijd"]);
                 afspraakID = Convert.ToInt32(row["medicatieID"]);

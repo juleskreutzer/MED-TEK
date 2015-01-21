@@ -151,7 +151,7 @@ namespace MED_TEK
 
         public List<Dictionary<string, object>> Select_Afspraak_Data(int medicatieID)
         {
-            string sql = "SELECT " + prefix + "afspraak.medicatieID, " + prefix + "locatie.naam, " + prefix + "afspraak.datum, " + prefix + "afspraak.tijd, " + prefix + "afspraak.actief FROM " + prefix + "locatie, " + prefix + "afspraak WHERE " + prefix + "afspraak.locatieID = " + prefix + "locatie.locatieID AND " + prefix + "afspraak.medicatieID = '" + medicatieID + "'";
+            string sql = "SELECT " + prefix + "afspraak.medicatieID, " + prefix + "locatie.locaitenaam, " + prefix + "afspraak.datum, " + prefix + "afspraak.tijd, " + prefix + "afspraak.actief FROM " + prefix + "locatie, " + prefix + "afspraak WHERE " + prefix + "afspraak.locatieID = " + prefix + "locatie.locatieID AND " + prefix + "afspraak.medicatieID = '" + medicatieID + "'";
 
             var data = Connect.ExecuteQuery(sql);
             return data;
@@ -160,7 +160,7 @@ namespace MED_TEK
         public List<Dictionary<string, object>> Select_Afspraak_Patient(string pascode)
         {
             // Deze methode retourneerd de afspraken van een bepaalde patient
-            string sql = "SELECT " + prefix + "afspraak.medicatieID, " + prefix + "locatie.naam, " + prefix + "afspraak.datum FROM " + prefix + "afspraak, " + prefix + "medicatie, " + prefix + "patient, " + prefix + "locatie WHERE " + prefix + "afspraak.medicatieID = " + prefix + "medicatie.medicatieID AND " + prefix + "afspraak.locatieID = " + prefix + "locatie.locatieID AND " + prefix + "medicatie.patientID = " + prefix + "patient.patientID AND " + prefix + "patient.pascode = '" + pascode + "'";
+            string sql = "SELECT " + prefix + "afspraak.medicatieID, " + prefix + "locatie.locatienaam, " + prefix + "afspraak.datum FROM " + prefix + "afspraak, " + prefix + "medicatie, " + prefix + "patient, " + prefix + "locatie WHERE " + prefix + "afspraak.medicatieID = " + prefix + "medicatie.medicatieID AND " + prefix + "afspraak.locatieID = " + prefix + "locatie.locatieID AND " + prefix + "medicatie.patientID = " + prefix + "patient.patientID AND " + prefix + "patient.pascode = '" + pascode + "'";
 
             var data = Connect.ExecuteQuery(sql);
             return data;

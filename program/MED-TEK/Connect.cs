@@ -169,7 +169,7 @@ namespace MED_TEK
         {
 
             // SQL-statement opstellen
-            string sql = "SELECT naam FROM " + prefix + "locatie, " + prefix + "login WHERE " + prefix + "login.username = '" + username + "' AND " + prefix + "login.password = '" + password + "' AND " + prefix + "login.locatieID = " + prefix + "locatie.locatieID"; 
+            string sql = "SELECT locatienaam FROM " + prefix + "locatie, " + prefix + "login WHERE " + prefix + "login.username = '" + username + "' AND " + prefix + "login.password = '" + password + "' AND " + prefix + "login.locatieID = " + prefix + "locatie.locatieID"; 
 
             if(this.Open_Connection() == true)
             {
