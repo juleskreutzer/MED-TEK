@@ -216,6 +216,14 @@ namespace MED_TEK
 
         }
 
+        public List<Dictionary<string, object>> Select_Ziekteoverzicht_Pascode(string pascode)
+        {
+            string sql = "SELECT " + prefix + "ziekte.ziekteID, " + prefix + "ziekte.naam FROM " + prefix + "ziekte, " + prefix + "patient, " + prefix + "ziekteoverzicht WHERE " + prefix + "ziekteoverzicht.ziekteID = " + prefix + "ziekte.ziekteID AND " + prefix + "ziekteoverzicht.patientID = " + prefix + "patient.patientID AND " + prefix + "patient.pascode = '" + pascode + "'";
+
+            var data = Connect.ExecuteQuery(sql);
+            return data;
+        }
+
         public List<Dictionary<string, object>> Select_Locatie()
         {
             // Deze methode retourneerd een lijst van alle locaties in de database met bijbehorende ID

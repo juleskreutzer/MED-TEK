@@ -14,10 +14,13 @@ namespace MED_TEK
     {
         Select select = new Select();
         Connect verbinding = new Connect();
+        Miscellaneous overig = new Miscellaneous();
+        Delete delete = new Delete();
 
         public Beheer_Delete()
         {
             InitializeComponent();
+            WindowState = FormWindowState.Maximized;
         }
 
         private void Beheer_Delete_Load(object sender, EventArgs e)
@@ -54,7 +57,98 @@ namespace MED_TEK
                 {
                     Dictionary<string, object> row = afspraak[c];
                     cbSelectAfspraak.Items.Add("ID " + row["medicatieID"] + " - " + row["voornamen"] + " " + row["achternaam"]);
+                    lbOverzichtAfspraken.Items.Add("ID " + row["medicatieID"] + " - " + row["voornamen"] + " " + row["achternaam"]);
                 }
+            }
+        }
+
+        private void btnZoekZiektePatient_Click(object sender, EventArgs e)
+        {
+            string pascode = tbPascode.Text;
+            var ziektePatient = select.Select_Ziekteoverzicht_Pascode(pascode);
+
+            if (pascode != "")
+            {
+                for (int i = 0; i < ziektePatient.Count; ++i)
+                {
+                    Dictionary<string, object> row = ziektePatient[i];
+                    cbSelecteerZiektePatient.Items.Add("ID " + row["ziekteID"] + " - " + row["naam"]);
+                    lbOverzichtZiektePatient.Items.Add(row["naam"]);
+                }
+
+                tbPascode.Enabled = false;
+                btnZoekZiektePatient.Enabled = false;
+
+                cbSelecteerZiektePatient.Enabled = true;
+                btnVerwijderZiektePatient.Enabled = true;
+            }
+            else
+            {
+                MessageBox.Show("Geef pascode op!");
+            }
+        }
+
+        private void btnVerwijderZiektePatient_Click(object sender, EventArgs e)
+        {
+            string ziekteIDstring = overig.GetSubstringByString("ID ", " -", Convert.ToString(cbSelecteerZiektePatient.SelectedItem));
+
+            if (ziekteIDstring == "")
+            {
+                MessageBox.Show("Selecteer een ziekte van de patient!");
+            }
+            else
+            {
+                int ziekteID = Convert.ToInt32(ziekteIDstring);
+                delete.Delete_Ziekteoverzicht(ziekteID);
+                MessageBox.Show("Ziekte succesvol verwijderd van patient!");
+            }
+        }
+
+        private void btnVerwijderZiekte_Click(object sender, EventArgs e)
+        {
+            string ziekteIDstring = overig.GetSubstringByString("ID ", " -", Convert.ToString(cbSelectZiekte.SelectedItem));
+
+            if(ziekteIDstring == "")
+            {
+                MessageBox.Show("Selecteer een ziekte om te verwijderen");
+            }
+            else
+            {
+                int ziekteID = Convert.ToInt32(ziekteIDstring);
+                delete.Delete_Ziekte(ziekteID);
+                MessageBox.Show("De ziekte is succesvol verwijderd!");
+            }
+        }
+
+        private void btnVerwijderAfspraak_Click(object sender, EventArgs e)
+        {
+            string afspraakIDstring = overig.GetSubstringByString("ID ", " -", Convert.ToString(cbSelectAfspraak.SelectedItem));
+
+            if(afspraakIDstring == "")
+            {
+                MessageBox.Show("Selecteer een afspraak om te verwijderen!");
+            }
+            else
+            {
+                int afspraakID = Convert.ToInt32(afspraakIDstring);
+                delete.Delete_Afspraak(afspraakID);
+                MessageBox.Show("De afspraak is succesvol verwijderd!");
+            }
+        }
+
+        private void btnVerwijderMedicijn_Click(object sender, EventArgs e)
+        {
+            string medicijnIDstring = overig.GetSubstringByString("ID ", " -", Convert.ToString(cbSelectMedicijn.SelectedItem));
+
+            if(medicijnIDstring == "")
+            {
+                MessageBox.Show("Selecteer een medicijn om te verwijderen!");
+            }
+            else
+            {
+                int medicijnID = Convert.ToInt32(medicijnIDstring);
+                delete.Delete_Medicijn(medicijnID);
+                MessageBox.Show("Het medicijn is succesvol verwijderd!");
             }
         }
     }

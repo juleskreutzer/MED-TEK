@@ -23,13 +23,11 @@ namespace MED_TEK
 
         }
 
-        public void Delete_Afspraak(int medicatieID, string patientID, string datum)
+        public void Delete_Afspraak(int medicatieID)
         {
             // verwijder een afspraak wat gelijk is aan het opgegeven medicatieID, patientID en datum
 
-            string query = " DELETE FROM Afspraak" + prefix + "afspraak" + medicatieID + patientID + datum +
-                           " WHERE medicatieID = " + medicatieID + " AND patientID = " + patientID + " AND datum = " +
-                           datum;
+            string query = "DELETE FROM " + prefix + "afspraak WHERE " + prefix + "afspraak.medicatieID = '" + medicatieID + "'";
 
             verbinding.Execute(query);
 
@@ -39,18 +37,17 @@ namespace MED_TEK
         {
             // Verwijder een ziekte wat gelijk is aan het opgegeven ziekteID
 
-            string query = " DELETE FROM Ziekte " + prefix + "ziekte " + ziekteID + "WHERE ziekteID = " + ziekteID;
+            string query = " DELETE FROM " + prefix + "ziekte WHERE ziekteID = '" + ziekteID + "'";
 
             verbinding.Execute(query);
 
         }
 
-        public void Delete_Ziekteoverzicht(int ziekteID, string patientID)
+        public void Delete_Ziekteoverzicht(int ziekteID)
         {
             // Verwijder een ziekteoverzicht wat gelijk is aan de opgegeven waarden
 
-            string query = " DELETE FROM Ziekteoverzicht" + prefix + "ziekteoverzicht" + ziekteID + patientID +
-                           " WHERE ziekteID = " + ziekteID + " AND patientID = " + patientID;
+            string query = "DELETE FROM " + prefix + "ziekteoverzicht WHERE ziekteID = '" + ziekteID + "'";
 
             verbinding.Execute(query);
 

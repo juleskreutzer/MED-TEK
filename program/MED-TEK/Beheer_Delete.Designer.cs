@@ -45,12 +45,12 @@
             this.cbSelectZiekte = new System.Windows.Forms.ComboBox();
             this.lbOverzichtZiekte = new System.Windows.Forms.ListBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnVerwijderZiektePatient = new System.Windows.Forms.Button();
+            this.cbSelecteerZiektePatient = new System.Windows.Forms.ComboBox();
+            this.btnZoekZiektePatient = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.tbPascode = new System.Windows.Forms.TextBox();
             this.lbOverzichtZiektePatient = new System.Windows.Forms.ListBox();
-            this.cbSelecteerZiektePatient = new System.Windows.Forms.ComboBox();
-            this.btnVerwijderZiektePatient = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -96,6 +96,7 @@
             this.btnVerwijderMedicijn.TabIndex = 8;
             this.btnVerwijderMedicijn.Text = "Verwijder Medicijn";
             this.btnVerwijderMedicijn.UseVisualStyleBackColor = true;
+            this.btnVerwijderMedicijn.Click += new System.EventHandler(this.btnVerwijderMedicijn_Click);
             // 
             // label2
             // 
@@ -143,6 +144,7 @@
             this.btnVerwijderAfspraak.TabIndex = 11;
             this.btnVerwijderAfspraak.Text = "Verwijder afspraak";
             this.btnVerwijderAfspraak.UseVisualStyleBackColor = true;
+            this.btnVerwijderAfspraak.Click += new System.EventHandler(this.btnVerwijderAfspraak_Click);
             // 
             // label3
             // 
@@ -182,6 +184,7 @@
             this.btnVerwijderZiekte.TabIndex = 3;
             this.btnVerwijderZiekte.Text = "Verwijder ziekte";
             this.btnVerwijderZiekte.UseVisualStyleBackColor = true;
+            this.btnVerwijderZiekte.Click += new System.EventHandler(this.btnVerwijderZiekte_Click);
             // 
             // label4
             // 
@@ -212,7 +215,7 @@
             // 
             this.groupBox4.Controls.Add(this.btnVerwijderZiektePatient);
             this.groupBox4.Controls.Add(this.cbSelecteerZiektePatient);
-            this.groupBox4.Controls.Add(this.button1);
+            this.groupBox4.Controls.Add(this.btnZoekZiektePatient);
             this.groupBox4.Controls.Add(this.label5);
             this.groupBox4.Controls.Add(this.tbPascode);
             this.groupBox4.Controls.Add(this.lbOverzichtZiektePatient);
@@ -223,14 +226,33 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Ziekte van patient verwijderen";
             // 
-            // button1
+            // btnVerwijderZiektePatient
             // 
-            this.button1.Location = new System.Drawing.Point(152, 57);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(220, 23);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "Verwijder ziekte patient";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnVerwijderZiektePatient.Location = new System.Drawing.Point(152, 113);
+            this.btnVerwijderZiektePatient.Name = "btnVerwijderZiektePatient";
+            this.btnVerwijderZiektePatient.Size = new System.Drawing.Size(220, 23);
+            this.btnVerwijderZiektePatient.TabIndex = 7;
+            this.btnVerwijderZiektePatient.Text = "Verwijder ziekte patient";
+            this.btnVerwijderZiektePatient.UseVisualStyleBackColor = true;
+            this.btnVerwijderZiektePatient.Click += new System.EventHandler(this.btnVerwijderZiektePatient_Click);
+            // 
+            // cbSelecteerZiektePatient
+            // 
+            this.cbSelecteerZiektePatient.FormattingEnabled = true;
+            this.cbSelecteerZiektePatient.Location = new System.Drawing.Point(152, 86);
+            this.cbSelecteerZiektePatient.Name = "cbSelecteerZiektePatient";
+            this.cbSelecteerZiektePatient.Size = new System.Drawing.Size(220, 21);
+            this.cbSelecteerZiektePatient.TabIndex = 6;
+            // 
+            // btnZoekZiektePatient
+            // 
+            this.btnZoekZiektePatient.Location = new System.Drawing.Point(152, 57);
+            this.btnZoekZiektePatient.Name = "btnZoekZiektePatient";
+            this.btnZoekZiektePatient.Size = new System.Drawing.Size(220, 23);
+            this.btnZoekZiektePatient.TabIndex = 3;
+            this.btnZoekZiektePatient.Text = "Zoek patientgegevens op";
+            this.btnZoekZiektePatient.UseVisualStyleBackColor = true;
+            this.btnZoekZiektePatient.Click += new System.EventHandler(this.btnZoekZiektePatient_Click);
             // 
             // label5
             // 
@@ -255,23 +277,6 @@
             this.lbOverzichtZiektePatient.Name = "lbOverzichtZiektePatient";
             this.lbOverzichtZiektePatient.Size = new System.Drawing.Size(365, 277);
             this.lbOverzichtZiektePatient.TabIndex = 0;
-            // 
-            // cbSelecteerZiektePatient
-            // 
-            this.cbSelecteerZiektePatient.FormattingEnabled = true;
-            this.cbSelecteerZiektePatient.Location = new System.Drawing.Point(152, 86);
-            this.cbSelecteerZiektePatient.Name = "cbSelecteerZiektePatient";
-            this.cbSelecteerZiektePatient.Size = new System.Drawing.Size(220, 21);
-            this.cbSelecteerZiektePatient.TabIndex = 6;
-            // 
-            // btnVerwijderZiektePatient
-            // 
-            this.btnVerwijderZiektePatient.Location = new System.Drawing.Point(152, 113);
-            this.btnVerwijderZiektePatient.Name = "btnVerwijderZiektePatient";
-            this.btnVerwijderZiektePatient.Size = new System.Drawing.Size(220, 23);
-            this.btnVerwijderZiektePatient.TabIndex = 7;
-            this.btnVerwijderZiektePatient.Text = "Verwijder ziekte patient";
-            this.btnVerwijderZiektePatient.UseVisualStyleBackColor = true;
             // 
             // Beheer_Delete
             // 
@@ -318,7 +323,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox cbSelectZiekte;
         private System.Windows.Forms.ListBox lbOverzichtZiekte;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnZoekZiektePatient;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox tbPascode;
         private System.Windows.Forms.ListBox lbOverzichtZiektePatient;
