@@ -406,7 +406,7 @@ namespace MED_TEK
             if(locatieIDstring== "")
             {
                 ++error;
-                MessageBox.Show("Wele locatie moet worden toegewezen?");
+                MessageBox.Show("Welke locatie moet worden toegewezen?");
             }
             if(datum == "")
             {
@@ -470,6 +470,11 @@ namespace MED_TEK
 
             insert.Insert_Medicatie(patientID, medicijnID, GebruikStart, GebruikEind, hoeveelheid);
             MessageBox.Show("De medicatie is met succes opgeslagen voor de patient!");
+
+        }
+
+        private void cbLocAfspraak_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
         }
 

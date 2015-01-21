@@ -13,6 +13,7 @@ namespace MED_TEK
     public partial class Psycholoog : Form
     {
         Connect verbinding;
+        Insert insert = new Insert();
         public Psycholoog(Connect _verbinding)
         {
             InitializeComponent();
@@ -74,12 +75,90 @@ namespace MED_TEK
 
         private void Psycholoog_Load(object sender, EventArgs e)
         {
+            // custom format instellen voor tijd van een afspraak en tijd op 00:00 zetten
+            dtpTijd.CustomFormat = "HH : mm";
+            dtpTijd.Text = "00:00";
+
+            var dataLocatie = select.Select_Locatie();
+
+            int b = 0;
+            for (b = 0; b < 1; ++b)
+            {
+                for (int j = 0; j < dataLocatie.Count; ++j)
+                {
+                    Dictionary<string, object> row = dataLocatie[j];
+
+                    cbLocAfspraak.Items.Add("ID " + row["locatieID"] + " - " + row["locatienaam"]);
+                }
+            }
+            
             refresh_data();
+
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnAfspraak_Click(object sender, EventArgs e)
         {
+            
+            
+            string locatieIDstring = overig.GetSubstringByString("ID ", " -", Convert.ToString(cbLocAfspraak.SelectedItem));
+            string datum = dtpAfspraak.Text;
+            string tijd = dtpTijd.Text;
+            bool actief = cbActief.Checked;
 
+            int error = 0;
+
+            if (locatieIDstring == "" || datum == "" || tijd == "")
+            {
+                ++error;
+                MessageBox.Show("Je bent wat gegevens vergeten, loop ze nog eens na!");
+            }
+            else
+            {
+                if (error == 0)
+                {
+                    if (actief)
+                    {
+                        
+                        int locatieID = Convert.ToInt32(locatieIDstring);
+                        int medicatieID = 0;
+                        int actiefenzo = Convert.ToInt32(actief);
+                        insert.Insert_Afspraak(medicatieID, locatieID, datum, tijd, actiefenzo);
+                        MessageBox.Show("Afspraak is succesvol toegevoegd!");
+
+                    }
+                    else
+                    {
+                        int locatieID = Convert.ToInt32(locatieIDstring);
+                        int medicatieID = 0;
+                        int actiefenzo = Convert.ToInt32(actief);
+                        insert.Insert_Afspraak(medicatieID, locatieID, datum, tijd, actiefenzo);
+                        MessageBox.Show("Afspraak is succesvol toegevoegd!");
+                    }
+                }
+            }
         }
+
+        private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            // Patient afmelden
+            // Gegevens weghalen en scan form weergeven
+
+            verbinding.patientID = 0; // int, dus null gaat niet
+            verbinding.pasfoto = null;
+
+            scan scan = new scan(verbinding);
+            this.Hide();
+            scan.Show();
+        }
+
+        private void linkProgramAfmelden_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            verbinding.locatie = null;
+            Login login = new Login();
+            this.Hide();
+            login.Show();
+        }
+
+        
     }
 }

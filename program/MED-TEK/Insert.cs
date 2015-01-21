@@ -49,7 +49,7 @@ namespace MED_TEK
             // Deze methode voegt een nieuwe afspraak toe aan de database
             // Velden die verplicht moeten worden opgegeven zijn medicatieID, locatieID en datum
             // actief geeft aan of afspraak al is geweest of niet, 0 = niet actief / 1 = actief
-            string query = "INSERT INTO " + prefix + "afspraak (medicatieID, locatieID, datm, tijd, actief) VALUES ('" + medicatieID + "','" + locatieID + "','" + datum + "','" + tijd + "','" + actief + "')";
+            string query = "INSERT INTO " + prefix + "afspraak (medicatieID, locatieID, datum, tijd, actief) VALUES ('" + medicatieID + "','" + locatieID + "','" + datum + "','" + tijd + "','" + actief + "')";
             verbinding.Execute(query);
 
         }

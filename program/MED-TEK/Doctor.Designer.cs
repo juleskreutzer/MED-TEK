@@ -313,6 +313,7 @@
             this.Controls.Add(this.groupBox2);
             this.Name = "Doctor";
             this.Text = "Doctor";
+            this.Load += new System.EventHandler(this.Doctor_Load);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

@@ -958,6 +958,7 @@
             this.cbLocAfspraak.Name = "cbLocAfspraak";
             this.cbLocAfspraak.Size = new System.Drawing.Size(200, 21);
             this.cbLocAfspraak.TabIndex = 2;
+            this.cbLocAfspraak.SelectedIndexChanged += new System.EventHandler(this.cbLocAfspraak_SelectedIndexChanged);
             // 
             // label24
             // 
@@ -980,7 +981,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1784, 961);
+            this.ClientSize = new System.Drawing.Size(1684, 927);
             this.Controls.Add(groupBox7);
             this.Controls.Add(this.groupBox6);
             this.Controls.Add(this.groupBox5);
