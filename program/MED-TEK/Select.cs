@@ -30,7 +30,7 @@ namespace MED_TEK
         public List<Dictionary<string, object>> Select_Patient_Arts(int patientID)
         {
             // Deze methode retourneerd de gegevens van een patient die belangrijk zijn voor een arts
-            string sql = "SELECT * FROM " + prefix + "patient";
+            string sql = "SELECT * FROM " + prefix + "patient WHERE patientID = " + patientID;
 
             var data = Connect.ExecuteQuery(sql);
             return data;
@@ -93,7 +93,7 @@ namespace MED_TEK
 
         public List<Dictionary<string, object>> Select_Medicijn_Data(int medicijnID)
         {
-            string sql = "SELECT naam, gebruik, bijwerking FROM " + prefix + "medicijn WHERE medicijnID = '" + medicijnID + "'";
+            string sql = "SELECT naam, gebruik, bijwerking, medicijnID FROM " + prefix + "medicijn WHERE medicijnID = '" + medicijnID + "'";
 
             var data = Connect.ExecuteQuery(sql);
             return data;
