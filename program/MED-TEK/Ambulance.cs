@@ -110,5 +110,10 @@ namespace MED_TEK
             this.Hide();
             scan.Show();
         }
+
+        private void lbZiektes_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

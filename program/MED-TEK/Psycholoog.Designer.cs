@@ -229,6 +229,7 @@
             this.Controls.Add(this.groupBox2);
             this.Name = "Psycholoog";
             this.Text = "Psycholoog";
+            this.Load += new System.EventHandler(this.Psycholoog_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();

@@ -112,6 +112,7 @@
             this.lbZiektes.Name = "lbZiektes";
             this.lbZiektes.Size = new System.Drawing.Size(357, 95);
             this.lbZiektes.TabIndex = 0;
+            this.lbZiektes.SelectedIndexChanged += new System.EventHandler(this.lbZiektes_SelectedIndexChanged);
             // 
             // groupBox1
             // 

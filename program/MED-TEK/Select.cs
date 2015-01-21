@@ -143,7 +143,7 @@ namespace MED_TEK
         {
             // Deze methode retourneerd alle afspraken, afhankelijk of ze actief zijn of niet
 
-            string sql = "SELECT " + prefix + "locatie.naam, " + prefix + "medicatie.naam, " + prefix + "afspraak.datum, " + prefix + "afspraak.tijd, " + prefix + "afspraak.actief FROM " + prefix + "afspraak, " + prefix + "locatie, " + prefix + "medicatie WHERE afspraak.medicatieID = medicatie.medicatieID AND afspraak.locatieID = locatie.locatieID";
+            string sql = "SELECT " + prefix + "locatie.locatienaam, " + prefix + "medicijn.naam, " + prefix + "afspraak.datum, " + prefix + "afspraak.tijd, " + prefix + "afspraak.actief FROM " + prefix + "afspraak, " + prefix + "locatie, " + prefix + "medicatie, " + prefix + "medicijn WHERE " + prefix + "afspraak.medicatieID = " + prefix +"medicatie.medicatieID AND " + prefix +"afspraak.locatieID = " + prefix +"locatie.locatieID AND " + prefix + "medicatie.medicijnID = " + prefix + "medicijn.medicijnID";
 
             var data = Connect.ExecuteQuery(sql);
             return data;
