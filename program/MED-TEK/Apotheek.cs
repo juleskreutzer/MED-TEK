@@ -22,7 +22,7 @@ namespace MED_TEK
 
         private void Apotheek_Load(object sender, EventArgs e)
         {
-
+            refresh_data();
         }
 
         Select select = new Select();
@@ -31,7 +31,7 @@ namespace MED_TEK
         private void refresh_data()
         {
             //benodigde patiëntgegevens ophalen en weergeven
-            var patientgegevens = select.Select_Patient_Auto(verbinding.patientID);
+            var patientgegevens = select.Select_Patient_Apotheek(verbinding.patientID);
             var medicatiegegevens = select.Select_Medicatie(verbinding.patientID);
             var medicijngegevens = select.Select_Medicijn();
 
@@ -50,6 +50,7 @@ namespace MED_TEK
                     string date = (string) row["geboortedatum"];
                     dtpGeboorte.Text = date;
                     tbAdres.Text = (string) row["adres"];
+                    pbPasfoto.Load(verbinding.pasfoto);
                 }
 
                 for (a = 0; a < medicatiegegevens.Count; ++a)

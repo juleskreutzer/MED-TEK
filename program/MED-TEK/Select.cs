@@ -39,7 +39,7 @@ namespace MED_TEK
         public List<Dictionary<string, object>> Select_Patient_Apotheek(int patientID)
         {
             // Deze methode retourneerd de gegevens van een patient die belangrijk zijn voor een arts
-            string sql = "";
+            string sql = "SELECT " + prefix + "patient.voornamen, " + prefix + "patient.achternaam, " + prefix + "patient.geboortedatum, " + prefix + "patient.adres, " + prefix + "medicijn.naam FROM " + prefix + "patient, " + prefix + "medicatie, " + prefix + "medicijn WHERE " + prefix + "medicijn.medicijnID = " + prefix + "medicatie.medicijnID AND " + prefix + "medicatie.patientID = " + prefix + "patient.patientID AND " + prefix + "patient.patientID = '" + patientID + "'";
 
             var data = Connect.ExecuteQuery(sql);
             return data;
@@ -48,7 +48,7 @@ namespace MED_TEK
         public List<Dictionary<string, object>> Select_Patient_Auto(int patientID)
         {
             // Deze methode retourneerd de gegevens van een patient die belangrijk zijn voor een ambulancebroeder
-            string sql = "SELECT voornamen, achternaam, geboortedatum, bloedgroep, pasfoto FROM " + prefix + "patient WHERE patientID = " + patientID;
+            string sql = "SELECT voornamen, achternaam, geboortedatum, bloedgroep, pasfoto FROM " + prefix + "patient WHERE patientID = '" + patientID + "'";
 
             var data = Connect.ExecuteQuery(sql);
             return data;
@@ -57,7 +57,7 @@ namespace MED_TEK
         public List<Dictionary<string, object>> Select_Patient_Psycholoog(int patientID)
         {
             // Deze methode retourneerd de gegevens van een patient die belangrijk zijn voor een psycholoog
-            string sql = "SELECT voornamen, achternaam, geboortedatum, pasfoto, adres FROM " + prefix + "patient WHERE patientID = " + patientID; ;
+            string sql = "SELECT voornamen, achternaam, geboortedatum, pasfoto, adres FROM " + prefix + "patient WHERE patientID = '" + patientID + "'";
 
             var data = Connect.ExecuteQuery(sql);
             return data;
@@ -104,7 +104,7 @@ namespace MED_TEK
         {
             // Deze methode retourneerd alle medicijnen die een patient gebruikt
 
-            string sql = "SELECT " + prefix + "medicijn.naam FROM " + prefix + "medicijn, " + prefix + "medicatie WHERE  " + prefix + "medicatie.medicijnID = " + prefix + "medicijn.medicijnID AND " + prefix + "medicatie.patientID = '" + patientID + "'";
+            string sql = "SELECT " + prefix + "medicijn.naam, " + prefix + "medicatie.gebruikstart, " + prefix + "medicatie.gebruikeind, " + prefix + "medicatie.hoeveelheid, " + prefix + "medicatie.medicatieID FROM " + prefix + "medicijn, " + prefix + "medicatie WHERE  " + prefix + "medicatie.medicijnID = " + prefix + "medicijn.medicijnID AND " + prefix + "medicatie.patientID = '" + patientID + "'";
 
             var data = Connect.ExecuteQuery(sql);
             return data;

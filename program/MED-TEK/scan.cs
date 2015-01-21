@@ -101,5 +101,15 @@ namespace MED_TEK
         {
             Application.Exit();
         }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            verbinding.login_locatie = null;
+
+            this.Hide();
+
+            Login login = new Login();
+            login.Show();
+        }
     }
 }

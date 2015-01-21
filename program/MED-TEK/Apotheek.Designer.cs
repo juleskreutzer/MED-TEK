@@ -29,13 +29,11 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.lbMedicatie = new System.Windows.Forms.ListBox();
             this.dtpGeboorte = new System.Windows.Forms.DateTimePicker();
             this.tbAdres = new System.Windows.Forms.TextBox();
             this.tbAchternaam = new System.Windows.Forms.TextBox();
             this.tbVoorNamen = new System.Windows.Forms.TextBox();
             this.pbPasfoto = new System.Windows.Forms.PictureBox();
-            this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -55,39 +53,31 @@
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbPasfoto)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.lbMedicatie);
             this.groupBox1.Controls.Add(this.dtpGeboorte);
             this.groupBox1.Controls.Add(this.tbAdres);
             this.groupBox1.Controls.Add(this.tbAchternaam);
             this.groupBox1.Controls.Add(this.tbVoorNamen);
             this.groupBox1.Controls.Add(this.pbPasfoto);
-            this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(12, 12);
+            this.groupBox1.Location = new System.Drawing.Point(13, 6);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(379, 563);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Patiënt gegevens";
-            // 
-            // lbMedicatie
-            // 
-            this.lbMedicatie.FormattingEnabled = true;
-            this.lbMedicatie.Location = new System.Drawing.Point(188, 173);
-            this.lbMedicatie.Name = "lbMedicatie";
-            this.lbMedicatie.Size = new System.Drawing.Size(150, 30);
-            this.lbMedicatie.TabIndex = 15;
             // 
             // dtpGeboorte
             // 
@@ -127,15 +117,6 @@
             this.pbPasfoto.Size = new System.Drawing.Size(321, 262);
             this.pbPasfoto.TabIndex = 6;
             this.pbPasfoto.TabStop = false;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(32, 173);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(53, 13);
-            this.label5.TabIndex = 4;
-            this.label5.Text = "Medicatie";
             // 
             // label4
             // 
@@ -193,7 +174,7 @@
             this.groupBox2.Controls.Add(this.cbOpgehaald);
             this.groupBox2.Controls.Add(this.label8);
             this.groupBox2.Controls.Add(this.label7);
-            this.groupBox2.Location = new System.Drawing.Point(430, 12);
+            this.groupBox2.Location = new System.Drawing.Point(419, 370);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(300, 199);
             this.groupBox2.TabIndex = 1;
@@ -256,7 +237,7 @@
             this.groupBox3.Controls.Add(this.label12);
             this.groupBox3.Controls.Add(this.label11);
             this.groupBox3.Controls.Add(this.label10);
-            this.groupBox3.Location = new System.Drawing.Point(430, 217);
+            this.groupBox3.Location = new System.Drawing.Point(419, 6);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(300, 310);
             this.groupBox3.TabIndex = 2;
@@ -313,15 +294,24 @@
             this.label10.TabIndex = 0;
             this.label10.Text = "Naam";
             // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.groupBox3);
+            this.panel1.Controls.Add(this.groupBox2);
+            this.panel1.Controls.Add(this.groupBox1);
+            this.panel1.Location = new System.Drawing.Point(3, 12);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(969, 750);
+            this.panel1.TabIndex = 6;
+            // 
             // Apotheek
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Highlight;
-            this.ClientSize = new System.Drawing.Size(1684, 927);
-            this.Controls.Add(this.groupBox3);
-            this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.groupBox1);
+            this.ClientSize = new System.Drawing.Size(976, 767);
+            this.Controls.Add(this.panel1);
             this.Name = "Apotheek";
             this.Text = "Apotheek";
             this.Load += new System.EventHandler(this.Apotheek_Load);
@@ -332,6 +322,7 @@
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -343,14 +334,12 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.PictureBox pbPasfoto;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox tbAdres;
         private System.Windows.Forms.TextBox tbAchternaam;
         private System.Windows.Forms.TextBox tbVoorNamen;
         private System.Windows.Forms.CheckBox cbOpgehaald;
         private System.Windows.Forms.DateTimePicker dtpGeboorte;
-        private System.Windows.Forms.ListBox lbMedicatie;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.TextBox tbHoeveelheid;
         private System.Windows.Forms.TextBox tbGebruiksEinde;
@@ -365,5 +354,6 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Panel panel1;
     }
 }

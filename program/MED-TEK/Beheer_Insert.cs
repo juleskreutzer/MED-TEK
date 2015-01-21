@@ -33,6 +33,10 @@ namespace MED_TEK
             dtpTijd.Text = "00:00";
 
             // Custom format instellen voor het opslaan van de datum gebruikstart en gebruikeind in de database
+            dtpGebruikEind.Format = DateTimePickerFormat.Custom;
+            dtpGebruikStart.Format = DateTimePickerFormat.Custom;
+            dtpAfspraak.Format = DateTimePickerFormat.Custom;
+            dtpAfspraak.CustomFormat = "yyyy-MM-dd";
             dtpGebruikStart.CustomFormat = "yyyy-MM-dd";
             dtpGebruikEind.CustomFormat = "yyyy-MM-dd";
 
