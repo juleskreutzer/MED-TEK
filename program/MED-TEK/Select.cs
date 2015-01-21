@@ -90,6 +90,7 @@ namespace MED_TEK
 
         }
 
+
         public List<Dictionary<string, object>> Select_Medicijn_Data(int medicijnID)
         {
             string sql = "SELECT naam, gebruik, bijwerking FROM " + prefix + "medicijn WHERE medicijnID = '" + medicijnID + "'";
@@ -161,6 +162,15 @@ namespace MED_TEK
         {
             // Deze methode retourneerd de afspraken van een bepaalde patient
             string sql = "SELECT " + prefix + "afspraak.medicatieID, " + prefix + "locatie.locatienaam, " + prefix + "afspraak.datum FROM " + prefix + "afspraak, " + prefix + "medicatie, " + prefix + "patient, " + prefix + "locatie WHERE " + prefix + "afspraak.medicatieID = " + prefix + "medicatie.medicatieID AND " + prefix + "afspraak.locatieID = " + prefix + "locatie.locatieID AND " + prefix + "medicatie.patientID = " + prefix + "patient.patientID AND " + prefix + "patient.pascode = '" + pascode + "'";
+
+            var data = Connect.ExecuteQuery(sql);
+            return data;
+        }
+
+        public List<Dictionary<string, object>> Select_Afspraak_All()
+        {
+            // Deze methode retourneerd een overzicht van alle afspraken
+            string sql = "SELECT rhbj_medicatie.medicatieID, rhbj_patient.voornamen, rhbj_patient.achternaam, rhbj_afspraak.datum, rhbj_afspraak.tijd,  rhbj_medicijn.naam, rhbj_locatie.locatienaam FROM rhbj_patient, rhbj_afspraak, rhbj_medicatie, rhbj_locatie, rhbj_medicijn WHERE rhbj_afspraak.medicatieID = rhbj_medicatie.medicatieID AND rhbj_medicatie.medicijnID = rhbj_medicijn.medicijnID AND rhbj_medicatie.patientID = rhbj_patient.patientID AND rhbj_afspraak.locatieID = rhbj_locatie.locatieID GROUP BY rhbj_locatie.locatieID";
 
             var data = Connect.ExecuteQuery(sql);
             return data;

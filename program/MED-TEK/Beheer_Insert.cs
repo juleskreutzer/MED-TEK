@@ -390,7 +390,52 @@ namespace MED_TEK
 
         private void btnAfspraak_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Waarde check box: " + cbActief.Checked);
+            string medicatieIDstring = overig.GetSubstringByString("ID ", " -", Convert.ToString(cbMedicatie.SelectedItem));
+            string locatieIDstring = overig.GetSubstringByString("ID ", " -", Convert.ToString(cbLocAfspraak.SelectedItem));
+            string datum = dtpAfspraak.Text;
+            string tijd = dtpTijd.Text;
+            bool actief = cbActief.Checked;
+
+            int error = 0;
+
+            if(medicatieIDstring == "")
+            {
+                ++error;
+                MessageBox.Show("Welke medicatie moet worden toegewezen?");
+            }
+            if(locatieIDstring== "")
+            {
+                ++error;
+                MessageBox.Show("Wele locatie moet worden toegewezen?");
+            }
+            if(datum == "")
+            {
+                ++error;
+                MessageBox.Show("Geef een datum op");
+            }
+            if(tijd == "")
+            {
+                ++error;
+                MessageBox.Show("Geef een tijd op voor de afspraak");
+            }
+
+            if(error== 0)
+            {
+                if(actief == true)
+                {
+                    int medicatieID = Convert.ToInt32(medicatieIDstring);
+                    int locatieID = Convert.ToInt32(locatieIDstring);
+                    insert.Insert_Afspraak(medicatieID, locatieID, datum, tijd, 1);
+                    MessageBox.Show("Nieuwe afpsraak aangemaakt!");
+                }
+                else
+                {
+                    int medicatieID = Convert.ToInt32(medicatieIDstring);
+                    int locatieID = Convert.ToInt32(locatieIDstring);
+                    insert.Insert_Afspraak(medicatieID, locatieID, datum, tijd, 0);
+                    MessageBox.Show("Nieuwe afspraak aangemaakt!");
+                }
+            }
         }
 
         private void btnMedicatieToevoegen_Click(object sender, EventArgs e)
