@@ -233,6 +233,7 @@
             this.btnClearAfspraak.TabIndex = 24;
             this.btnClearAfspraak.Text = "Alle velden wissen";
             this.btnClearAfspraak.UseVisualStyleBackColor = true;
+            this.btnClearAfspraak.Click += new System.EventHandler(this.btnClearAfspraak_Click);
             // 
             // btnAfspraak
             // 

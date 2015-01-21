@@ -159,6 +159,13 @@ namespace MED_TEK
             login.Show();
         }
 
+        private void btnClearAfspraak_Click(object sender, EventArgs e)
+        {
+            cbLocAfspraak.Text = "";
+            dtpTijd.Text = "00:00";
+            
+        }
+
         
     }
 }

@@ -478,5 +478,10 @@ namespace MED_TEK
 
         }
 
+        private void cbPatientMedicatie_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }

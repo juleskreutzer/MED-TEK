@@ -244,6 +244,7 @@
             this.cbPatientMedicatie.Name = "cbPatientMedicatie";
             this.cbPatientMedicatie.Size = new System.Drawing.Size(200, 21);
             this.cbPatientMedicatie.TabIndex = 30;
+            this.cbPatientMedicatie.SelectedIndexChanged += new System.EventHandler(this.cbPatientMedicatie_SelectedIndexChanged);
             // 
             // label1
             // 
