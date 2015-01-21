@@ -24,7 +24,7 @@ namespace MED_TEK
 
         private void refresh_data()
         {
-            var patientgegevens = select.Select_Patient_Auto(verbinding.patientID);
+            var patientgegevens = select.Select_Patient_Psycholoog(verbinding.patientID);
             var ziekteoverzicht = select.Select_Ziekteoverzicht(verbinding.patientID);
             var medicatieoverzicht = select.Select_Medicatie(verbinding.patientID);
             var vorigeafspraken = select.Select_Afspraak(verbinding.patientID);
@@ -61,15 +61,25 @@ namespace MED_TEK
 
                 for (o = 0; o < vorigeafspraken.Count; ++o)
                 {
-                    Dictionary<string, object> row = vorigeafspraken[x];
-                    lbVorigeAfspraken.Items.Add(row["medicatieID"] + " - " + row["locatieID"] + " - " + row["datum"]);
+                    Dictionary<string, object> row = vorigeafspraken[o];
+                    lbVorigeAfspraken.Items.Add(row["naam"] + " - " + row["locatienaam"] + " - " + row["datum"]);
                 }
+                
+                // Pasfoto van patient laten zien in picturebox
+                pbPasfoto.Load(verbinding.pasfoto);
+                // pasfoto passend maken voor picturebox
+                pbPasfoto.SizeMode = PictureBoxSizeMode.Zoom;
             }
         }
 
         private void Psycholoog_Load(object sender, EventArgs e)
         {
             refresh_data();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
