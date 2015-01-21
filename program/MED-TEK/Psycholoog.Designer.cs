@@ -37,18 +37,18 @@
             this.tbAdres = new System.Windows.Forms.TextBox();
             this.tbAchternaam = new System.Windows.Forms.TextBox();
             this.tbVoorNamen = new System.Windows.Forms.TextBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pbPasfoto = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnNieuweAfspraak = new System.Windows.Forms.Button();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.label5 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPasfoto)).BeginInit();
             this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -94,7 +94,7 @@
             this.groupBox2.Controls.Add(this.tbAdres);
             this.groupBox2.Controls.Add(this.tbAchternaam);
             this.groupBox2.Controls.Add(this.tbVoorNamen);
-            this.groupBox2.Controls.Add(this.pictureBox1);
+            this.groupBox2.Controls.Add(this.pbPasfoto);
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.label2);
@@ -137,13 +137,13 @@
             this.tbVoorNamen.Size = new System.Drawing.Size(150, 20);
             this.tbVoorNamen.TabIndex = 8;
             // 
-            // pictureBox1
+            // pbPasfoto
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(35, 222);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(321, 262);
-            this.pictureBox1.TabIndex = 6;
-            this.pictureBox1.TabStop = false;
+            this.pbPasfoto.Location = new System.Drawing.Point(35, 222);
+            this.pbPasfoto.Name = "pbPasfoto";
+            this.pbPasfoto.Size = new System.Drawing.Size(321, 262);
+            this.pbPasfoto.TabIndex = 6;
+            this.pbPasfoto.TabStop = false;
             // 
             // label4
             // 
@@ -183,7 +183,7 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.button1);
+            this.groupBox3.Controls.Add(this.btnNieuweAfspraak);
             this.groupBox3.Controls.Add(this.dateTimePicker2);
             this.groupBox3.Controls.Add(this.label5);
             this.groupBox3.Location = new System.Drawing.Point(817, 12);
@@ -193,14 +193,15 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Nieuwe afspraak";
             // 
-            // button1
+            // btnNieuweAfspraak
             // 
-            this.button1.Location = new System.Drawing.Point(24, 48);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(95, 23);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "Maak afspraak";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnNieuweAfspraak.Location = new System.Drawing.Point(24, 48);
+            this.btnNieuweAfspraak.Name = "btnNieuweAfspraak";
+            this.btnNieuweAfspraak.Size = new System.Drawing.Size(95, 23);
+            this.btnNieuweAfspraak.TabIndex = 3;
+            this.btnNieuweAfspraak.Text = "Maak afspraak";
+            this.btnNieuweAfspraak.UseVisualStyleBackColor = true;
+            this.btnNieuweAfspraak.Click += new System.EventHandler(this.button1_Click);
             // 
             // dateTimePicker2
             // 
@@ -233,7 +234,7 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPasfoto)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
@@ -251,13 +252,13 @@
         private System.Windows.Forms.TextBox tbAdres;
         private System.Windows.Forms.TextBox tbAchternaam;
         private System.Windows.Forms.TextBox tbVoorNamen;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pbPasfoto;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnNieuweAfspraak;
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
         private System.Windows.Forms.Label label5;
     }

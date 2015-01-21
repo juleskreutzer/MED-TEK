@@ -34,7 +34,7 @@
             this.tbAdres = new System.Windows.Forms.TextBox();
             this.tbAchternaam = new System.Windows.Forms.TextBox();
             this.tbVoorNamen = new System.Windows.Forms.TextBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pbPasfoto = new System.Windows.Forms.PictureBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -56,7 +56,7 @@
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPasfoto)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.SuspendLayout();
@@ -68,7 +68,7 @@
             this.groupBox1.Controls.Add(this.tbAdres);
             this.groupBox1.Controls.Add(this.tbAchternaam);
             this.groupBox1.Controls.Add(this.tbVoorNamen);
-            this.groupBox1.Controls.Add(this.pictureBox1);
+            this.groupBox1.Controls.Add(this.pbPasfoto);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label3);
@@ -120,13 +120,13 @@
             this.tbVoorNamen.Size = new System.Drawing.Size(150, 20);
             this.tbVoorNamen.TabIndex = 8;
             // 
-            // pictureBox1
+            // pbPasfoto
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(35, 262);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(321, 262);
-            this.pictureBox1.TabIndex = 6;
-            this.pictureBox1.TabStop = false;
+            this.pbPasfoto.Location = new System.Drawing.Point(35, 262);
+            this.pbPasfoto.Name = "pbPasfoto";
+            this.pbPasfoto.Size = new System.Drawing.Size(321, 262);
+            this.pbPasfoto.TabIndex = 6;
+            this.pbPasfoto.TabStop = false;
             // 
             // label5
             // 
@@ -327,7 +327,7 @@
             this.Load += new System.EventHandler(this.Apotheek_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPasfoto)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
@@ -342,7 +342,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pbPasfoto;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox tbAdres;

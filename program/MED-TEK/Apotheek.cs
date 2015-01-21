@@ -79,6 +79,10 @@ namespace MED_TEK
                     update.Update_Afspraak_actief(Convert.ToString(medicatieID), Convert.ToString(actief));
                     MessageBox.Show("Afspraak is geupdate.");
                 }
+                // Pasfoto van patient laten zien in picturebox
+                pbPasfoto.Load(verbinding.pasfoto);
+                // pasfoto passend maken voor picturebox
+                pbPasfoto.SizeMode = PictureBoxSizeMode.Zoom;
             }
         }
 
