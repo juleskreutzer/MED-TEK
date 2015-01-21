@@ -101,6 +101,7 @@ namespace MED_TEK
                 int ziekteID = Convert.ToInt32(ziekteIDstring);
                 delete.Delete_Ziekteoverzicht(ziekteID);
                 MessageBox.Show("Ziekte succesvol verwijderd van patient!");
+                refresh();
             }
         }
 
@@ -117,6 +118,7 @@ namespace MED_TEK
                 int ziekteID = Convert.ToInt32(ziekteIDstring);
                 delete.Delete_Ziekte(ziekteID);
                 MessageBox.Show("De ziekte is succesvol verwijderd!");
+                refresh();
             }
         }
 
@@ -133,6 +135,8 @@ namespace MED_TEK
                 int afspraakID = Convert.ToInt32(afspraakIDstring);
                 delete.Delete_Afspraak(afspraakID);
                 MessageBox.Show("De afspraak is succesvol verwijderd!");
+
+                refresh();
             }
         }
 
@@ -149,6 +153,8 @@ namespace MED_TEK
                 int medicijnID = Convert.ToInt32(medicijnIDstring);
                 delete.Delete_Medicijn(medicijnID);
                 MessageBox.Show("Het medicijn is succesvol verwijderd!");
+
+                refresh();
             }
         }
     }

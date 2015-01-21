@@ -314,6 +314,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "Apotheek";
             this.Text = "Apotheek";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Apotheek_FormClosed);
             this.Load += new System.EventHandler(this.Apotheek_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

@@ -18,6 +18,7 @@ namespace MED_TEK
         {
             InitializeComponent();
             verbinding = _verbinding;
+            WindowState = FormWindowState.Maximized;
         }
 
         private void Doctor_Load(object sender, EventArgs e)
@@ -41,7 +42,7 @@ namespace MED_TEK
             int a = 0;
             for (a = 0; a < 1; ++a)
             {
-                for (int j = 0; j < patientgegevens.Count; ++a)
+                for (int j = 0; j < patientgegevens.Count; ++j)
                 {
                     Dictionary<string, object> row = patientgegevens[j];
                     cbPatientMedicatie.Items.Add("ID " + row["patientID"] + " - " + row["voornamen"] + " " + row["achternaam"]);
