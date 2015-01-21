@@ -86,7 +86,7 @@ namespace MED_TEK
                 {
                     Dictionary<string, object> row = dataLocatie[j];
 
-                    cbLocAfspraak.Items.Add("ID " + row["locatieID"] + " - " + row["naam"]);
+                    cbLocAfspraak.Items.Add("ID " + row["locatieID"] + " - " + row["locatienaam"]);
                 }
             }
 

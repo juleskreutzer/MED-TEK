@@ -11,11 +11,12 @@ namespace MED_TEK
 
         Connect verbinding = new Connect();
         string prefix = "rhbj_";
+
         public void Delete_Medicijn(int medicijnID)
         {
             // Verwijder een medicijn wat gelijk is aan het opgegeven medicijnID
 
-            string query = " DELETE FROM Medicijn" + prefix + "medicijn" + medicijnID + " WHERE medicijnID = " + medicijnID;
+            string query = " DELETE FROM " + prefix + "medicijn WHERE medicijnID = '" + medicijnID + "'";
 
             verbinding.Execute(query);
 

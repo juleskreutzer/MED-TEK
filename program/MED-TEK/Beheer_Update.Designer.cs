@@ -121,7 +121,6 @@
             this.groupBox9 = new System.Windows.Forms.GroupBox();
             this.btnUpdateAfspraak = new System.Windows.Forms.Button();
             this.cbActief = new System.Windows.Forms.CheckBox();
-            this.tbTijd = new System.Windows.Forms.TextBox();
             this.label38 = new System.Windows.Forms.Label();
             this.dtpAfspraak = new System.Windows.Forms.DateTimePicker();
             this.label37 = new System.Windows.Forms.Label();
@@ -132,6 +131,8 @@
             this.btnSelectAfspraak = new System.Windows.Forms.Button();
             this.label35 = new System.Windows.Forms.Label();
             this.tbPascodeAfspraak = new System.Windows.Forms.TextBox();
+            this.label39 = new System.Windows.Forms.Label();
+            this.dtpTijd = new System.Windows.Forms.DateTimePicker();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -986,9 +987,10 @@
             // 
             // groupBox9
             // 
+            this.groupBox9.Controls.Add(this.dtpTijd);
+            this.groupBox9.Controls.Add(this.label39);
             this.groupBox9.Controls.Add(this.btnUpdateAfspraak);
             this.groupBox9.Controls.Add(this.cbActief);
-            this.groupBox9.Controls.Add(this.tbTijd);
             this.groupBox9.Controls.Add(this.label38);
             this.groupBox9.Controls.Add(this.dtpAfspraak);
             this.groupBox9.Controls.Add(this.label37);
@@ -1025,13 +1027,6 @@
             this.cbActief.TabIndex = 19;
             this.cbActief.Text = "Afspraak actief?";
             this.cbActief.UseVisualStyleBackColor = true;
-            // 
-            // tbTijd
-            // 
-            this.tbTijd.Location = new System.Drawing.Point(129, 186);
-            this.tbTijd.Name = "tbTijd";
-            this.tbTijd.Size = new System.Drawing.Size(157, 20);
-            this.tbTijd.TabIndex = 9;
             // 
             // label38
             // 
@@ -1118,6 +1113,22 @@
             this.tbPascodeAfspraak.Name = "tbPascodeAfspraak";
             this.tbPascodeAfspraak.Size = new System.Drawing.Size(157, 20);
             this.tbPascodeAfspraak.TabIndex = 9;
+            // 
+            // label39
+            // 
+            this.label39.AutoSize = true;
+            this.label39.Location = new System.Drawing.Point(6, 193);
+            this.label39.Name = "label39";
+            this.label39.Size = new System.Drawing.Size(24, 13);
+            this.label39.TabIndex = 21;
+            this.label39.Text = "Tijd";
+            // 
+            // dtpTijd
+            // 
+            this.dtpTijd.Location = new System.Drawing.Point(129, 187);
+            this.dtpTijd.Name = "dtpTijd";
+            this.dtpTijd.Size = new System.Drawing.Size(157, 20);
+            this.dtpTijd.TabIndex = 22;
             // 
             // Beheer_Update
             // 
@@ -1263,6 +1274,7 @@
         private System.Windows.Forms.TextBox tbPascodeAfspraak;
         private System.Windows.Forms.Button btnUpdateAfspraak;
         private System.Windows.Forms.CheckBox cbActief;
-        private System.Windows.Forms.TextBox tbTijd;
+        private System.Windows.Forms.DateTimePicker dtpTijd;
+        private System.Windows.Forms.Label label39;
     }
 }

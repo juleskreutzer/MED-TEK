@@ -143,6 +143,9 @@
     <EmbeddedResource Include="Apotheek.resx">
       <DependentUpon>Apotheek.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Beheer_Delete.resx">
+      <DependentUpon>Beheer_Delete.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Beheer_Insert.resx">
       <DependentUpon>Beheer_Insert.cs</DependentUpon>
     </EmbeddedResource>

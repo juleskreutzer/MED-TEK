@@ -48,6 +48,9 @@ namespace MED_TEK
             dtpGebruikStart.CustomFormat = "yyyy-MM-dd";
             dtpAfspraak.Format = DateTimePickerFormat.Custom;
             dtpAfspraak.CustomFormat = "yyyy-MM-dd";
+            dtpTijd.Format = DateTimePickerFormat.Custom;
+            dtpTijd.CustomFormat = "HH : mm";
+            dtpTijd.Text = "00 : 00";
 
 
 
@@ -107,7 +110,7 @@ namespace MED_TEK
             btnSelectAfspraak2.Enabled = false;
             cbLocatie.Enabled = false;
             dtpAfspraak.Enabled = false;
-            tbTijd.Enabled = false;
+            dtpTijd.Enabled = false;
             cbActief.Enabled = false;
 
             for (int i = 0; i < 1; ++i)
@@ -616,7 +619,7 @@ namespace MED_TEK
             btnSelectAfspraak2.Enabled = false;
 
             dtpAfspraak.Enabled = true;
-            tbTijd.Enabled = true;
+            dtpTijd.Enabled = true;
             cbActief.Enabled = true;
             btnUpdateAfspraak.Enabled = true;
 
@@ -629,7 +632,7 @@ namespace MED_TEK
                 Dictionary<string, object> row = afspraakdata[i];
                 cbLocatie.Items.Add(Convert.ToString(row["naam"]));
                 dtpAfspraak.Text = Convert.ToString(row["datum"]);
-                tbTijd.Text = Convert.ToString(row["tijd"]);
+                dtpTijd.Text = Convert.ToString(row["tijd"]);
                 afspraakID = Convert.ToInt32(row["medicatieID"]);
                 if(Convert.ToInt32(row["actief"]) == 1)
                 {
@@ -641,7 +644,7 @@ namespace MED_TEK
         private void btnUpdateAfspraak_Click(object sender, EventArgs e)
         {
             string datum = dtpAfspraak.Text;
-            string tijd = tbTijd.Text;
+            string tijd = dtpTijd.Text;
             bool actief = cbActief.Checked;
 
             int error = 0;
