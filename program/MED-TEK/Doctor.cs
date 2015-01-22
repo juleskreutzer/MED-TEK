@@ -295,6 +295,7 @@ namespace MED_TEK
         }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         private void btnMedicatieToevoegen_Click_1(object sender, EventArgs e)
         {
 
@@ -302,6 +303,8 @@ namespace MED_TEK
 
         private void btnAfspraak_Click_1(object sender, EventArgs e)
 =======
+=======
+>>>>>>> FETCH_HEAD
         private void linkAfmelden_LinkClicked_1(object sender, LinkLabelLinkClickedEventArgs e)
         {
             verbinding.patientID = 0; // int, dus null gaat niet
@@ -321,6 +324,9 @@ namespace MED_TEK
         }
 
         private void btnMedicatieToevoegen_Click_1(object sender, EventArgs e)
+<<<<<<< HEAD
+>>>>>>> FETCH_HEAD
+=======
 >>>>>>> FETCH_HEAD
         {
 
