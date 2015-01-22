@@ -14,6 +14,9 @@ namespace MED_TEK
     {
         Connect verbinding;
         Insert insert = new Insert();
+        Select select = new Select();
+        Miscellaneous overig = new Miscellaneous();
+
         public Doctor(Connect _verbinding)
         {
             InitializeComponent();
@@ -59,7 +62,6 @@ namespace MED_TEK
                 {
                     Dictionary<string, object> row = dataPatientNaam[i];
 
-                    cbPatient.Items.Add("ID " + row["patientID"] + " - " + row["voornamen"] + " " + row["achternaam"]);
                     cbPatientMedicatie.Items.Add("ID " + row["patientID"] + " - " + row["voornamen"] + " " + row["achternaam"]);
                 }
 
@@ -74,8 +76,6 @@ namespace MED_TEK
             refresh_data();
         }
 
-        Select select = new Select();
-        Miscellaneous overig = new Miscellaneous();
         private void refresh_data()
         {
             var patientgegevens = select.Select_Patient_Arts(verbinding.patientID);
@@ -97,6 +97,7 @@ namespace MED_TEK
                     Dictionary<string, object> row = patientgegevens[j];
                     tbVoorNamen.Text = (string)row["voornamen"];
                     tbAchternaam.Text = (string)row["achternaam"];
+                    lbPatientNaam.Text = (string) row["voornamen"] + " " + (string) row["achternaam"];
                     string date = (string)row["geboortedatum"];
                     dtpGeboorte.Text = date;
                     tbAdres.Text = (string)row["adres"];
@@ -243,7 +244,8 @@ namespace MED_TEK
         private void btnAddZiekte_Click(object sender, EventArgs e)
         {
             // Ziekte toevoegen aan database
-            string naam = tbZiekte.Text;
+            string naam = cbZiekte.Text;
+            
 
             if (naam == "")
             {
@@ -252,7 +254,6 @@ namespace MED_TEK
             else
             {
                 insert.Insert_Ziekte(naam);
-                tbZiekte.Text = "";
                 MessageBox.Show("De ziekte is succesvol toegevoegd!");
             }
 
@@ -262,20 +263,20 @@ namespace MED_TEK
         private void btnResetZiekte_Click(object sender, EventArgs e)
         {
             // tbZiekte leeg maken
-            tbZiekte.Text = "";
         }
 
         private void btnKoppelZiekte_Click(object sender, EventArgs e)
         {
             // Ziekte aan patient koppelen
 
-            string patientIDstring = (string)cbPatient.SelectedItem;
-            string ziekteIDstring = (string)cbZiekte.SelectedItem;
+            string patientIDstring = Convert.ToString(verbinding.patientID);
+            string ziekteIDstring = Convert.ToString(cbZiekte.SelectedItem);
 
+            MessageBox.Show("Test");
 
             if (patientIDstring == "")
             {
-                MessageBox.Show("Selecteer een patient");
+                MessageBox.Show("Geen patientID bekend!");
             }
             else if (ziekteIDstring == "")
             {
@@ -290,6 +291,16 @@ namespace MED_TEK
                 insert.Insert_Ziekteoverzicht(ziekteID, patientID, symptomen);
                 MessageBox.Show("De ziekte is met succes toegewezen aan de patient.");
             }
+
+        }
+
+        private void btnMedicatieToevoegen_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnAfspraak_Click_1(object sender, EventArgs e)
+        {
 
         }
     }
