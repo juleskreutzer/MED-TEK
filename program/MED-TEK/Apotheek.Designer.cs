@@ -39,7 +39,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.cbOpgehaald = new System.Windows.Forms.CheckBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.tbHoeveelheid = new System.Windows.Forms.TextBox();
             this.tbGebruiksEinde = new System.Windows.Forms.TextBox();
             this.tbGebruiksStart = new System.Windows.Forms.TextBox();
@@ -54,11 +53,18 @@
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.linkAfmelden = new System.Windows.Forms.LinkLabel();
+            this.linkProgramAfmelden = new System.Windows.Forms.LinkLabel();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.cbActieveAfspraken = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.cbActiefUpdate = new System.Windows.Forms.CheckBox();
+            this.btnUpdateActief = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbPasfoto)).BeginInit();
-            this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -157,7 +163,7 @@
             // cbOpgehaald
             // 
             this.cbOpgehaald.AutoSize = true;
-            this.cbOpgehaald.Location = new System.Drawing.Point(20, 169);
+            this.cbOpgehaald.Location = new System.Drawing.Point(20, 426);
             this.cbOpgehaald.Name = "cbOpgehaald";
             this.cbOpgehaald.Size = new System.Drawing.Size(84, 17);
             this.cbOpgehaald.TabIndex = 7;
@@ -165,39 +171,23 @@
             this.cbOpgehaald.UseVisualStyleBackColor = true;
             this.cbOpgehaald.CheckedChanged += new System.EventHandler(this.cbOpgehaald_CheckedChanged);
             // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.tbHoeveelheid);
-            this.groupBox2.Controls.Add(this.tbGebruiksEinde);
-            this.groupBox2.Controls.Add(this.tbGebruiksStart);
-            this.groupBox2.Controls.Add(this.label9);
-            this.groupBox2.Controls.Add(this.cbOpgehaald);
-            this.groupBox2.Controls.Add(this.label8);
-            this.groupBox2.Controls.Add(this.label7);
-            this.groupBox2.Location = new System.Drawing.Point(419, 370);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(300, 199);
-            this.groupBox2.TabIndex = 1;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Medicatie gegevens";
-            // 
             // tbHoeveelheid
             // 
-            this.tbHoeveelheid.Location = new System.Drawing.Point(154, 133);
+            this.tbHoeveelheid.Location = new System.Drawing.Point(154, 390);
             this.tbHoeveelheid.Name = "tbHoeveelheid";
             this.tbHoeveelheid.Size = new System.Drawing.Size(130, 20);
             this.tbHoeveelheid.TabIndex = 7;
             // 
             // tbGebruiksEinde
             // 
-            this.tbGebruiksEinde.Location = new System.Drawing.Point(154, 102);
+            this.tbGebruiksEinde.Location = new System.Drawing.Point(154, 359);
             this.tbGebruiksEinde.Name = "tbGebruiksEinde";
             this.tbGebruiksEinde.Size = new System.Drawing.Size(130, 20);
             this.tbGebruiksEinde.TabIndex = 6;
             // 
             // tbGebruiksStart
             // 
-            this.tbGebruiksStart.Location = new System.Drawing.Point(154, 69);
+            this.tbGebruiksStart.Location = new System.Drawing.Point(154, 326);
             this.tbGebruiksStart.Name = "tbGebruiksStart";
             this.tbGebruiksStart.Size = new System.Drawing.Size(130, 20);
             this.tbGebruiksStart.TabIndex = 5;
@@ -205,7 +195,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(17, 133);
+            this.label9.Location = new System.Drawing.Point(17, 390);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(67, 13);
             this.label9.TabIndex = 3;
@@ -214,7 +204,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(17, 102);
+            this.label8.Location = new System.Drawing.Point(17, 359);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(75, 13);
             this.label8.TabIndex = 2;
@@ -223,7 +213,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(17, 69);
+            this.label7.Location = new System.Drawing.Point(17, 326);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(69, 13);
             this.label7.TabIndex = 1;
@@ -231,15 +221,22 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.tbHoeveelheid);
             this.groupBox3.Controls.Add(this.lbBijwerkingenMedicijn);
+            this.groupBox3.Controls.Add(this.tbGebruiksEinde);
             this.groupBox3.Controls.Add(this.lbGebruikMedicijn);
+            this.groupBox3.Controls.Add(this.tbGebruiksStart);
             this.groupBox3.Controls.Add(this.tbNaamMedicijn);
+            this.groupBox3.Controls.Add(this.label9);
             this.groupBox3.Controls.Add(this.label12);
+            this.groupBox3.Controls.Add(this.cbOpgehaald);
             this.groupBox3.Controls.Add(this.label11);
+            this.groupBox3.Controls.Add(this.label8);
             this.groupBox3.Controls.Add(this.label10);
+            this.groupBox3.Controls.Add(this.label7);
             this.groupBox3.Location = new System.Drawing.Point(419, 6);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(300, 310);
+            this.groupBox3.Size = new System.Drawing.Size(300, 461);
             this.groupBox3.TabIndex = 2;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Medicijn informatie";
@@ -297,20 +294,93 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.Controls.Add(this.groupBox3);
             this.panel1.Controls.Add(this.groupBox2);
+            this.panel1.Controls.Add(this.linkAfmelden);
+            this.panel1.Controls.Add(this.linkProgramAfmelden);
+            this.panel1.Controls.Add(this.groupBox3);
             this.panel1.Controls.Add(this.groupBox1);
             this.panel1.Location = new System.Drawing.Point(3, 12);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(969, 750);
+            this.panel1.Size = new System.Drawing.Size(1067, 750);
             this.panel1.TabIndex = 6;
+            // 
+            // linkAfmelden
+            // 
+            this.linkAfmelden.AutoSize = true;
+            this.linkAfmelden.Location = new System.Drawing.Point(45, 595);
+            this.linkAfmelden.Name = "linkAfmelden";
+            this.linkAfmelden.Size = new System.Drawing.Size(86, 13);
+            this.linkAfmelden.TabIndex = 32;
+            this.linkAfmelden.TabStop = true;
+            this.linkAfmelden.Text = "Patient afmelden";
+            this.linkAfmelden.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkAfmelden_LinkClicked);
+            // 
+            // linkProgramAfmelden
+            // 
+            this.linkProgramAfmelden.AutoSize = true;
+            this.linkProgramAfmelden.Location = new System.Drawing.Point(157, 595);
+            this.linkProgramAfmelden.Name = "linkProgramAfmelden";
+            this.linkProgramAfmelden.Size = new System.Drawing.Size(119, 13);
+            this.linkProgramAfmelden.TabIndex = 31;
+            this.linkProgramAfmelden.TabStop = true;
+            this.linkProgramAfmelden.Text = "Afmelden bij programma";
+            this.linkProgramAfmelden.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkProgramAfmelden_LinkClicked);
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.btnUpdateActief);
+            this.groupBox2.Controls.Add(this.cbActiefUpdate);
+            this.groupBox2.Controls.Add(this.label5);
+            this.groupBox2.Controls.Add(this.cbActieveAfspraken);
+            this.groupBox2.Location = new System.Drawing.Point(748, 6);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(302, 346);
+            this.groupBox2.TabIndex = 33;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Afspraken";
+            // 
+            // cbActieveAfspraken
+            // 
+            this.cbActieveAfspraken.FormattingEnabled = true;
+            this.cbActieveAfspraken.Location = new System.Drawing.Point(132, 28);
+            this.cbActieveAfspraken.Name = "cbActieveAfspraken";
+            this.cbActieveAfspraken.Size = new System.Drawing.Size(164, 21);
+            this.cbActieveAfspraken.TabIndex = 0;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(18, 28);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(93, 13);
+            this.label5.TabIndex = 1;
+            this.label5.Text = "Actieve afspraken";
+            // 
+            // cbActiefUpdate
+            // 
+            this.cbActiefUpdate.AutoSize = true;
+            this.cbActiefUpdate.Location = new System.Drawing.Point(21, 73);
+            this.cbActiefUpdate.Name = "cbActiefUpdate";
+            this.cbActiefUpdate.Size = new System.Drawing.Size(132, 17);
+            this.cbActiefUpdate.TabIndex = 2;
+            this.cbActiefUpdate.Text = "Update actief: Ja/Nee";
+            this.cbActiefUpdate.UseVisualStyleBackColor = true;
+            // 
+            // btnUpdateActief
+            // 
+            this.btnUpdateActief.Location = new System.Drawing.Point(21, 112);
+            this.btnUpdateActief.Name = "btnUpdateActief";
+            this.btnUpdateActief.Size = new System.Drawing.Size(101, 23);
+            this.btnUpdateActief.TabIndex = 3;
+            this.btnUpdateActief.Text = "Update afspraak";
+            this.btnUpdateActief.UseVisualStyleBackColor = true;
             // 
             // Apotheek
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Highlight;
-            this.ClientSize = new System.Drawing.Size(976, 767);
+            this.ClientSize = new System.Drawing.Size(1082, 767);
             this.Controls.Add(this.panel1);
             this.Name = "Apotheek";
             this.Text = "Apotheek";
@@ -319,11 +389,12 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbPasfoto)).EndInit();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -341,7 +412,6 @@
         private System.Windows.Forms.TextBox tbVoorNamen;
         private System.Windows.Forms.CheckBox cbOpgehaald;
         private System.Windows.Forms.DateTimePicker dtpGeboorte;
-        private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.TextBox tbHoeveelheid;
         private System.Windows.Forms.TextBox tbGebruiksEinde;
         private System.Windows.Forms.TextBox tbGebruiksStart;
@@ -356,5 +426,12 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.LinkLabel linkAfmelden;
+        private System.Windows.Forms.LinkLabel linkProgramAfmelden;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Button btnUpdateActief;
+        private System.Windows.Forms.CheckBox cbActiefUpdate;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ComboBox cbActieveAfspraken;
     }
 }

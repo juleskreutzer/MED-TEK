@@ -166,6 +166,11 @@ namespace MED_TEK
             
         }
 
+        private void linkProgramAfmelden_LinkClicked_1(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+
+        }
+
         
     }
 }
