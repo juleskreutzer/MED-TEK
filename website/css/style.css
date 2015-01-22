@@ -725,10 +725,11 @@
 /*********************************************************************************/
 
 	#one {
-		background: url('images/overlay.png'), url('../images/one.jpg');
-		background-size: 256px 256px, cover;
-		background-attachment: fixed, fixed;
-		background-position: top left, center center;
+		background: url('../images/one.png');
+		background-size: cover;
+		background-attachment: fixed, left;
+		background-position: top left, center;
+		background-repeat: repeat, no-repeat;
 	}
 
 /*********************************************************************************/
@@ -736,10 +737,10 @@
 /*********************************************************************************/
 
 	#two {
-		background: url('images/overlay.png'), url('../images/two.jpg');
-		background-size: 256px 256px, cover;
-		background-attachment: fixed, fixed;
-		background-position: top left, center center;
+		background: url('../images/two.png');
+		background-size: cover;
+		background-attachment: fixed, left;
+		background-position: top right;
 	}
 
 /*********************************************************************************/
@@ -757,8 +758,7 @@
 				top: 0;
 				left: 0;
 				opacity: 1.0;
-			
-				-moz-transition: all 1s ease;
+393				-moz-transition: all 1s ease;
 				-webkit-transition: all 1s ease;
 				-o-transition: all 1s ease;
 				-ms-transition: all 1s ease;
