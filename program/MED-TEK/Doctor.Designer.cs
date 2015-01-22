@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.GroupBox groupBox7;
+            this.lblPatientNamen2 = new System.Windows.Forms.Label();
             this.btnMedicatieToevoegen = new System.Windows.Forms.Button();
             this.label32 = new System.Windows.Forms.Label();
             this.tbHoeveelheid = new System.Windows.Forms.TextBox();
@@ -53,7 +54,6 @@
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.cbActief = new System.Windows.Forms.CheckBox();
             this.dtpTijd = new System.Windows.Forms.DateTimePicker();
-            this.btnClearAfspraak = new System.Windows.Forms.Button();
             this.btnAfspraak = new System.Windows.Forms.Button();
             this.label27 = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
@@ -75,7 +75,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.lblPatientNamen2 = new System.Windows.Forms.Label();
+            this.cbMedicatieAfspraak = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
             groupBox7 = new System.Windows.Forms.GroupBox();
             groupBox7.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -105,6 +106,15 @@
             groupBox7.TabIndex = 35;
             groupBox7.TabStop = false;
             groupBox7.Text = "Medicatie toevoegen voor patient";
+            // 
+            // lblPatientNamen2
+            // 
+            this.lblPatientNamen2.AutoSize = true;
+            this.lblPatientNamen2.Location = new System.Drawing.Point(124, 44);
+            this.lblPatientNamen2.Name = "lblPatientNamen2";
+            this.lblPatientNamen2.Size = new System.Drawing.Size(71, 13);
+            this.lblPatientNamen2.TabIndex = 40;
+            this.lblPatientNamen2.Text = "Patient Naam";
             // 
             // btnMedicatieToevoegen
             // 
@@ -307,9 +317,10 @@
             // 
             // groupBox6
             // 
+            this.groupBox6.Controls.Add(this.label6);
+            this.groupBox6.Controls.Add(this.cbMedicatieAfspraak);
             this.groupBox6.Controls.Add(this.cbActief);
             this.groupBox6.Controls.Add(this.dtpTijd);
-            this.groupBox6.Controls.Add(this.btnClearAfspraak);
             this.groupBox6.Controls.Add(this.btnAfspraak);
             this.groupBox6.Controls.Add(this.label27);
             this.groupBox6.Controls.Add(this.label26);
@@ -318,7 +329,7 @@
             this.groupBox6.Controls.Add(this.cbLocAfspraak);
             this.groupBox6.Location = new System.Drawing.Point(832, 296);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(342, 159);
+            this.groupBox6.Size = new System.Drawing.Size(342, 196);
             this.groupBox6.TabIndex = 36;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Nieuwe afspraak toevoegen";
@@ -326,7 +337,7 @@
             // cbActief
             // 
             this.cbActief.AutoSize = true;
-            this.cbActief.Location = new System.Drawing.Point(127, 105);
+            this.cbActief.Location = new System.Drawing.Point(127, 138);
             this.cbActief.Name = "cbActief";
             this.cbActief.Size = new System.Drawing.Size(103, 17);
             this.cbActief.TabIndex = 26;
@@ -336,33 +347,25 @@
             // dtpTijd
             // 
             this.dtpTijd.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpTijd.Location = new System.Drawing.Point(127, 78);
+            this.dtpTijd.Location = new System.Drawing.Point(127, 112);
             this.dtpTijd.Name = "dtpTijd";
             this.dtpTijd.Size = new System.Drawing.Size(200, 20);
             this.dtpTijd.TabIndex = 25;
             // 
-            // btnClearAfspraak
-            // 
-            this.btnClearAfspraak.Location = new System.Drawing.Point(30, 128);
-            this.btnClearAfspraak.Name = "btnClearAfspraak";
-            this.btnClearAfspraak.Size = new System.Drawing.Size(124, 23);
-            this.btnClearAfspraak.TabIndex = 24;
-            this.btnClearAfspraak.Text = "Alle velden wissen";
-            this.btnClearAfspraak.UseVisualStyleBackColor = true;
-            // 
             // btnAfspraak
             // 
-            this.btnAfspraak.Location = new System.Drawing.Point(166, 130);
+            this.btnAfspraak.Location = new System.Drawing.Point(127, 167);
             this.btnAfspraak.Name = "btnAfspraak";
-            this.btnAfspraak.Size = new System.Drawing.Size(161, 23);
+            this.btnAfspraak.Size = new System.Drawing.Size(200, 23);
             this.btnAfspraak.TabIndex = 22;
             this.btnAfspraak.Text = "Nieuwe afspraak toevoegen";
             this.btnAfspraak.UseVisualStyleBackColor = true;
+            this.btnAfspraak.Click += new System.EventHandler(this.btnAfspraak_Click);
             // 
             // label27
             // 
             this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(27, 81);
+            this.label27.Location = new System.Drawing.Point(24, 118);
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(24, 13);
             this.label27.TabIndex = 7;
@@ -371,7 +374,7 @@
             // label26
             // 
             this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(24, 54);
+            this.label26.Location = new System.Drawing.Point(24, 91);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(38, 13);
             this.label26.TabIndex = 6;
@@ -379,7 +382,7 @@
             // 
             // dtpAfspraak
             // 
-            this.dtpAfspraak.Location = new System.Drawing.Point(127, 51);
+            this.dtpAfspraak.Location = new System.Drawing.Point(127, 85);
             this.dtpAfspraak.Name = "dtpAfspraak";
             this.dtpAfspraak.Size = new System.Drawing.Size(200, 20);
             this.dtpAfspraak.TabIndex = 4;
@@ -540,14 +543,22 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Voornamen";
             // 
-            // lblPatientNamen2
+            // cbMedicatieAfspraak
             // 
-            this.lblPatientNamen2.AutoSize = true;
-            this.lblPatientNamen2.Location = new System.Drawing.Point(124, 44);
-            this.lblPatientNamen2.Name = "lblPatientNamen2";
-            this.lblPatientNamen2.Size = new System.Drawing.Size(71, 13);
-            this.lblPatientNamen2.TabIndex = 40;
-            this.lblPatientNamen2.Text = "Patient Naam";
+            this.cbMedicatieAfspraak.FormattingEnabled = true;
+            this.cbMedicatieAfspraak.Location = new System.Drawing.Point(127, 51);
+            this.cbMedicatieAfspraak.Name = "cbMedicatieAfspraak";
+            this.cbMedicatieAfspraak.Size = new System.Drawing.Size(200, 21);
+            this.cbMedicatieAfspraak.TabIndex = 27;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(24, 54);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(53, 13);
+            this.label6.TabIndex = 28;
+            this.label6.Text = "Medicatie";
             // 
             // Doctor
             // 
@@ -591,7 +602,6 @@
         private System.Windows.Forms.GroupBox groupBox6;
         private System.Windows.Forms.CheckBox cbActief;
         private System.Windows.Forms.DateTimePicker dtpTijd;
-        private System.Windows.Forms.Button btnClearAfspraak;
         private System.Windows.Forms.Button btnAfspraak;
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.Label label26;
@@ -625,6 +635,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lbPatientNaam;
         private System.Windows.Forms.Label lblPatientNamen2;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.ComboBox cbMedicatieAfspraak;
 
     }
 }

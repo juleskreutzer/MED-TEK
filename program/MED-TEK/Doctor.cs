@@ -101,6 +101,7 @@ namespace MED_TEK
                 {
                     Dictionary<string, object> row = medicatieoverzicht[x];
                     lbMedicatie.Items.Add(row["naam"]);
+                    cbMedicatieAfspraak.Items.Add(row["naam"]);
                 }
 
                 for (int c = 0; c < dataMedicijnNaam.Count; ++c)
@@ -117,14 +118,6 @@ namespace MED_TEK
                 // pasfoto passend maken voor picturebox
                 pbPasfoto.SizeMode = PictureBoxSizeMode.Zoom;
             }
-        }
-
-      
-            
-
-        private void cbActief_CheckedChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void btnAfspraak_Click(object sender, EventArgs e)
@@ -167,12 +160,6 @@ namespace MED_TEK
             }
         }
 
-        private void btnClearAfspraak_Click(object sender, EventArgs e)
-        {
-            cbLocAfspraak.Text = "";
-            dtpTijd.Text = "00:00";
-        }
-
         private void linkAfmelden_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             // Patient afmelden
@@ -193,37 +180,6 @@ namespace MED_TEK
             this.Hide();
             login.Show();
         }
-
-        private void cbLocAfspraak_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnAddZiekte_Click(object sender, EventArgs e)
-        {
-            // Ziekte toevoegen aan database
-            string naam = cbZiekte.Text;
-            
-
-            if (naam == "")
-            {
-                MessageBox.Show("Er moet een naam van de ziekte worden opgegeven voordat deze kan worden toegevoegd.");
-            }
-            else
-            {
-                insert.Insert_Ziekte(naam);
-                MessageBox.Show("De ziekte is succesvol toegevoegd!");
-            }
-
-            refresh_data();
-        }
-
-        private void btnResetZiekte_Click(object sender, EventArgs e)
-        {
-            // tbZiekte leeg maken
-        }
-
-
 
         private void btnMedicatieToevoegen_Click_1(object sender, EventArgs e)
         {
@@ -251,7 +207,6 @@ namespace MED_TEK
                 insert.Insert_Medicatie(verbinding.patientID, medicijnID, GebruikStart, GebruikEind, hoeveelheid);
                 MessageBox.Show("De medicatie is met succes opgeslagen voor de patient!");
             }
-        }
         }
 
         private void linkAfmelden_LinkClicked_1(object sender, LinkLabelLinkClickedEventArgs e)
