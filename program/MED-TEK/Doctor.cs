@@ -14,6 +14,9 @@ namespace MED_TEK
     {
         Connect verbinding;
         Insert insert = new Insert();
+        Select select = new Select();
+        Miscellaneous overig = new Miscellaneous();
+
         public Doctor(Connect _verbinding)
         {
             InitializeComponent();
@@ -22,97 +25,83 @@ namespace MED_TEK
         }
 
         private void Doctor_Load(object sender, EventArgs e)
+        {   
+            // Custom format instellen voor dateTimePickers voor een juiste verwerking in database
+            dtpGebruikEind.Format = DateTimePickerFormat.Custom;
+            dtpGebruikEind.CustomFormat = "yyyy-MM-dd";
+            dtpGebruikStart.Format = DateTimePickerFormat.Custom;
+            dtpGebruikStart.CustomFormat = "yyyy-MM-dd";
+
+            dtpAfspraak.Format = DateTimePickerFormat.Custom;
+            dtpAfspraak.CustomFormat = "yyyy-MM-dd";
+
+            refresh_data();
+        }
+
+        private void refresh_data()
         {
+            var dataZiekteNaam = select.Select_Ziekte();
             var dataLocatie = select.Select_Locatie();
             var medicijnNaam = select.Select_Medicijn_Data(verbinding.patientID);
 
-            int b = 0;
-            for (b = 0; b < 1; ++b)
+            for (int x = 0; x < 1; ++x)
             {
-                for (int j = 0; j < dataLocatie.Count; ++j)
+                for (int c = 0; c < 1; ++c)
                 {
-                    Dictionary<string, object> row = dataLocatie[j];
+                    for (int j = 0; j < dataLocatie.Count; ++j)
+                    {
+                        Dictionary<string, object> row = dataLocatie[j];
 
-                    cbLocAfspraak.Items.Add("ID " + row["locatieID"] + " - " + row["locatienaam"]);
+                        cbLocAfspraak.Items.Add("ID " + row["locatieID"] + " - " + row["locatienaam"]);
+                    }
                 }
-            }
 
-            var patientgegevens = select.Select_Patient_Arts(verbinding.patientID);
-            var dataPatientNaam = select.Select_Patient_Naam();
-            var dataZiekteNaam = select.Select_Ziekte();
-
-            int a = 0;
-            for (a = 0; a < 1; ++a)
-            {
-                for (int j = 0; j < patientgegevens.Count; ++j)
+                
+                for (int a = 0; a < medicijnNaam.Count; ++a)
                 {
-                    Dictionary<string, object> row = patientgegevens[j];
-                    cbPatientMedicatie.Items.Add("ID " + row["patientID"] + " - " + row["voornamen"] + " " + row["achternaam"]);
-
-                }
-                for (int j = 0; j < medicijnNaam.Count; ++j)
-                {
-                    Dictionary<string, object> row = medicijnNaam[j];
+                    Dictionary<string, object> row = medicijnNaam[a];
                     cbMedicijn.Items.Add("ID " + row["medicijnID"] + " - " + row["naam"] + " - " + row["gebruik"] + " - " + row["bijwerking"]);
                 }
-                for (int i = 0; i < dataPatientNaam.Count; ++i)
-                {
-                    Dictionary<string, object> row = dataPatientNaam[i];
 
-                    cbPatient.Items.Add("ID " + row["patientID"] + " - " + row["voornamen"] + " " + row["achternaam"]);
-                    cbPatientMedicatie.Items.Add("ID " + row["patientID"] + " - " + row["voornamen"] + " " + row["achternaam"]);
-                }
-
-                for (int j = 0; j < dataZiekteNaam.Count; ++j)
+                for (int b = 0; b < dataZiekteNaam.Count; ++b)
                 {
-                    Dictionary<string, object> row = dataZiekteNaam[j];
+                    Dictionary<string, object> row = dataZiekteNaam[b];
 
                     cbZiekte.Items.Add("ID " + row["ziekteID"] + " - " + row["naam"]);
                 }
             }
-            
-            refresh_data();
-        }
 
-        Select select = new Select();
-        Miscellaneous overig = new Miscellaneous();
-        private void refresh_data()
-        {
             var patientgegevens = select.Select_Patient_Arts(verbinding.patientID);
             var ziekteoverzicht = select.Select_Ziekteoverzicht(verbinding.patientID);
             var medicatieoverzicht = select.Select_Medicatie(verbinding.patientID);
             var dataMedicijnNaam = select.Select_Medicijn();
-            
 
-            int i = 0;
-            int j = 0;
-            int a = 0;
-            int x = 0;
-            int o = 0;
-
-            for (i = 0; i < 1; ++i)
+            for (int i = 0; i < 1; ++i)
             {
-                for (j = 0; j < patientgegevens.Count; ++j)
+                for (int j = 0; j < patientgegevens.Count; ++j)
                 {
                     Dictionary<string, object> row = patientgegevens[j];
                     tbVoorNamen.Text = (string)row["voornamen"];
                     tbAchternaam.Text = (string)row["achternaam"];
+                    lbPatientNaam.Text = (string) row["voornamen"] + " " + (string) row["achternaam"];
+                    lblPatientNamen2.Text = (string) row["voornamen"] + " " + (string) row["achternaam"];
                     string date = (string)row["geboortedatum"];
                     dtpGeboorte.Text = date;
                     tbAdres.Text = (string)row["adres"];
                     tbBloedGroep.Text = (string) row["bloedgroep"];
                 }
 
-                for (a = 0; a < ziekteoverzicht.Count; ++a)
+                for (int a = 0; a < ziekteoverzicht.Count; ++a)
                 {
                     Dictionary<string, object> row = ziekteoverzicht[a];
                     lbZiektes.Items.Add(row["naam"]);
                 }
 
-                for (x = 0; x < medicatieoverzicht.Count; ++x)
+                for (int x = 0; x < medicatieoverzicht.Count; ++x)
                 {
                     Dictionary<string, object> row = medicatieoverzicht[x];
                     lbMedicatie.Items.Add(row["naam"]);
+                    cbMedicatieAfspraak.Items.Add(row["naam"]);
                 }
 
                 for (int c = 0; c < dataMedicijnNaam.Count; ++c)
@@ -129,43 +118,6 @@ namespace MED_TEK
                 // pasfoto passend maken voor picturebox
                 pbPasfoto.SizeMode = PictureBoxSizeMode.Zoom;
             }
-        }
-
-        private void btnMedicatieToevoegen_Click(object sender, EventArgs e)
-        {
-            string patientIDstring = (string)cbPatientMedicatie.SelectedItem;
-            string medicijnIDstring = (string)cbMedicijn.SelectedItem;
-
-            if (patientIDstring == "")
-            {
-                MessageBox.Show("Selecteerd een patient voordat deze bewerking kan worden voltooid");
-            }
-            if (medicijnIDstring == "")
-            {
-                MessageBox.Show("Selecteer een medicijn voordat deze bewerking kan worden voltooid");
-            }
-
-            // ID opvragen van patient en medicijn voordat het opgeslagen wordt in database
-            int patientID = Convert.ToInt32(overig.GetSubstringByString("ID ", " -", patientIDstring));
-            int medicijnID = Convert.ToInt32(overig.GetSubstringByString("ID ", " -", medicijnIDstring));
-
-            string hoeveelheid = tbHoeveelheid.Text;
-
-            if (hoeveelheid == "")
-            {
-                MessageBox.Show("Er moet een hoeveelheid worden opgegeven");
-            }
-
-            string GebruikStart = dtpGebruikStart.Text;
-            string GebruikEind = dtpGebruikEind.Text;
-
-            insert.Insert_Medicatie(patientID, medicijnID, GebruikStart, GebruikEind, hoeveelheid);
-            MessageBox.Show("De medicatie is met succes opgeslagen voor de patient!");
-        }
-
-        private void cbActief_CheckedChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void btnAfspraak_Click(object sender, EventArgs e)
@@ -208,12 +160,6 @@ namespace MED_TEK
             }
         }
 
-        private void btnClearAfspraak_Click(object sender, EventArgs e)
-        {
-            cbLocAfspraak.Text = "";
-            dtpTijd.Text = "00:00";
-        }
-
         private void linkAfmelden_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             // Patient afmelden
@@ -235,62 +181,32 @@ namespace MED_TEK
             login.Show();
         }
 
-        private void cbLocAfspraak_SelectedIndexChanged(object sender, EventArgs e)
+        private void btnMedicatieToevoegen_Click_1(object sender, EventArgs e)
         {
+            string medicijnIDstring = (string) cbMedicijn.SelectedItem;
+            string hoeveelheid = tbHoeveelheid.Text;
 
-        }
 
-        private void btnAddZiekte_Click(object sender, EventArgs e)
-        {
-            // Ziekte toevoegen aan database
-            string naam = tbZiekte.Text;
-
-            if (naam == "")
+            if (medicijnIDstring == "")
             {
-                MessageBox.Show("Er moet een naam van de ziekte worden opgegeven voordat deze kan worden toegevoegd.");
+                MessageBox.Show("Selecteer een medicijn voordat deze bewerking kan worden voltooid");
+            }
+            else if (hoeveelheid == "")
+            {
+                MessageBox.Show("Er moet een hoeveelheid worden opgegeven");
             }
             else
             {
-                insert.Insert_Ziekte(naam);
-                tbZiekte.Text = "";
-                MessageBox.Show("De ziekte is succesvol toegevoegd!");
+
+
+                // ID opvragen van patient en medicijn voordat het opgeslagen wordt in database
+                int medicijnID = Convert.ToInt32(overig.GetSubstringByString("ID ", " -", medicijnIDstring));
+                string GebruikStart = dtpGebruikStart.Text;
+                string GebruikEind = dtpGebruikEind.Text;
+
+                insert.Insert_Medicatie(verbinding.patientID, medicijnID, GebruikStart, GebruikEind, hoeveelheid);
+                MessageBox.Show("De medicatie is met succes opgeslagen voor de patient!");
             }
-
-            refresh_data();
-        }
-
-        private void btnResetZiekte_Click(object sender, EventArgs e)
-        {
-            // tbZiekte leeg maken
-            tbZiekte.Text = "";
-        }
-
-        private void btnKoppelZiekte_Click(object sender, EventArgs e)
-        {
-            // Ziekte aan patient koppelen
-
-            string patientIDstring = (string)cbPatient.SelectedItem;
-            string ziekteIDstring = (string)cbZiekte.SelectedItem;
-
-
-            if (patientIDstring == "")
-            {
-                MessageBox.Show("Selecteer een patient");
-            }
-            else if (ziekteIDstring == "")
-            {
-                MessageBox.Show("Selecteer een ziekte");
-            }
-            else
-            {
-                int patientID = Convert.ToInt32(overig.GetSubstringByString("ID ", " -", patientIDstring));
-                int ziekteID = Convert.ToInt32(overig.GetSubstringByString("ID ", " -", ziekteIDstring));
-                string symptomen = tbSymptomen.Text;
-
-                insert.Insert_Ziekteoverzicht(ziekteID, patientID, symptomen);
-                MessageBox.Show("De ziekte is met succes toegewezen aan de patient.");
-            }
-
         }
 
         private void linkAfmelden_LinkClicked_1(object sender, LinkLabelLinkClickedEventArgs e)
@@ -311,9 +227,32 @@ namespace MED_TEK
             login.Show();
         }
 
-        private void btnMedicatieToevoegen_Click_1(object sender, EventArgs e)
+        private void btnKoppelZiekte_Click(object sender, EventArgs e)
         {
+            // Ziekte aan patient koppelen
 
+            string ziekteIDstring = Convert.ToString(cbZiekte.SelectedItem);
+
+
+
+            if (ziekteIDstring == "")
+            {
+                MessageBox.Show("Selecteer een ziekte");
+            }
+            else
+            {
+                int patientID = verbinding.patientID;
+                int ziekteID = Convert.ToInt32(overig.GetSubstringByString("ID ", " -", ziekteIDstring));
+                string symptomen = tbSymptomen.Text;
+
+                insert.Insert_Ziekteoverzicht(ziekteID, patientID, symptomen);
+                MessageBox.Show("De ziekte is met succes toegewezen aan de patient.");
+            }
+        }
+
+        private void Doctor_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
