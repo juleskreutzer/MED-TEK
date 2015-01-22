@@ -93,6 +93,7 @@
             this.linkProgramAfmelden.TabIndex = 29;
             this.linkProgramAfmelden.TabStop = true;
             this.linkProgramAfmelden.Text = "Afmelden bij programma";
+            this.linkProgramAfmelden.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkProgramAfmelden_LinkClicked_1);
             // 
             // groupBox6
             // 

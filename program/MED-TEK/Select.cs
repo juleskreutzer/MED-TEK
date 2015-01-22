@@ -45,6 +45,15 @@ namespace MED_TEK
             return data;
         }
 
+        public List<Dictionary<string, object>> Select_Patient_Afspraken(int patientID)
+        {
+            //Deze methode retourneert de actieve afspraken per patient
+            string sql = "SELECT " + prefix + "medicijn.naam, " + prefix + "afspraak.actief, " + prefix + "afspraak.datum, " + prefix + "medicatie.medicatieID, " + prefix + "medicatie.patientID FROM " + prefix + "medicatie, " + prefix + "afspraak WHERE " + prefix + "medicatie.medicijnID = " + prefix + "medicijn.medicijnID AND " + prefix + "medicatie.medicatieID = " + prefix + "afspraak.medicatieID AND " + prefix + "afspraak.actief = '1' AND " + prefix + "medicatie.patientID = " + patientID;
+
+            var data = Connect.ExecuteQuery(sql);
+            return data;
+        }
+
         public List<Dictionary<string, object>> Select_Patient_Auto(int patientID)
         {
             // Deze methode retourneerd de gegevens van een patient die belangrijk zijn voor een ambulancebroeder

@@ -294,12 +294,34 @@ namespace MED_TEK
 
         }
 
+<<<<<<< HEAD
         private void btnMedicatieToevoegen_Click_1(object sender, EventArgs e)
         {
 
         }
 
         private void btnAfspraak_Click_1(object sender, EventArgs e)
+=======
+        private void linkAfmelden_LinkClicked_1(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            verbinding.patientID = 0; // int, dus null gaat niet
+            verbinding.pasfoto = null;
+
+            scan scan = new scan(verbinding);
+            this.Hide();
+            scan.Show();
+        }
+
+        private void linkProgramAfmelden_LinkClicked_1(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            verbinding.locatie = null;
+            Login login = new Login();
+            this.Hide();
+            login.Show();
+        }
+
+        private void btnMedicatieToevoegen_Click_1(object sender, EventArgs e)
+>>>>>>> FETCH_HEAD
         {
 
         }

@@ -34,11 +34,13 @@ namespace MED_TEK
             var patientgegevens = select.Select_Patient_Apotheek(verbinding.patientID);
             var medicatiegegevens = select.Select_Medicatie(verbinding.patientID);
             var medicijngegevens = select.Select_Medicijn();
+            var afspraakgegevens = select.Select_Patient_Afspraken(verbinding.patientID);   
 
             int i = 0;
             int j = 0;
             int a = 0;
             int z = 0;
+            int x = 0;
 
             for (i = 0; i < 1; ++i)
             {
@@ -74,6 +76,12 @@ namespace MED_TEK
                     
                 }
 
+                for (x = 0; x < afspraakgegevens.Count; ++x)
+                {
+                    Dictionary<string, object> row = afspraakgegevens[x];
+                    cbActieveAfspraken.Items.Add(row["medicatieID"] + " - " + row["datum"] + " - " + row["naam"]);
+                }
+
                 if (cbOpgehaald.Checked)
                 {
                     int actief = 1;
@@ -100,6 +108,27 @@ namespace MED_TEK
             this.Hide();
             scan scan = new scan(verbinding);
             scan.Show();
+        }
+
+        private void linkAfmelden_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            // Patient afmelden
+            // Gegevens weghalen en scan form weergeven
+
+            verbinding.patientID = 0; // int, dus null gaat niet
+            verbinding.pasfoto = null;
+
+            scan scan = new scan(verbinding);
+            this.Hide();
+            scan.Show();
+        }
+
+        private void linkProgramAfmelden_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            verbinding.locatie = null;
+            Login login = new Login();
+            this.Hide();
+            login.Show();
         }
     }
 }

@@ -290,6 +290,7 @@
             this.linkAfmelden.TabIndex = 38;
             this.linkAfmelden.TabStop = true;
             this.linkAfmelden.Text = "Patient afmelden";
+            this.linkAfmelden.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkAfmelden_LinkClicked_1);
             // 
             // linkProgramAfmelden
             // 
@@ -300,6 +301,7 @@
             this.linkProgramAfmelden.TabIndex = 37;
             this.linkProgramAfmelden.TabStop = true;
             this.linkProgramAfmelden.Text = "Afmelden bij programma";
+            this.linkProgramAfmelden.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkProgramAfmelden_LinkClicked_1);
             // 
             // groupBox6
             // 
