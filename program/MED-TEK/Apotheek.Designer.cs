@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Apotheek));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dtpGeboorte = new System.Windows.Forms.DateTimePicker();
             this.tbAdres = new System.Windows.Forms.TextBox();
@@ -45,6 +46,8 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.tbBijwerkingen = new System.Windows.Forms.TextBox();
+            this.tbGebruik = new System.Windows.Forms.TextBox();
             this.tbNaamMedicijn = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
@@ -57,8 +60,6 @@
             this.cbActieveAfspraken = new System.Windows.Forms.ComboBox();
             this.linkAfmelden = new System.Windows.Forms.LinkLabel();
             this.linkProgramAfmelden = new System.Windows.Forms.LinkLabel();
-            this.tbGebruik = new System.Windows.Forms.TextBox();
-            this.tbBijwerkingen = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbPasfoto)).BeginInit();
             this.groupBox3.SuspendLayout();
@@ -231,6 +232,24 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Medicijn informatie";
             // 
+            // tbBijwerkingen
+            // 
+            this.tbBijwerkingen.Location = new System.Drawing.Point(128, 183);
+            this.tbBijwerkingen.Multiline = true;
+            this.tbBijwerkingen.Name = "tbBijwerkingen";
+            this.tbBijwerkingen.ReadOnly = true;
+            this.tbBijwerkingen.Size = new System.Drawing.Size(156, 20);
+            this.tbBijwerkingen.TabIndex = 9;
+            // 
+            // tbGebruik
+            // 
+            this.tbGebruik.Location = new System.Drawing.Point(128, 75);
+            this.tbGebruik.Multiline = true;
+            this.tbGebruik.Name = "tbGebruik";
+            this.tbGebruik.ReadOnly = true;
+            this.tbGebruik.Size = new System.Drawing.Size(156, 20);
+            this.tbGebruik.TabIndex = 8;
+            // 
             // tbNaamMedicijn
             // 
             this.tbNaamMedicijn.Location = new System.Drawing.Point(154, 28);
@@ -351,24 +370,6 @@
             this.linkProgramAfmelden.Text = "Afmelden bij programma";
             this.linkProgramAfmelden.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkProgramAfmelden_LinkClicked);
             // 
-            // tbGebruik
-            // 
-            this.tbGebruik.Location = new System.Drawing.Point(128, 75);
-            this.tbGebruik.Multiline = true;
-            this.tbGebruik.Name = "tbGebruik";
-            this.tbGebruik.ReadOnly = true;
-            this.tbGebruik.Size = new System.Drawing.Size(156, 20);
-            this.tbGebruik.TabIndex = 8;
-            // 
-            // tbBijwerkingen
-            // 
-            this.tbBijwerkingen.Location = new System.Drawing.Point(128, 183);
-            this.tbBijwerkingen.Multiline = true;
-            this.tbBijwerkingen.Name = "tbBijwerkingen";
-            this.tbBijwerkingen.ReadOnly = true;
-            this.tbBijwerkingen.Size = new System.Drawing.Size(156, 20);
-            this.tbBijwerkingen.TabIndex = 9;
-            // 
             // Apotheek
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -376,6 +377,7 @@
             this.BackColor = System.Drawing.SystemColors.Highlight;
             this.ClientSize = new System.Drawing.Size(1082, 767);
             this.Controls.Add(this.panel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Apotheek";
             this.Text = "Apotheek";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Apotheek_FormClosed);

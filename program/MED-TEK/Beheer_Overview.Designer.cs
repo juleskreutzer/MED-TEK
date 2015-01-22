@@ -123,6 +123,7 @@
             this.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.ClientSize = new System.Drawing.Size(684, 261);
             this.Controls.Add(this.panel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Beheer_Overview";
             this.Text = "Beheer Keuze Overzicht";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Beheer_Overview_FormClosing);

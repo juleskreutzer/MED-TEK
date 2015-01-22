@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Psycholoog));
             this.panel1 = new System.Windows.Forms.Panel();
             this.linkAfmelden = new System.Windows.Forms.LinkLabel();
             this.linkProgramAfmelden = new System.Windows.Forms.LinkLabel();
@@ -327,6 +328,7 @@
             this.BackColor = System.Drawing.SystemColors.Highlight;
             this.ClientSize = new System.Drawing.Size(1684, 927);
             this.Controls.Add(this.panel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Psycholoog";
             this.Text = "Psycholoog";
             this.Load += new System.EventHandler(this.Psycholoog_Load);

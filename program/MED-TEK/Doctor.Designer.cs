@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.GroupBox groupBox7;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Doctor));
             this.lblPatientNamen2 = new System.Windows.Forms.Label();
             this.btnMedicatieToevoegen = new System.Windows.Forms.Button();
             this.label32 = new System.Windows.Forms.Label();
@@ -52,6 +53,8 @@
             this.linkAfmelden = new System.Windows.Forms.LinkLabel();
             this.linkProgramAfmelden = new System.Windows.Forms.LinkLabel();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.cbMedicatieAfspraak = new System.Windows.Forms.ComboBox();
             this.cbActief = new System.Windows.Forms.CheckBox();
             this.dtpTijd = new System.Windows.Forms.DateTimePicker();
             this.btnAfspraak = new System.Windows.Forms.Button();
@@ -75,8 +78,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.cbMedicatieAfspraak = new System.Windows.Forms.ComboBox();
-            this.label6 = new System.Windows.Forms.Label();
             groupBox7 = new System.Windows.Forms.GroupBox();
             groupBox7.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -334,6 +335,23 @@
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Nieuwe afspraak toevoegen";
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(24, 54);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(53, 13);
+            this.label6.TabIndex = 28;
+            this.label6.Text = "Medicatie";
+            // 
+            // cbMedicatieAfspraak
+            // 
+            this.cbMedicatieAfspraak.FormattingEnabled = true;
+            this.cbMedicatieAfspraak.Location = new System.Drawing.Point(127, 51);
+            this.cbMedicatieAfspraak.Name = "cbMedicatieAfspraak";
+            this.cbMedicatieAfspraak.Size = new System.Drawing.Size(200, 21);
+            this.cbMedicatieAfspraak.TabIndex = 27;
+            // 
             // cbActief
             // 
             this.cbActief.AutoSize = true;
@@ -543,23 +561,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Voornamen";
             // 
-            // cbMedicatieAfspraak
-            // 
-            this.cbMedicatieAfspraak.FormattingEnabled = true;
-            this.cbMedicatieAfspraak.Location = new System.Drawing.Point(127, 51);
-            this.cbMedicatieAfspraak.Name = "cbMedicatieAfspraak";
-            this.cbMedicatieAfspraak.Size = new System.Drawing.Size(200, 21);
-            this.cbMedicatieAfspraak.TabIndex = 27;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(24, 54);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(53, 13);
-            this.label6.TabIndex = 28;
-            this.label6.Text = "Medicatie";
-            // 
             // Doctor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -567,6 +568,7 @@
             this.BackColor = System.Drawing.SystemColors.Highlight;
             this.ClientSize = new System.Drawing.Size(1216, 695);
             this.Controls.Add(this.panel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Doctor";
             this.Text = "Doctor";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Doctor_FormClosed);
