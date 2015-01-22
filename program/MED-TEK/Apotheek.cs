@@ -30,18 +30,22 @@ namespace MED_TEK
         private Update update = new Update();
         private void refresh_data()
         {
+            cbActieveAfspraken.Items.Clear();
             //benodigde patiëntgegevens ophalen en weergeven
             var patientgegevens = select.Select_Patient_Apotheek(verbinding.patientID);
             var medicatiegegevens = select.Select_Medicatie(verbinding.patientID);
             var medicijngegevens = select.Select_Medicijn();
-            var afspraakgegevens = select.Select_Patient_Afspraken(verbinding.patientID);   
+            var afspraakgegevens = select.Select_Patient_Afspraken(verbinding.patientID);
+            var medicatiegebruik = select.Select_MedicatieGebruik(verbinding.patientID);
+            var medicatiebijwerkingen = select.Select_MedicatieBijwerking(verbinding.patientID);
 
             int i = 0;
             int j = 0;
             int a = 0;
             int z = 0;
             int x = 0;
-
+            int l = 0;
+            int b = 0;
             for (i = 0; i < 1; ++i)
             {
                 for (j = 0; j < patientgegevens.Count; ++j)
@@ -70,8 +74,7 @@ namespace MED_TEK
                 {
                     Dictionary<string, object> row = medicijngegevens[z];
                     tbNaamMedicijn.Text = (string) row["naam"];
-                    lbGebruikMedicijn.Text = (string) row["gebruik"];
-                    lbBijwerkingenMedicijn.Text = (string) row["bijwerking"];
+                    
 
                     
                 }
@@ -79,15 +82,21 @@ namespace MED_TEK
                 for (x = 0; x < afspraakgegevens.Count; ++x)
                 {
                     Dictionary<string, object> row = afspraakgegevens[x];
-                    cbActieveAfspraken.Items.Add(row["medicatieID"] + " - " + row["datum"] + " - " + row["naam"]);
+                    cbActieveAfspraken.Items.Add(" " + row["medicatieID"] + " - " + row["datum"] + " - " + row["naam"]);
                 }
 
-                if (cbOpgehaald.Checked)
+                for (l = 0; l < medicatiegebruik.Count; ++l)
                 {
-                    int actief = 1;
-                    update.Update_Afspraak_actief(Convert.ToString(medicatieID), Convert.ToString(actief));
-                    MessageBox.Show("Afspraak is geupdate.");
+                    Dictionary<string, object> row = medicatiegebruik[l];
+                    tbGebruik.Text = (string) row["gebruik"];
                 }
+
+                for (b = 0; b < medicatiebijwerkingen.Count; ++b)
+                {
+                    Dictionary<string, object> row = medicatiebijwerkingen[b];
+                    tbBijwerkingen.Text = (string)row["bijwerking"];
+                }
+                
                 // Pasfoto van patient laten zien in picturebox
                 pbPasfoto.Load(verbinding.pasfoto);
                 // pasfoto passend maken voor picturebox
@@ -129,6 +138,33 @@ namespace MED_TEK
             Login login = new Login();
             this.Hide();
             login.Show();
+        }
+
+        private void btnUpdateActief_Click(object sender, EventArgs e)
+        {
+            if (cbActiefUpdate.Checked)
+            {
+              //string actieveAfspraak = overig.GetSubstringByString("ID ", " -", Convert.ToString(cbActieveAfspraken.SelectedItem));
+                string medicatieIDstring = overig.GetSubstringByString(" ", " -", Convert.ToString(cbActieveAfspraken.SelectedItem));
+                int error = 0;
+
+                if (cbActieveAfspraken.SelectedItem == null)
+                {
+                    ++error;
+                    MessageBox.Show("Er is geen afspraak geselecteerd!");
+                }
+                else
+                {
+                    update.Update_Afspraak_actief(medicatieIDstring, "0");
+                    cbActieveAfspraken.Items.Clear();
+                    
+                    cbActiefUpdate.Checked = false;
+                    refresh_data();
+                    cbActieveAfspraken.SelectedItem = null;
+                    cbActieveAfspraken.SelectedIndex = 0;
+                }
+            }
+           
         }
     }
 }

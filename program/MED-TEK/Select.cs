@@ -48,7 +48,8 @@ namespace MED_TEK
         public List<Dictionary<string, object>> Select_Patient_Afspraken(int patientID)
         {
             //Deze methode retourneert de actieve afspraken per patient
-            string sql = "SELECT " + prefix + "medicijn.naam, " + prefix + "afspraak.actief, " + prefix + "afspraak.datum, " + prefix + "medicatie.medicatieID, " + prefix + "medicatie.patientID FROM " + prefix + "medicatie, " + prefix + "afspraak WHERE " + prefix + "medicatie.medicijnID = " + prefix + "medicijn.medicijnID AND " + prefix + "medicatie.medicatieID = " + prefix + "afspraak.medicatieID AND " + prefix + "afspraak.actief = '1' AND " + prefix + "medicatie.patientID = " + patientID;
+            string sql =
+                "SELECT rhbj_medicijn.naam, rhbj_afspraak.actief, rhbj_afspraak.datum, rhbj_medicatie.medicatieID, rhbj_medicatie.patientID FROM rhbj_medicatie, rhbj_afspraak, rhbj_medicijn WHERE rhbj_medicatie.medicijnID = rhbj_medicijn.medicijnID AND rhbj_medicatie.medicatieID = rhbj_afspraak.medicatieID AND rhbj_afspraak.actief = '1' AND rhbj_medicatie.patientID = '" + patientID + "'";
 
             var data = Connect.ExecuteQuery(sql);
             return data;
@@ -92,14 +93,32 @@ namespace MED_TEK
         public List<Dictionary<string, object>> Select_Medicijn()
         {
             // Deze methode retourneerd alle medicijnen die zijn opgeslagen in de database
-            string sql = "SELECT * FROM " + prefix + "medicijn ORDER BY naam ASC";
+            string sql = "SELECT medicijnID, naam, gebruik, bijwerking FROM " + prefix + "medicijn ORDER BY naam ASC";
 
             var data = Connect.ExecuteQuery(sql);
             return data;
 
         }
 
+        public List<Dictionary<string, object>> Select_MedicatieGebruik(int patientID)
+        {
+            //Juiste bijwerkingen vinden voor medicatie
+            string sql =
+                "SELECT gebruik FROM rhbj_medicijn, rhbj_medicatie WHERE rhbj_medicijn.medicijnID = rhbj_medicatie.medicijnID AND rhbj_medicatie.patientID = '" + patientID + "'";
 
+            var data = Connect.ExecuteQuery(sql);
+            return data;
+        }
+
+        public List<Dictionary<string, object>> Select_MedicatieBijwerking(int patientID)
+        {
+            //Juiste bijwerkingen vinden voor medicatie
+            string sql =
+                "SELECT bijwerking FROM rhbj_medicijn, rhbj_medicatie WHERE rhbj_medicijn.medicijnID = rhbj_medicatie.medicijnID AND rhbj_medicatie.patientID = '" + patientID + "'";
+
+            var data = Connect.ExecuteQuery(sql);
+            return data;
+        }
         public List<Dictionary<string, object>> Select_Medicijn_Data(int medicijnID)
         {
             string sql = "SELECT naam, gebruik, bijwerking, medicijnID FROM " + prefix + "medicijn WHERE medicijnID = '" + medicijnID + "'";

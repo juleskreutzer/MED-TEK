@@ -56,7 +56,7 @@ namespace MED_TEK
 
         public void Update_Afspraak_actief(string medicatieID, string actief)
         {
-            string sql = "Update " + prefix + "medicatie SET actief = '" + actief + "' WHERE medicatieID = '" + medicatieID + "'";
+            string sql = "UPDATE " + prefix + "afspraak SET actief = '" + actief + "' WHERE medicatieID = '" + medicatieID + "'";
 
             verbinding.Execute(sql);
         }

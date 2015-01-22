@@ -38,7 +38,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.cbOpgehaald = new System.Windows.Forms.CheckBox();
             this.tbHoeveelheid = new System.Windows.Forms.TextBox();
             this.tbGebruiksEinde = new System.Windows.Forms.TextBox();
             this.tbGebruiksStart = new System.Windows.Forms.TextBox();
@@ -46,20 +45,20 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.lbBijwerkingenMedicijn = new System.Windows.Forms.ListBox();
-            this.lbGebruikMedicijn = new System.Windows.Forms.ListBox();
             this.tbNaamMedicijn = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnUpdateActief = new System.Windows.Forms.Button();
+            this.cbActiefUpdate = new System.Windows.Forms.CheckBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.cbActieveAfspraken = new System.Windows.Forms.ComboBox();
             this.linkAfmelden = new System.Windows.Forms.LinkLabel();
             this.linkProgramAfmelden = new System.Windows.Forms.LinkLabel();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.cbActieveAfspraken = new System.Windows.Forms.ComboBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.cbActiefUpdate = new System.Windows.Forms.CheckBox();
-            this.btnUpdateActief = new System.Windows.Forms.Button();
+            this.tbGebruik = new System.Windows.Forms.TextBox();
+            this.tbBijwerkingen = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbPasfoto)).BeginInit();
             this.groupBox3.SuspendLayout();
@@ -160,21 +159,11 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Voornamen";
             // 
-            // cbOpgehaald
-            // 
-            this.cbOpgehaald.AutoSize = true;
-            this.cbOpgehaald.Location = new System.Drawing.Point(20, 426);
-            this.cbOpgehaald.Name = "cbOpgehaald";
-            this.cbOpgehaald.Size = new System.Drawing.Size(84, 17);
-            this.cbOpgehaald.TabIndex = 7;
-            this.cbOpgehaald.Text = "Opgehaald?";
-            this.cbOpgehaald.UseVisualStyleBackColor = true;
-            this.cbOpgehaald.CheckedChanged += new System.EventHandler(this.cbOpgehaald_CheckedChanged);
-            // 
             // tbHoeveelheid
             // 
             this.tbHoeveelheid.Location = new System.Drawing.Point(154, 390);
             this.tbHoeveelheid.Name = "tbHoeveelheid";
+            this.tbHoeveelheid.ReadOnly = true;
             this.tbHoeveelheid.Size = new System.Drawing.Size(130, 20);
             this.tbHoeveelheid.TabIndex = 7;
             // 
@@ -182,6 +171,7 @@
             // 
             this.tbGebruiksEinde.Location = new System.Drawing.Point(154, 359);
             this.tbGebruiksEinde.Name = "tbGebruiksEinde";
+            this.tbGebruiksEinde.ReadOnly = true;
             this.tbGebruiksEinde.Size = new System.Drawing.Size(130, 20);
             this.tbGebruiksEinde.TabIndex = 6;
             // 
@@ -189,6 +179,7 @@
             // 
             this.tbGebruiksStart.Location = new System.Drawing.Point(154, 326);
             this.tbGebruiksStart.Name = "tbGebruiksStart";
+            this.tbGebruiksStart.ReadOnly = true;
             this.tbGebruiksStart.Size = new System.Drawing.Size(130, 20);
             this.tbGebruiksStart.TabIndex = 5;
             // 
@@ -221,15 +212,14 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.tbBijwerkingen);
+            this.groupBox3.Controls.Add(this.tbGebruik);
             this.groupBox3.Controls.Add(this.tbHoeveelheid);
-            this.groupBox3.Controls.Add(this.lbBijwerkingenMedicijn);
             this.groupBox3.Controls.Add(this.tbGebruiksEinde);
-            this.groupBox3.Controls.Add(this.lbGebruikMedicijn);
             this.groupBox3.Controls.Add(this.tbGebruiksStart);
             this.groupBox3.Controls.Add(this.tbNaamMedicijn);
             this.groupBox3.Controls.Add(this.label9);
             this.groupBox3.Controls.Add(this.label12);
-            this.groupBox3.Controls.Add(this.cbOpgehaald);
             this.groupBox3.Controls.Add(this.label11);
             this.groupBox3.Controls.Add(this.label8);
             this.groupBox3.Controls.Add(this.label10);
@@ -241,26 +231,11 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Medicijn informatie";
             // 
-            // lbBijwerkingenMedicijn
-            // 
-            this.lbBijwerkingenMedicijn.FormattingEnabled = true;
-            this.lbBijwerkingenMedicijn.Location = new System.Drawing.Point(154, 190);
-            this.lbBijwerkingenMedicijn.Name = "lbBijwerkingenMedicijn";
-            this.lbBijwerkingenMedicijn.Size = new System.Drawing.Size(130, 95);
-            this.lbBijwerkingenMedicijn.TabIndex = 5;
-            // 
-            // lbGebruikMedicijn
-            // 
-            this.lbGebruikMedicijn.FormattingEnabled = true;
-            this.lbGebruikMedicijn.Location = new System.Drawing.Point(154, 78);
-            this.lbGebruikMedicijn.Name = "lbGebruikMedicijn";
-            this.lbGebruikMedicijn.Size = new System.Drawing.Size(130, 95);
-            this.lbGebruikMedicijn.TabIndex = 4;
-            // 
             // tbNaamMedicijn
             // 
             this.tbNaamMedicijn.Location = new System.Drawing.Point(154, 28);
             this.tbNaamMedicijn.Name = "tbNaamMedicijn";
+            this.tbNaamMedicijn.ReadOnly = true;
             this.tbNaamMedicijn.Size = new System.Drawing.Size(130, 20);
             this.tbNaamMedicijn.TabIndex = 3;
             // 
@@ -304,6 +279,56 @@
             this.panel1.Size = new System.Drawing.Size(1067, 750);
             this.panel1.TabIndex = 6;
             // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.btnUpdateActief);
+            this.groupBox2.Controls.Add(this.cbActiefUpdate);
+            this.groupBox2.Controls.Add(this.label5);
+            this.groupBox2.Controls.Add(this.cbActieveAfspraken);
+            this.groupBox2.Location = new System.Drawing.Point(748, 6);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(302, 346);
+            this.groupBox2.TabIndex = 33;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Afspraken";
+            // 
+            // btnUpdateActief
+            // 
+            this.btnUpdateActief.Location = new System.Drawing.Point(21, 112);
+            this.btnUpdateActief.Name = "btnUpdateActief";
+            this.btnUpdateActief.Size = new System.Drawing.Size(101, 23);
+            this.btnUpdateActief.TabIndex = 3;
+            this.btnUpdateActief.Text = "Update afspraak";
+            this.btnUpdateActief.UseVisualStyleBackColor = true;
+            this.btnUpdateActief.Click += new System.EventHandler(this.btnUpdateActief_Click);
+            // 
+            // cbActiefUpdate
+            // 
+            this.cbActiefUpdate.AutoSize = true;
+            this.cbActiefUpdate.Location = new System.Drawing.Point(21, 73);
+            this.cbActiefUpdate.Name = "cbActiefUpdate";
+            this.cbActiefUpdate.Size = new System.Drawing.Size(151, 17);
+            this.cbActiefUpdate.TabIndex = 2;
+            this.cbActiefUpdate.Text = "Zet afspraak op non-actief";
+            this.cbActiefUpdate.UseVisualStyleBackColor = true;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(18, 28);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(93, 13);
+            this.label5.TabIndex = 1;
+            this.label5.Text = "Actieve afspraken";
+            // 
+            // cbActieveAfspraken
+            // 
+            this.cbActieveAfspraken.FormattingEnabled = true;
+            this.cbActieveAfspraken.Location = new System.Drawing.Point(132, 28);
+            this.cbActieveAfspraken.Name = "cbActieveAfspraken";
+            this.cbActieveAfspraken.Size = new System.Drawing.Size(164, 21);
+            this.cbActieveAfspraken.TabIndex = 0;
+            // 
             // linkAfmelden
             // 
             this.linkAfmelden.AutoSize = true;
@@ -326,54 +351,23 @@
             this.linkProgramAfmelden.Text = "Afmelden bij programma";
             this.linkProgramAfmelden.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkProgramAfmelden_LinkClicked);
             // 
-            // groupBox2
+            // tbGebruik
             // 
-            this.groupBox2.Controls.Add(this.btnUpdateActief);
-            this.groupBox2.Controls.Add(this.cbActiefUpdate);
-            this.groupBox2.Controls.Add(this.label5);
-            this.groupBox2.Controls.Add(this.cbActieveAfspraken);
-            this.groupBox2.Location = new System.Drawing.Point(748, 6);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(302, 346);
-            this.groupBox2.TabIndex = 33;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Afspraken";
+            this.tbGebruik.Location = new System.Drawing.Point(128, 75);
+            this.tbGebruik.Multiline = true;
+            this.tbGebruik.Name = "tbGebruik";
+            this.tbGebruik.ReadOnly = true;
+            this.tbGebruik.Size = new System.Drawing.Size(156, 20);
+            this.tbGebruik.TabIndex = 8;
             // 
-            // cbActieveAfspraken
+            // tbBijwerkingen
             // 
-            this.cbActieveAfspraken.FormattingEnabled = true;
-            this.cbActieveAfspraken.Location = new System.Drawing.Point(132, 28);
-            this.cbActieveAfspraken.Name = "cbActieveAfspraken";
-            this.cbActieveAfspraken.Size = new System.Drawing.Size(164, 21);
-            this.cbActieveAfspraken.TabIndex = 0;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(18, 28);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(93, 13);
-            this.label5.TabIndex = 1;
-            this.label5.Text = "Actieve afspraken";
-            // 
-            // cbActiefUpdate
-            // 
-            this.cbActiefUpdate.AutoSize = true;
-            this.cbActiefUpdate.Location = new System.Drawing.Point(21, 73);
-            this.cbActiefUpdate.Name = "cbActiefUpdate";
-            this.cbActiefUpdate.Size = new System.Drawing.Size(132, 17);
-            this.cbActiefUpdate.TabIndex = 2;
-            this.cbActiefUpdate.Text = "Update actief: Ja/Nee";
-            this.cbActiefUpdate.UseVisualStyleBackColor = true;
-            // 
-            // btnUpdateActief
-            // 
-            this.btnUpdateActief.Location = new System.Drawing.Point(21, 112);
-            this.btnUpdateActief.Name = "btnUpdateActief";
-            this.btnUpdateActief.Size = new System.Drawing.Size(101, 23);
-            this.btnUpdateActief.TabIndex = 3;
-            this.btnUpdateActief.Text = "Update afspraak";
-            this.btnUpdateActief.UseVisualStyleBackColor = true;
+            this.tbBijwerkingen.Location = new System.Drawing.Point(128, 183);
+            this.tbBijwerkingen.Multiline = true;
+            this.tbBijwerkingen.Name = "tbBijwerkingen";
+            this.tbBijwerkingen.ReadOnly = true;
+            this.tbBijwerkingen.Size = new System.Drawing.Size(156, 20);
+            this.tbBijwerkingen.TabIndex = 9;
             // 
             // Apotheek
             // 
@@ -410,7 +404,6 @@
         private System.Windows.Forms.TextBox tbAdres;
         private System.Windows.Forms.TextBox tbAchternaam;
         private System.Windows.Forms.TextBox tbVoorNamen;
-        private System.Windows.Forms.CheckBox cbOpgehaald;
         private System.Windows.Forms.DateTimePicker dtpGeboorte;
         private System.Windows.Forms.TextBox tbHoeveelheid;
         private System.Windows.Forms.TextBox tbGebruiksEinde;
@@ -419,8 +412,6 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.ListBox lbBijwerkingenMedicijn;
-        private System.Windows.Forms.ListBox lbGebruikMedicijn;
         private System.Windows.Forms.TextBox tbNaamMedicijn;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
@@ -433,5 +424,7 @@
         private System.Windows.Forms.CheckBox cbActiefUpdate;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox cbActieveAfspraken;
+        private System.Windows.Forms.TextBox tbGebruik;
+        private System.Windows.Forms.TextBox tbBijwerkingen;
     }
 }
