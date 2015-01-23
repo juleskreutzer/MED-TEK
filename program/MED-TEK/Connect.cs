@@ -21,6 +21,7 @@ namespace MED_TEK
         private string connectionstring;
         public string pasfoto;
         public int patientID;
+        public string error;
 
         public string locatie;
 
@@ -55,11 +56,13 @@ namespace MED_TEK
                 switch (ex.Number)
                 {
                     case 0:
+                        error = "Verbinding met de database is mislukt!\n\nEr kon geen verbinding worden gemaakt met de database.\nDe oorzaak hiervan kan zijn dat de gebruikersnaam of het wachtwoord van de database niet correct zijn\nof dat het IP adres van deze computer niet bekend is bij de database.\n\nContacteer de systeembeheerder als dit probleem zich blijft voordoe.\n(Error code: 0)";
                         // Verbinding met database kon niet tot stand worden gebracht
                         Console.WriteLine("Verbinding mislukt! Kan niet verbinden met server, klopt de host en database naam?");
                         break;
 
                     case 1045:
+                        error = "Verbinding met de database is mislukt!\n\nEr kon geen verbinding worden gemaakt met de database.\nDe oorzaak hiervan kan zijn dat de gebruikersnaam of het wachtwoord van de database niet correct zijn\nof dat het IP adres van deze computer niet bekend is bij de database.\n\nContacteer de systeembeheerder als dit probleem zich blijft voordoe.\n(Error code: 1045)";
                         // Verbinding met database is mislukt, verkeerd wachtwoord of gebruikersnaam
                         Console.WriteLine("Verbinding mislukt! Kan niet verbinden met server, klopt de gebruikersnaam en het wachtwoord?");
                         break;

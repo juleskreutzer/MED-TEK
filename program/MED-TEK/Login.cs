@@ -35,7 +35,11 @@ namespace MED_TEK
             string password = overig.versleutel(tbPassword.Text);
             string login = verbinding.login(username, password);
 
-            if(login != "")
+            if (verbinding.error != "")
+            {
+                MessageBox.Show(verbinding.error);
+            }
+            else if(login != "")
             {
                // De methode login() geeft een locatie terug
                // Controleer bij welke locatie wordt aangemeld en open het bijbehorende formulier
