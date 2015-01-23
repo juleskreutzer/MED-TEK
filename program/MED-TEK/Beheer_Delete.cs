@@ -39,6 +39,12 @@ namespace MED_TEK
             var ziekte = select.Select_Ziekte();
             var afspraak = select.Select_Afspraak_All();
 
+            lbOverzichtZiektePatient.Items.Clear();
+            lbOverzichtAfspraken.Items.Clear();
+            lbOverzichtMedicijnen.Items.Clear();
+            lbOverzichtZiekte.Items.Clear();
+
+
             for(int i = 0; i < 1; ++i)
             {
                 for(int a = 0; a < medicijnen.Count; ++a)

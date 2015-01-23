@@ -21,7 +21,7 @@ namespace MED_TEK
         private string connectionstring;
         public string pasfoto;
         public int patientID;
-        public string error;
+        public string error = "";
 
         public string locatie;
 

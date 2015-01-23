@@ -71,15 +71,6 @@ namespace MED_TEK
                     this.Hide();
                     scan.Show();
                 }
-                else if(login == "psycholoog")
-                {
-                    // Login locatie aanvullen zodat juiste formulier wordt geladen nadat pas is gescant
-                    verbinding.login_locatie = login;
-
-                    // Open formulier van psycholoog
-                    this.Hide();
-                    scan.Show();
-                }
                 else if(login == "beheer")
                 {
                     // Login locatie aanvullen zodat juiste formulier wordt geladen nadat pas is gescant
@@ -95,9 +86,11 @@ namespace MED_TEK
             }
             else
             {
-                tbUsername.Text = "";
-                tbPassword.Text = "";
-                MessageBox.Show("Het inloggen is mislukt. Controleer uw gebruikersnaam en wachtwoord. Wanneer dit probleem zich blijf voordoen, neem dan contact op met uw systeem beheerder.");
+              tbUsername.Text = "";
+                    tbPassword.Text = "";
+                    MessageBox.Show(
+                        "Het inloggen is mislukt. Controleer uw gebruikersnaam en wachtwoord. Wanneer dit probleem zich blijf voordoen, neem dan contact op met uw systeem beheerder.");
+                
             }
         }
 

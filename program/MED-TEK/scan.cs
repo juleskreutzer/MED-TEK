@@ -85,12 +85,7 @@ namespace MED_TEK
                     this.Hide();
                     apotheek.Show();
                 }
-                if (locatie == "psycholoog")
-                {
-                    Psycholoog psycholoog = new Psycholoog(verbinding);
-                    this.Hide();
-                    psycholoog.Show();
-                }
+                
 
 
             }

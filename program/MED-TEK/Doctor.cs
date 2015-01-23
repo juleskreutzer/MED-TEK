@@ -40,6 +40,9 @@ namespace MED_TEK
 
         private void refresh_data()
         {
+            lbMedicatie.Items.Clear();
+            lbZiektes.Items.Clear();
+
             var dataZiekteNaam = select.Select_Ziekte();
             var dataLocatie = select.Select_Locatie();
             var medicijnNaam = select.Select_Medicijn_Data(verbinding.patientID);
@@ -247,6 +250,7 @@ namespace MED_TEK
 
                 insert.Insert_Ziekteoverzicht(ziekteID, patientID, symptomen);
                 MessageBox.Show("De ziekte is met succes toegewezen aan de patient.");
+                refresh_data();
             }
         }
 

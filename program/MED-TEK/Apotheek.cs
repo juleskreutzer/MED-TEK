@@ -111,12 +111,7 @@ namespace MED_TEK
 
         private void Apotheek_FormClosed(object sender, FormClosedEventArgs e)
         {
-            verbinding.patientID = 0;
-            verbinding.pasfoto = null;
-
-            this.Hide();
-            scan scan = new scan(verbinding);
-            scan.Show();
+            Application.Exit();
         }
 
         private void linkAfmelden_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
