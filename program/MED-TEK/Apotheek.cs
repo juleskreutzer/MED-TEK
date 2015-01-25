@@ -18,6 +18,8 @@ namespace MED_TEK
         {
             InitializeComponent();
             verbinding = _verbinding;
+            StartPosition = FormStartPosition.CenterScreen; 
+
         }
 
         private void Apotheek_Load(object sender, EventArgs e)

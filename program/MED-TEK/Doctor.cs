@@ -21,7 +21,7 @@ namespace MED_TEK
         {
             InitializeComponent();
             verbinding = _verbinding;
-            WindowState = FormWindowState.Maximized;
+            StartPosition = FormStartPosition.CenterScreen;
         }
 
         private void Doctor_Load(object sender, EventArgs e)

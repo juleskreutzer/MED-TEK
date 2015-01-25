@@ -18,6 +18,8 @@ namespace MED_TEK
         {
             InitializeComponent();
             verbinding = _verbinding;
+            StartPosition = FormStartPosition.CenterScreen; 
+
         }
 
         Select select = new Select();
@@ -107,12 +109,13 @@ namespace MED_TEK
 
         private void llAfmelden_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            Application.Exit();
-            //verbinding.locatie = null;
+            verbinding.locatie = null;
 
-            //Login login = new Login();
-            //this.Hide();
-            //login.Show();
+            Login login = new Login();
+            this.Hide();
+            login.Show();
+
+            //MessageBox.Show("Gebruik de knop 'patient afmelden' en klik vervolgens op afmelden om u volledig bij het programma af te melden.");
         }
     }
 }

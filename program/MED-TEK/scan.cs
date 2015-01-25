@@ -69,19 +69,19 @@ namespace MED_TEK
 
                 string locatie = verbinding.login_locatie;
 
-                if (locatie == "ambulance")
-                {
-                    Ambulance ambulance = new Ambulance(verbinding);
-                    this.Hide();
-                    ambulance.Show();
-                }
                 if (locatie == "doctor")
                 {
                     Doctor doctor = new Doctor(verbinding);
                     this.Hide();
                     doctor.Show();
                 }
-                if (locatie == "apotheek")
+                else if (locatie == "ambulance")
+                {
+                    Ambulance ambulance = new Ambulance(verbinding);
+                    this.Hide();
+                    ambulance.Show();
+                }
+                else if (locatie == "apotheek")
                 {
                     Apotheek apotheek = new Apotheek(verbinding);
                     this.Hide();
