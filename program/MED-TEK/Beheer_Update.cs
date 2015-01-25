@@ -58,6 +58,14 @@ namespace MED_TEK
 
         public void refresh()
         {
+            // ComboBoxes leegmaken zodat gegevens niet 2 of meer keer worden weergegeven
+            cbLocatie.Items.Clear();
+            cbSelectMedicatie.Items.Clear();
+            cbSelectMedicijn.Items.Clear();
+            cbSelectUser.Items.Clear();
+            cbSelectZiekte.Items.Clear();
+            cbZiekte.Items.Clear();
+
             // alle textboxes van patientgegevens uitschakelen, totdat patient gegevens worden opgehaald.
             tbVoornamen.Enabled = false;
             tbAchternaam.Enabled = false;
@@ -263,6 +271,27 @@ namespace MED_TEK
                 update.Update_Patient(verbinding.patientID, voornamen, achternaam, DoB, bsn, bloedgroep, pasfoto, email, telefoon, mobiel, adres, gemeente, provincie, pascode);
                 MessageBox.Show("De patientgegevens zijn succesvol bijgewerkt!");
 
+                // Gegevens zijn bijgewerkt, mogelijk maken om gegevens voor nieuwe patient op te zoeken
+                tbCode.Enabled = true;
+                tbCode.Text = "";
+                btnActivate.Enabled = true;
+
+                // Alle velden leegmaken
+                tbVoornamen.Text = "";
+                tbAchternaam.Text = "";
+                dtpDoB.Text = Convert.ToString(DateTime.Now);
+                tbBsn.Text = "";
+                tbBloedgroep.Text = "";
+                tbPasfoto.Text = "";
+                tbEmail.Text = "";
+                tbTelefoon.Text = "";
+                tbMobiel.Text = "";
+                tbAdres.Text = "";
+                tbGemeente.Text = "";
+                tbProvincie.Text = "";
+                tbPascode.Text = "";
+
+                // Gegevens van formulier verversen
                 refresh();
             }
         }

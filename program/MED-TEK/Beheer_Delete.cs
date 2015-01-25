@@ -35,6 +35,11 @@ namespace MED_TEK
 
         private void refresh()
         {
+            // gegevens van comboboxes verwijderen om het weergegeven van dubbele data te voorkomen
+            cbSelectAfspraak.Items.Clear();
+            cbSelectMedicijn.Items.Clear();
+            cbSelectZiekte.Items.Clear();
+
             var medicijnen = select.Select_Medicijn();
             var ziekte = select.Select_Ziekte();
             var afspraak = select.Select_Afspraak_All();
@@ -124,7 +129,11 @@ namespace MED_TEK
                 int ziekteID = Convert.ToInt32(ziekteIDstring);
                 delete.Delete_Ziekte(ziekteID);
                 MessageBox.Show("De ziekte is succesvol verwijderd!");
+
                 refresh();
+
+                cbSelectZiekte.SelectedItem = null;
+                cbSelectZiekte.SelectedIndex = 0;
             }
         }
 
@@ -143,6 +152,10 @@ namespace MED_TEK
                 MessageBox.Show("De afspraak is succesvol verwijderd!");
 
                 refresh();
+
+                cbSelectAfspraak.SelectedItem = null;
+                cbSelectAfspraak.SelectedIndex = 0;
+
             }
         }
 
@@ -161,6 +174,9 @@ namespace MED_TEK
                 MessageBox.Show("Het medicijn is succesvol verwijderd!");
 
                 refresh();
+
+                cbSelectMedicijn.SelectedItem = null;
+                cbSelectMedicijn.SelectedIndex = 0;
             }
         }
     }

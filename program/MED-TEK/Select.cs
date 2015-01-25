@@ -153,8 +153,8 @@ namespace MED_TEK
         {
             // Deze methode retourneerd alle medicijnen voor alle patienten
 
-            string sql = "SELECT '" + prefix + "medicatie.medicatieID', '" + prefix + "patient.voornamen', '" + prefix + "patient.achternaam', '" + prefix + "medicijn.naam' FROM " + prefix + "patient, " + prefix + "medicijn WHERE '" + prefix + "medicatie.medicijnID' = '" + prefix + "medicijn.medicijnID' AND '" + prefix + "medicatie.patientID' = '" + prefix + "patient.patientID'";
-
+            string sql = "SELECT rhbj_patient.voornamen, rhbj_patient.achternaam, rhbj_medicijn.naam, rhbj_medicatie.medicatieID FROM rhbj_patient, rhbj_medicatie, rhbj_medicijn WHERE rhbj_medicatie.patientID = rhbj_patient.patientID AND rhbj_medicatie.medicijnID = rhbj_medicijn.medicijnID";
+           
             var data = Connect.ExecuteQuery(sql);
             return data;
         }

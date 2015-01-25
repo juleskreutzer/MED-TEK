@@ -17,7 +17,7 @@ namespace MED_TEK
         private string password; // Database password
         private string database; // Database name
         private string prefix = "rhbj_";
-        public string login_locatie = "";
+        public string login_locatie;
         private string connectionstring;
         public string pasfoto;
         public int patientID;

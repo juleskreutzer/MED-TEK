@@ -36,9 +36,11 @@ namespace MED_TEK
             dtpGebruikEind.Format = DateTimePickerFormat.Custom;
             dtpGebruikStart.Format = DateTimePickerFormat.Custom;
             dtpAfspraak.Format = DateTimePickerFormat.Custom;
+            dtpDoB.Format = DateTimePickerFormat.Custom;
             dtpAfspraak.CustomFormat = "yyyy-MM-dd";
             dtpGebruikStart.CustomFormat = "yyyy-MM-dd";
             dtpGebruikEind.CustomFormat = "yyyy-MM-dd";
+            dtpDoB.CustomFormat = "yyyy-MM-dd";
 
             // OPVRAGEN GEGEVENS VOOR TOEKENNEN ZIEKTE AAN PATIENT EN TOEKENNEN MEDICATIE AAN PATIENT
             var dataPatientNaam = select.Select_Patient_Naam();
@@ -106,13 +108,55 @@ namespace MED_TEK
             lbZiekte.Items.Clear();
             lbMedicijn.Items.Clear();
 
+            // ComboBoxes legen zodat dezelfde gegevens niet meerdere keren in combobox staan
+            cbZiekte.Items.Clear();
+            cbPatientMedicatie.Items.Clear();
+            cbPatient.Items.Clear();
+            cbMedicijn.Items.Clear();
+            cbMedicatie.Items.Clear();
+
             // Ziektes bekend in database ophalen en weergegeven in listbox
             var dataziekte = select.Select_Ziekte();
             var datamedicijn = select.Select_Medicijn();
-            int i = 0;
+            var datamedicatie = select.Select_Medicatie_All();
+            var dataPatientNaam = select.Select_Patient_Naam();
+            var dataZiekteNaam = select.Select_Ziekte();
+            var dataMedicijnNaam = select.Select_Medicijn();
+            var dataLocatie = select.Select_Locatie();
 
-            for (i = 0; i < 1; ++i)
+
+
+            for (int a = 0; a < 1; ++a)
             {
+                for (int b = 0; b < dataPatientNaam.Count; ++b)
+                {
+                    Dictionary<string, object> row = dataPatientNaam[b];
+
+                    cbPatient.Items.Add("ID " + row["patientID"] + " - " + row["voornamen"] + " " + row["achternaam"]);
+                    cbPatientMedicatie.Items.Add("ID " + row["patientID"] + " - " + row["voornamen"] + " " + row["achternaam"]);
+                }
+
+                for (int c = 0; c < dataZiekteNaam.Count; ++c)
+                {
+                    Dictionary<string, object> row = dataZiekteNaam[c];
+
+                    cbZiekte.Items.Add("ID " + row["ziekteID"] + " - " + row["naam"]);
+                }
+
+                for (int d = 0; d < dataMedicijnNaam.Count; ++d)
+                {
+                    Dictionary<string, object> row = dataMedicijnNaam[d];
+
+                    cbMedicijn.Items.Add("ID " + row["medicijnID"] + " - " + row["naam"]);
+                }
+           
+                for (int j = 0; j < dataLocatie.Count; ++j)
+                {
+                    Dictionary<string, object> row = dataLocatie[j];
+
+                    cbLocAfspraak.Items.Add("ID " + row["locatieID"] + " - " + row["locatienaam"]);
+                }
+  
                 for (int j = 0; j < dataziekte.Count; ++j)
                 {
                     Dictionary<string, object> row = dataziekte[j];
@@ -125,6 +169,11 @@ namespace MED_TEK
                     Dictionary<string, object> row = datamedicijn[k];
 
                     lbMedicijn.Items.Add((string)row["naam"]);
+                }
+                for (int x = 0; x < datamedicatie.Count; ++x)
+                {
+                    Dictionary<string, object> row = datamedicatie[x];
+                    cbMedicatie.Items.Add("ID " + row["medicatieID"] + " - " + row["voornamen"] + " " + row["achternaam"] + ", " + row["naam"]);
                 }
             }
 
@@ -250,6 +299,24 @@ namespace MED_TEK
             {
                 insert.Insert_Patient(voornamen, achternaam, DoB, BSN, bloedgroep, pasfoto, email, telefoon, mobiel, adres, gemeente, provincie, pascode);
                 MessageBox.Show("Gegevens zijn succesvol toegevoegd in de database");
+
+                // Gegevens in formulier verversen
+                refresh();
+
+                // Alle velden leegmaken zodat een nieuwe patient kan worden toegevoegd
+                tbVoornamen.Text = "";
+                tbAchternaam.Text = "";
+                dtpDoB.Text = "";
+                tbBSN.Text = "";
+                tbBloedgroep.Text = "";
+                tbPasfoto.Text = "";
+                tbEmail.Text = "";
+                tbTelefoon.Text = "";
+                tbMobiel.Text = "";
+                tbAdres.Text = "";
+                tbGemeente.Text = "";
+                tbProvincie.Text = "";
+                tbPascode.Text = "";
             }
             else
             {
@@ -271,9 +338,13 @@ namespace MED_TEK
                 insert.Insert_Ziekte(naam);
                 tbZiekte.Text = "";
                 MessageBox.Show("De ziekte is succesvol toegevoegd!");
-            }
 
-            refresh();
+                // Gegevens in formulier verversen
+                refresh();
+
+                // tb leegmaken zodat een nieuwe ziekte kan worden toegevoegd
+                tbZiekte.Text = "";
+            }
         }
 
         private void btnResetZiekte_Click(object sender, EventArgs e)
@@ -318,6 +389,9 @@ namespace MED_TEK
                 tbPassword.Text = "";
                 cbLocatie.Text = "";
                 MessageBox.Show("Nieuwe gebruiker toegevoegd!");
+
+                // Gegevens in formulier verversen
+                refresh();                
             }
             else
             {
@@ -344,13 +418,20 @@ namespace MED_TEK
             {
                 insert.Insert_Medicijn(medicijn, gebruik, bijwerking);
                 MessageBox.Show("Nieuw medicijn is toegevoegd!");
+
+                // Gegevens in formulier verversen
+                refresh();
+
+                // velden leegmaken zodat nieuwe medicijn kan worden toegevoegd
+                tbmedicijn.Text = "";
+                tbMedicijnGebruik.Text = "";
+                tbMedicijnBijwerking.Text = "";
             }
             else
             {
                 MessageBox.Show("Het medicijn kan niet worden toegevoegd aan de database. Alle velden moeten worden ingevuld of er is een ander probleem ogetreden");
             }
 
-            refresh();
         }
 
         private void btnKoppelZiekte_Click(object sender, EventArgs e)
@@ -377,6 +458,16 @@ namespace MED_TEK
 
                 insert.Insert_Ziekteoverzicht(ziekteID, patientID, symptomen);
                 MessageBox.Show("De ziekte is met succes toegewezen aan de patient.");
+
+                // gegevens in formulier verversen
+                refresh();
+
+                // Velden leegmaken
+                cbPatient.SelectedItem = null;
+                cbPatient.SelectedIndex = 0;
+                cbZiekte.SelectedItem = null;
+                cbZiekte.SelectedIndex = 0;
+                tbSymptomen.Text = "";
             }
 
 

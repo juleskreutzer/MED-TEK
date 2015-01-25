@@ -30,8 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Ambulance));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.linkLabel2 = new System.Windows.Forms.LinkLabel();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.llPatientAfmelden = new System.Windows.Forms.LinkLabel();
+            this.llAfmelden = new System.Windows.Forms.LinkLabel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.lbMedicatie = new System.Windows.Forms.ListBox();
             this.lbZiektes = new System.Windows.Forms.ListBox();
@@ -53,8 +53,8 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.linkLabel2);
-            this.panel1.Controls.Add(this.linkLabel1);
+            this.panel1.Controls.Add(this.llPatientAfmelden);
+            this.panel1.Controls.Add(this.llAfmelden);
             this.panel1.Controls.Add(this.groupBox2);
             this.panel1.Controls.Add(this.groupBox1);
             this.panel1.Location = new System.Drawing.Point(9, 10);
@@ -64,27 +64,27 @@
             this.panel1.TabIndex = 0;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
-            // linkLabel2
+            // llPatientAfmelden
             // 
-            this.linkLabel2.AutoSize = true;
-            this.linkLabel2.Location = new System.Drawing.Point(34, 468);
-            this.linkLabel2.Name = "linkLabel2";
-            this.linkLabel2.Size = new System.Drawing.Size(86, 13);
-            this.linkLabel2.TabIndex = 4;
-            this.linkLabel2.TabStop = true;
-            this.linkLabel2.Text = "Patient afmelden";
-            this.linkLabel2.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel2_LinkClicked);
+            this.llPatientAfmelden.AutoSize = true;
+            this.llPatientAfmelden.Location = new System.Drawing.Point(34, 468);
+            this.llPatientAfmelden.Name = "llPatientAfmelden";
+            this.llPatientAfmelden.Size = new System.Drawing.Size(86, 13);
+            this.llPatientAfmelden.TabIndex = 4;
+            this.llPatientAfmelden.TabStop = true;
+            this.llPatientAfmelden.Text = "Patient afmelden";
+            this.llPatientAfmelden.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llPatientAfmelden_LinkClicked);
             // 
-            // linkLabel1
+            // llAfmelden
             // 
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(146, 468);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(119, 13);
-            this.linkLabel1.TabIndex = 3;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "Afmelden bij programma";
-            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            this.llAfmelden.AutoSize = true;
+            this.llAfmelden.Location = new System.Drawing.Point(146, 468);
+            this.llAfmelden.Name = "llAfmelden";
+            this.llAfmelden.Size = new System.Drawing.Size(119, 13);
+            this.llAfmelden.TabIndex = 3;
+            this.llAfmelden.TabStop = true;
+            this.llAfmelden.Text = "Afmelden bij programma";
+            this.llAfmelden.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llAfmelden_LinkClicked);
             // 
             // groupBox2
             // 
@@ -112,7 +112,6 @@
             this.lbZiektes.Name = "lbZiektes";
             this.lbZiektes.Size = new System.Drawing.Size(357, 95);
             this.lbZiektes.TabIndex = 0;
-            this.lbZiektes.SelectedIndexChanged += new System.EventHandler(this.lbZiektes_SelectedIndexChanged);
             // 
             // groupBox1
             // 
@@ -243,7 +242,7 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.ListBox lbMedicatie;
         private System.Windows.Forms.ListBox lbZiektes;
-        private System.Windows.Forms.LinkLabel linkLabel1;
-        private System.Windows.Forms.LinkLabel linkLabel2;
+        private System.Windows.Forms.LinkLabel llAfmelden;
+        private System.Windows.Forms.LinkLabel llPatientAfmelden;
     }
 }

@@ -18,8 +18,6 @@ namespace MED_TEK
         {
             InitializeComponent();
             verbinding = _verbinding;
-
-            refresh_data();
         }
 
         Select select = new Select();
@@ -77,6 +75,8 @@ namespace MED_TEK
             pbPasfoto.Enabled = false;
             lbZiektes.Enabled = false;
             lbMedicatie.Enabled = false;
+
+            refresh_data();
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -89,21 +89,15 @@ namespace MED_TEK
             Application.Exit();
         }
 
-        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            verbinding.locatie = null;
-            Login login = new Login();
-            this.Hide();
-            login.Show();
-            
-        }
+     
 
-        private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            // Patient afmelden
-            // Gegevens weghalen en scan form weergeven
+       
 
-            verbinding.patientID = 0; // int, dus null gaat niet
+       
+
+        private void llPatientAfmelden_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            verbinding.patientID = 0;
             verbinding.pasfoto = null;
 
             scan scan = new scan(verbinding);
@@ -111,9 +105,14 @@ namespace MED_TEK
             scan.Show();
         }
 
-        private void lbZiektes_SelectedIndexChanged(object sender, EventArgs e)
+        private void llAfmelden_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
+            Application.Exit();
+            //verbinding.locatie = null;
 
+            //Login login = new Login();
+            //this.Hide();
+            //login.Show();
         }
     }
 }

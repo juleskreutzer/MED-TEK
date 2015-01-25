@@ -24,6 +24,7 @@ namespace MED_TEK
         {
             InitializeComponent();
             verbinding = _verbinding;
+            StartPosition = FormStartPosition.CenterScreen; 
             panel1.BackColor = Color.FromArgb(255, 255, 255);
 
            
@@ -51,6 +52,7 @@ namespace MED_TEK
         {
             if (tbScan.Text.Length == 10)
             {
+                
                 timer1.Stop();
                 tbScan.Enabled = false;
                 // Alle tekens zijn Ingevoerd, methode aanroepen om de nodige gegevens erbij op te zoeken
