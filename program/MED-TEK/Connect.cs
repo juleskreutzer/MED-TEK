@@ -16,7 +16,7 @@ namespace MED_TEK
         private string user; // Database user name
         private string password; // Database password
         private string database; // Database name
-        private string prefix = "rhbj_";
+        private string prefix = "xxx";
         public string login_locatie;
         private string connectionstring;
         public string pasfoto;
@@ -33,10 +33,10 @@ namespace MED_TEK
 
         public MySqlConnection Initialize()
         {
-            server = "92.48.206.233";
-            user = "eu186781_test";
-            password = "kreutzer";
-            database = "eu186781_test";
+            server = "xxx";
+            user = "xxx";
+            password = "xxx";
+            database = "xxx";
 
             connectionstring = "SERVER=" + server + ";" + "DATABASE=" + database + ";" + "UID=" + user + ";" + "PASSWORD=" + password + ";";
 
