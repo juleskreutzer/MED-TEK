@@ -12,7 +12,7 @@
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <IsWebBootstrapper>false</IsWebBootstrapper>
-    <PublishUrl>\\vmware-host\Shared Folders\Documents\github\MED-TEK\program\MED-TEK\Release\v1.2\</PublishUrl>
+    <PublishUrl>\\vmware-host\Shared Folders\Documents\github\MED-TEK\program\MED-TEK\Release\v1.3\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Unc</InstallFrom>
     <UpdateEnabled>false</UpdateEnabled>
@@ -24,7 +24,7 @@
     <MapFileExtensions>true</MapFileExtensions>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationRevision>3</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>

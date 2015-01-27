@@ -48,8 +48,7 @@ namespace MED_TEK
         public List<Dictionary<string, object>> Select_Patient_Afspraken(int patientID)
         {
             //Deze methode retourneert de actieve afspraken per patient
-            string sql =
-                "SELECT rhbj_medicijn.naam, rhbj_afspraak.actief, rhbj_afspraak.datum, rhbj_medicatie.medicatieID, rhbj_medicatie.patientID FROM rhbj_medicatie, rhbj_afspraak, rhbj_medicijn WHERE rhbj_medicatie.medicijnID = rhbj_medicijn.medicijnID AND rhbj_medicatie.medicatieID = rhbj_afspraak.medicatieID AND rhbj_afspraak.actief = '1' AND rhbj_medicatie.patientID = '" + patientID + "'";
+            string sql = "SELECT rhbj_medicijn.naam, rhbj_afspraak.actief, rhbj_afspraak.datum, rhbj_medicatie.medicatieID, rhbj_medicatie.patientID FROM rhbj_medicatie, rhbj_afspraak, rhbj_medicijn WHERE rhbj_medicatie.medicijnID = rhbj_medicijn.medicijnID AND rhbj_medicatie.medicatieID = rhbj_afspraak.medicatieID AND rhbj_afspraak.actief = '1' AND rhbj_medicatie.patientID = '" + patientID + "'";
 
             var data = Connect.ExecuteQuery(sql);
             return data;

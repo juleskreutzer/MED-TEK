@@ -209,6 +209,11 @@ namespace MED_TEK
 
                 insert.Insert_Medicatie(verbinding.patientID, medicijnID, GebruikStart, GebruikEind, hoeveelheid);
                 MessageBox.Show("De medicatie is met succes opgeslagen voor de patient!");
+
+                dtpGebruikEind.Value = DateTime.Now;
+                dtpGebruikStart.Value = DateTime.Now;
+                cbMedicijn.SelectedItem = null;
+                tbHoeveelheid.Text = "";
             }
         }
 
