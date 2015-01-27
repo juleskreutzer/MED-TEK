@@ -34,6 +34,8 @@ namespace MED_TEK
 
             dtpAfspraak.Format = DateTimePickerFormat.Custom;
             dtpAfspraak.CustomFormat = "yyyy-MM-dd";
+            dtpTijd.Format = DateTimePickerFormat.Custom;
+            dtpTijd.CustomFormat = "HH : mm";
 
             refresh_data();
         }
@@ -42,6 +44,11 @@ namespace MED_TEK
         {
             lbMedicatie.Items.Clear();
             lbZiektes.Items.Clear();
+            
+            cbZiekte.Items.Clear();
+            cbMedicijn.Items.Clear();
+            cbMedicatieAfspraak.Items.Clear();
+            cbLocAfspraak.Items.Clear();
 
             var dataZiekteNaam = select.Select_Ziekte();
             var dataLocatie = select.Select_Locatie();
@@ -104,7 +111,7 @@ namespace MED_TEK
                 {
                     Dictionary<string, object> row = medicatieoverzicht[x];
                     lbMedicatie.Items.Add(row["naam"]);
-                    cbMedicatieAfspraak.Items.Add(row["naam"]);
+                    cbMedicatieAfspraak.Items.Add("ID " + row["medicatieID"] + " - " + row["naam"]);
                 }
 
                 for (int c = 0; c < dataMedicijnNaam.Count; ++c)
@@ -126,13 +133,14 @@ namespace MED_TEK
         private void btnAfspraak_Click(object sender, EventArgs e)
         {
             string locatieIDstring = overig.GetSubstringByString("ID ", " -", Convert.ToString(cbLocAfspraak.SelectedItem));
+            string medicatieIDstring = overig.GetSubstringByString("ID ", " - ", Convert.ToString(cbMedicatieAfspraak.SelectedItem)) ; 
             string datum = dtpAfspraak.Text;
             string tijd = dtpTijd.Text;
             bool actief = cbActief.Checked;
 
             int error = 0;
 
-            if (locatieIDstring == "" || datum == "" || tijd == "")
+            if (locatieIDstring == "" || datum == "" || tijd == "" || medicatieIDstring == "")
             {
                 ++error;
                 MessageBox.Show("Je bent wat gegevens vergeten, loop ze nog eens na!");
@@ -141,24 +149,16 @@ namespace MED_TEK
             {
                 if (error == 0)
                 {
+                    int locatieID = Convert.ToInt32(locatieIDstring);
+                    int medicatieID = Convert.ToInt32(medicatieIDstring);
+                    int actiefstatus = 0;
+
                     if (actief)
                     {
-
-                        int locatieID = Convert.ToInt32(locatieIDstring);
-                        int medicatieID = 0;
-                        int actiefenzo = Convert.ToInt32(actief);
-                        insert.Insert_Afspraak(medicatieID, locatieID, datum, tijd, actiefenzo);
-                        MessageBox.Show("Afspraak is succesvol toegevoegd!");
-
+                        actiefstatus = 1;
                     }
-                    else
-                    {
-                        int locatieID = Convert.ToInt32(locatieIDstring);
-                        int medicatieID = 0;
-                        int actiefenzo = Convert.ToInt32(actief);
-                        insert.Insert_Afspraak(medicatieID, locatieID, datum, tijd, actiefenzo);
-                        MessageBox.Show("Afspraak is succesvol toegevoegd!");
-                    }
+                    insert.Insert_Afspraak(medicatieID, locatieID, datum, tijd, actiefstatus);
+                    MessageBox.Show("De afspraak is succesvol toegevoegd!");
                 }
             }
         }
@@ -234,6 +234,7 @@ namespace MED_TEK
         {
             // Ziekte aan patient koppelen
 
+
             string ziekteIDstring = Convert.ToString(cbZiekte.SelectedItem);
 
 
@@ -251,6 +252,9 @@ namespace MED_TEK
                 insert.Insert_Ziekteoverzicht(ziekteID, patientID, symptomen);
                 MessageBox.Show("De ziekte is met succes toegewezen aan de patient.");
                 refresh_data();
+
+                tbSymptomen.Text = "";
+                cbZiekte.SelectedItem = null;
             }
         }
 

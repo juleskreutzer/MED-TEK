@@ -12,7 +12,7 @@
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <IsWebBootstrapper>false</IsWebBootstrapper>
-    <PublishUrl>\\vmware-host\Shared Folders\Documents\github\MED-TEK\program\MED-TEK\Release\v1.1\</PublishUrl>
+    <PublishUrl>\\vmware-host\Shared Folders\Documents\github\MED-TEK\program\MED-TEK\Release\v1.2\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Unc</InstallFrom>
     <UpdateEnabled>false</UpdateEnabled>
